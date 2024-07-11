@@ -127,8 +127,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
         val resultDate = "$year / $month / $day"
         binding.edtDate.setText(resultDate)
-        val pdformater2 = PersianDateFormat('y F j')
-        pdformater2.format(pdate) //۱۹ تیر ۹۶
+//        val pdformater2 = PersianDateFormat('y F j')
+//        pdformater2.format(pdate) //۱۹ تیر ۹۶
 
         val resultTime = "$hour : $minute"
         binding.edtTime.setText(resultTime)
