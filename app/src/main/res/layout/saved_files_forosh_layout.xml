@@ -1,0 +1,1049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_margin="2dp"
+    android:padding="10dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shape_frame_line">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_header"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:elevation="5dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/shape_green_kharid"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/lay_kharidar"
+                        android:layout_width="70dp"
+                        android:layout_height="0dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center"
+                            android:gravity="center"
+                            android:rotation="270"
+                            android:text="خریدار"
+                            android:textColor="@color/white"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:background="@drawable/shape_line_red_bottom"
+                        app:layout_constraintEnd_toStartOf="@+id/lay_kharidar"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay2"
+                            android:layout_width="match_parent"
+                            android:background="@drawable/shape_frame_register_file"
+                            android:layout_height="match_parent">
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_kharidar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_kharid"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_kharidar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:hint="واحد اپارتمان"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_kharidar"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_kharidar"
+                                app:layout_constraintTop_toTopOf="@+id/txt_kharidar" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_id_melk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_id_melk"
+                                android:textColor="@color/black"
+                                app:layout_constraintStart_toEndOf="@+id/txt_result_id_melk"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_id_melk"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:hint="A0741"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_id_melk"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="@+id/txt_id_melk" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_address"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_kharidar" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_location"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:hint="تهران، جردن"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                android:textSize="13sp"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_location"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_location"
+                                app:layout_constraintTop_toTopOf="@+id/txt_location" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_price"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_location" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_price"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="8dp"
+                                android:hint="250,000,000 تومان"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_blue_800"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_price"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_price"
+                                app:layout_constraintTop_toTopOf="@+id/txt_price" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:gravity="center"
+                            android:orientation="horizontal"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/lay2"
+                            app:layout_constraintBottom_toBottomOf="parent">
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.IButton
+                                android:id="@+id/btn_show_jozeiyat"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:backgroundTint="@color/white"
+                                android:background="@drawable/arrow_down"/>
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_show_info_all"
+                                android:layout_width="wrap_content"
+                                android:layout_margin="8dp"
+                                android:textColor="@color/white"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="@string/txt_show_jozeiyat_bishtar"/>
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="@+id/card_header"
+                app:layout_constraintEnd_toEndOf="@+id/card_header"
+                app:layout_constraintTop_toBottomOf="@+id/card_header"
+                android:elevation="5dp"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:background="@drawable/shape_blue_kharid"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/lay_header"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+
+                        android:gravity="center|end"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_info_owner"/>
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_frame_register_file"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lay_header">
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/img_profile_kharidar"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:layout_margin="8dp"
+                            app:lottie_autoPlay="true"
+                            app:lottie_rawRes="@raw/animation3"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_full_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_full_name"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toTopOf="@+id/txt_phone_num"
+                            app:layout_constraintEnd_toStartOf="@+id/img_profile_kharidar"
+                            app:layout_constraintTop_toTopOf="@+id/img_profile_kharidar"/>
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_full_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:hint="امیرعلی کلوانی"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_full_name"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_full_name"
+                            app:layout_constraintTop_toTopOf="@+id/txt_full_name" />
+
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_phone_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/txt_phone_num"
+                            android:textColor="@color/black"
+                            app:layout_constraintBottom_toTopOf="@+id/txt_id_owner"
+                            app:layout_constraintEnd_toStartOf="@+id/img_profile_kharidar"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_full_name" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_phone_num"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:hint="09369300741"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_phone_num"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_phone_num"
+                            app:layout_constraintTop_toTopOf="@+id/txt_phone_num" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_id_owner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:text="@string/txt_id_melk"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toStartOf="@+id/img_profile_kharidar"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_profile_kharidar"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_phone_num" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_id_owne"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:hint="A0741"
+                            android:layout_marginEnd="8dp"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_id_owner"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_id_owner"
+                            app:layout_constraintTop_toTopOf="@+id/txt_id_owner" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="@+id/card_header"
+                app:layout_constraintEnd_toEndOf="@+id/card_header"
+                app:layout_constraintTop_toBottomOf="@+id/card_2"
+                android:elevation="5dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@id/lay1"
+                    android:layout_width="match_parent"
+                    android:background="@drawable/shape_blue_kharid"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:id="@+id/lay_header2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:gravity="center|end"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent">
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:textColor="@color/white"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_info_melk"/>
+                    </LinearLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/shape_frame_register_file"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/lay_header2">
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_type_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_type_user2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"/>
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_type_user"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:hint="زمین با کاربری باغ و ویلا"
+                            android:textColor="@color/md_indigo_700"
+                            android:textSize="13sp"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_type_user"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_type_user"
+                            app:layout_constraintTop_toTopOf="@+id/txt_type_user" />
+
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_type_sanad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_type_sanad2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_type_user" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_type_sanad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="4dp"
+                            android:hint="منگوله دار شش دانگ"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_type_sanad"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_type_sanad"
+                            app:layout_constraintTop_toTopOf="@+id/txt_type_sanad" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_loc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_location2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_type_sanad" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_loc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="قیطریه"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_loc"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_loc"
+                            app:layout_constraintTop_toTopOf="@+id/txt_loc" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_metrazh_moraba"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_metrazh_moraba2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_loc" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_metrazh_moraba"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="250 متر"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_metrazh_moraba"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_metrazh_moraba"
+                            app:layout_constraintTop_toTopOf="@+id/txt_metrazh_moraba" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_tabaghe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_tabaghe2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_metrazh_moraba" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_tabaghe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="دوم"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_tabaghe"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_tabaghe"
+                            app:layout_constraintTop_toTopOf="@+id/txt_tabaghe" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_age_bana"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_age_bana2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_tabaghe" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_age_bana"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="1403"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_age_bana"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_age_bana"
+                            app:layout_constraintTop_toTopOf="@+id/txt_age_bana" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_vaziyad_melk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_vaziyad_melk2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_age_bana" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_vaziyad_melk"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="6 دانگ"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_vaziyad_melk"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_vaziyad_melk"
+                            app:layout_constraintTop_toTopOf="@+id/txt_vaziyad_melk" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_cunter_otagh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_cunter_otagh2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_vaziyad_melk" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_cunter_otagh"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="3"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_cunter_otagh"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_cunter_otagh"
+                            app:layout_constraintTop_toTopOf="@+id/txt_cunter_otagh" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_nema_sakhteman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_nema_sakhteman2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_cunter_otagh" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_nema_sakhteman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="کامپوزیت"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_nema_sakhteman"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_nema_sakhteman"
+                            app:layout_constraintTop_toTopOf="@+id/txt_nema_sakhteman" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_counter_all_tabaghat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_counter_all_tabaghat2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_nema_sakhteman" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_counter_all_tabaghat"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="5 طبقه"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_counter_all_tabaghat"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_counter_all_tabaghat"
+                            app:layout_constraintTop_toTopOf="@+id/txt_counter_all_tabaghat" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_counter_all_vahedha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_counter_all_vahedha2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_counter_all_tabaghat" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_counter_all_vahedha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="20 واحد"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_counter_all_vahedha"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_counter_all_vahedha"
+                            app:layout_constraintTop_toTopOf="@+id/txt_counter_all_vahedha" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_counter_vahedha_dar_tabaghe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_counter_vahedha_dar_tabaghe2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_counter_all_vahedha" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_counter_vahed_dar_har_tabaghe"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="4 واحد"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_counter_vahedha_dar_tabaghe"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_counter_vahedha_dar_tabaghe"
+                            app:layout_constraintTop_toTopOf="@+id/txt_counter_vahedha_dar_tabaghe" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_jahat_sakhteman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_jahat_sakhteman2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_counter_vahedha_dar_tabaghe" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_jahat_sakhteman"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="شمالی"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_jahat_sakhteman"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_jahat_sakhteman"
+                            app:layout_constraintTop_toTopOf="@+id/txt_jahat_sakhteman" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_jahat_vahed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:text="@string/txt_jahat_vahed2"
+                            android:textColor="@color/black"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txt_jahat_sakhteman" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:id="@+id/txt_result_jahat_vahed"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:hint="شمالی غربی"
+                            android:textSize="13sp"
+                            android:textColor="@color/md_indigo_700"
+                            android:textColorHint="@color/md_blue_800"
+                            app:layout_constraintBottom_toBottomOf="@+id/txt_jahat_vahed"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_jahat_vahed"
+                            app:layout_constraintTop_toTopOf="@+id/txt_jahat_vahed" />
+
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@id/lay2"
+                            android:layout_width="wrap_content"
+                            app:layout_constraintTop_toTopOf="@+id/txt_type_sanad"
+                            app:layout_constraintEnd_toStartOf="@+id/txt_result_type_user"
+                            android:layout_height="wrap_content">
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_jens_kaf"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_jens_kaf2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"/>
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_jens_kaf"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:hint="پارکت لمینت"
+                                android:textColor="@color/md_indigo_700"
+                                android:textSize="13sp"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_jens_kaf"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_jens_kaf"
+                                app:layout_constraintTop_toTopOf="@+id/txt_jens_kaf" />
+
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_garmayesh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_garmayesh_select2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_jens_kaf" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_garmayesh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="4dp"
+                                android:hint="داکت اسپیلت"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_garmayesh"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_garmayesh"
+                                app:layout_constraintTop_toTopOf="@+id/txt_garmayesh" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_sarmayesh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_sarmayesh2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_garmayesh" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_sarmayesh"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="داکت اسپیلت"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_sarmayesh"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_sarmayesh"
+                                app:layout_constraintTop_toTopOf="@+id/txt_sarmayesh" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_wc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_wc2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_sarmayesh" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_wc"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="(ایرانی/فرنگی)"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_wc"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_wc"
+                                app:layout_constraintTop_toTopOf="@+id/txt_wc" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_cabinets"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_cabinets2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_wc" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_cabinets"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="فلزی با درب ام دی اف"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_cabinets"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_cabinets"
+                                app:layout_constraintTop_toTopOf="@+id/txt_cabinets" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_age_bana3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_age_bana2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_cabinets" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_age_bana3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="1403"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_age_bana3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_age_bana3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_age_bana3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_vaziyad_melk3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_vaziyad_melk2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_age_bana3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_vaziyad_melk3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="6 دانگ"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_vaziyad_melk3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_vaziyad_melk3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_vaziyad_melk3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_cunter_otagh3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_cunter_otagh2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_vaziyad_melk3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_cunter_otagh3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="3"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_cunter_otagh3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_cunter_otagh3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_cunter_otagh3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_nema_sakhteman3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_nema_sakhteman2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_cunter_otagh3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_nema_sakhteman3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="کامپوزیت"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_nema_sakhteman3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_nema_sakhteman3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_nema_sakhteman3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_counter_all_tabaghat3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_counter_all_tabaghat2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_nema_sakhteman3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_counter_all_tabaghat3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="5 طبقه"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_counter_all_tabaghat3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_counter_all_tabaghat3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_counter_all_tabaghat3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_counter_all_vahedha3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_counter_all_vahedha2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_counter_all_tabaghat3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_counter_all_vahedha3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="20 واحد"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_counter_all_vahedha3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_counter_all_vahedha3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_counter_all_vahedha3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_counter_vahedha_dar_tabaghe3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_counter_vahedha_dar_tabaghe2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_counter_all_vahedha3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_counter_vahed_dar_har_tabaghe3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="4 واحد"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_counter_vahedha_dar_tabaghe3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_counter_vahedha_dar_tabaghe3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_counter_vahedha_dar_tabaghe3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_jahat_sakhteman3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_jahat_sakhteman2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_counter_vahedha_dar_tabaghe3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_jahat_sakhteman3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="4 واحد"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_jahat_sakhteman3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_jahat_sakhteman3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_jahat_sakhteman3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_jahat_vahed3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="8dp"
+                                android:text="@string/txt_jahat_sakhteman2"
+                                android:textColor="@color/black"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txt_jahat_sakhteman3" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:id="@+id/txt_result_jahat_vahed3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="4dp"
+                                android:hint="4 واحد"
+                                android:textSize="13sp"
+                                android:textColor="@color/md_indigo_700"
+                                android:textColorHint="@color/md_blue_800"
+                                app:layout_constraintBottom_toBottomOf="@+id/txt_jahat_vahed3"
+                                app:layout_constraintEnd_toStartOf="@+id/txt_jahat_vahed3"
+                                app:layout_constraintTop_toTopOf="@+id/txt_jahat_vahed3" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
