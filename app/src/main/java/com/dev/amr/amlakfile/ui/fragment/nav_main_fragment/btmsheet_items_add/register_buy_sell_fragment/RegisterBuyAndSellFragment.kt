@@ -3,6 +3,8 @@ package com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.r
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -14,6 +16,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
@@ -28,16 +32,20 @@ import com.dev.amr.amlakfile.data.db.DBRoom
 import com.dev.amr.amlakfile.data.hawk.Hawks
 import com.dev.amr.amlakfile.data.model.custom_views.IEditText
 import com.dev.amr.amlakfile.data.model.custom_views.ITextView
+import com.dev.amr.amlakfile.data.model.model.JDF
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModel
 import com.dev.amr.amlakfile.databinding.FragmentRegisterBuyAndSellBinding
 import com.dev.amr.amlakfile.ui.btmSheetDialog.BtmSheetKharidForoshDialog
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
 import java.util.Calendar
+import java.util.Date
 import kotlin.time.Duration.Companion.hours
 
 
-class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
+class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener,
+    DatePickerDialog.OnDateSetListener,
+    TimePickerDialog.OnTimeSetListener {
 
     private lateinit var binding: FragmentRegisterBuyAndSellBinding
     private lateinit var countGetList: Number
@@ -101,10 +109,12 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private var photo6: String = ""
 
     private lateinit var calendar : Calendar
+    private val TIME_PICKER = "TimeBtnPickerDialog"
+    private val DATE_PICKER = "DatePickerDialog"
 
-    private  var day : Int =0
-    private  var month : Int =0
-    private  var year : Int =0
+//    private  var day : Int =0
+//    private  var month : Int =0
+//    private  var year : Int =0
 
     private var btmSheetKharidForosh: BtmSheetKharidForoshDialog = BtmSheetKharidForoshDialog()
 
@@ -126,9 +136,11 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         val minute = calendar.get(Calendar.MINUTE)
 
         val resultDate = "$year / $month / $day"
-        binding.edtDate.setText(resultDate)
-//        val pdformater2 = PersianDateFormat('y F j')
-//        pdformater2.format(pdate) //۱۹ تیر ۹۶
+
+getCurrentDate()
+//        val sdf = SimpleDateFormat("yyyy MMM dd")
+//        val calendar: Calendar = GregorianCalendar(year, month, day)
+//        binding.edtDate.setText(calendar)
 
         val resultTime = "$hour : $minute"
         binding.edtTime.setText(resultTime)
@@ -1012,11 +1024,29 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
 
             R.id.edt_time -> {
-
+//                val nowtime = PersianCalendar()
+//                nowtime.getPersianShortDateTime()
+//                val date = Date()
+//                val hourString = if (date.hours < 10) "0" + date.hours else "" + date.hours
+//                val minuteString = if (date.minutes < 10) "0" + date.minutes else "" + date.minutes
+//                val tpd: TimePickerDialog = TimePickerDialog.newInstance(
+//                    requireActivity(), hourString.toInt(), minuteString.toInt(),
+//                    true
+//                )
+//
+//                tpd.show(requireActivity().supportFragmentManager, TIME_PICKER)
             }
 
             R.id.edt_date -> {
-
+//                val now = PersianCalendar()
+//                val dpd: DatePickerDialog = DatePickerDialog.newInstance(
+//                    requireActivity(),
+//                    now.getPersianYear(),
+//                    now.getPersianMonth(),
+//                    now.getPersianDay()
+//                )
+//
+//                dpd.show(requireActivity().supportFragmentManager,DATE_PICKER)
             }
         }
     }
@@ -1100,6 +1130,61 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         val alertDialog = alertDialogBuilder.create()
 
         alertDialog.show()
+    }
+
+    override fun onDateSet(view: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
+        var stringOfDate = year.toString() + "/" + (monthOfYear + 1) + "/" + dayOfMonth
+        val month: Int = monthOfYear + 1
+        val newmonth: String
+        val newday: String
+        newmonth = if (month < 10) {
+            "0$month"
+        } else {
+            month.toString()
+        }
+        newday = if (dayOfMonth < 10) {
+            "0$dayOfMonth"
+        } else {
+            dayOfMonth.toString()
+        }
+        stringOfDate = "$year/$newmonth/$newday"
+        binding.edtDate.setText("")
+        binding.edtDate.setText(stringOfDate)
+    }
+
+    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
+        val hourString = if (hourOfDay < 10) "0$hourOfDay" else "" + hourOfDay
+        val minuteString = if (minute < 10) "0$minute" else "" + minute
+        val time = "$hourString:$minuteString"
+        binding.edtTime.setText("")
+        binding.edtTime.setText(time)
+    }
+
+    private var newMonth: String? = null
+    private var newDay: String? = null
+    private var month = 0
+    private var day = 0
+    @SuppressLint("SetTextI18n")
+    private fun getCurrentDate() {
+        val jdf = JDF()
+        val date = Date()
+        month = jdf.getIranianMonth()
+        day = jdf.getIranianDay()
+        if (month < 10) {
+            newMonth = "0" + jdf.getIranianMonth()
+        } else {
+            newMonth = java.lang.String.valueOf(jdf.getIranianMonth())
+        }
+        if (day < 10) {
+            newDay = "0$day"
+        } else {
+            newDay = day.toString()
+        }
+        val hourString = if (date.hours < 10) "0" + date.hours else "" + date.hours
+        val minuteString = if (date.minutes < 10) "0" + date.minutes else "" + date.minutes
+        val time = "$hourString:$minuteString"
+        binding.edtDate.setText("${jdf.iranianYear} / $newMonth / + $newDay")
+        binding.edtTime.setText("$hourString:$minuteString")
     }
 
 }

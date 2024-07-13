@@ -11,7 +11,7 @@ android {
 
     defaultConfig {
         applicationId = "com.dev.amr.amlakfile"
-        minSdk = 21
+        minSdk = 17
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -86,6 +86,6 @@ dependencies {
 
     implementation ("info.hoang8f:android-segmented:1.0.6")
 
-//    implementation ("com.github.samanzamani:PersianDate:1.7.1")
+    implementation ("com.mohamadamin:persianmaterialdatetimepicker:1.2.0")
 
 }
