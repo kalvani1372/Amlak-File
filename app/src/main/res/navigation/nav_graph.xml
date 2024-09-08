@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.splash.SplashFragment"
+        android:label="activity_splash"
+        tools:layout="@layout/fragment_splash" >
+        <action
+            android:id="@+id/action_splashFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_splashFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.login.LoginFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.home.HomeFragment"
+        android:label="LoginFragment"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_homeFragment_to_registerBuyAndSellFragment"
+            app:destination="@id/registerBuyAndSellFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_registerMortgageAndRentFragment"
+            app:destination="@id/registerMortgageAndRentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerBuyAndSellFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_sell_fragment.RegisterBuyAndSellFragment"
+        android:label="RegisterBuyAndSellFragment"
+        tools:layout="@layout/fragment_register_buy_and_sell">
+        <action
+            android:id="@+id/action_registerBuyAndSellFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerMortgageAndRentFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_mortgage_rent_fragment.RegisterMortgageAndRentFragment"
+        android:label="fragment_register_mortgage_and_rent"
+        tools:layout="@layout/fragment_register_mortgage_and_rent" >
+        <action
+            android:id="@+id/action_registerMortgageAndRentFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+
+</navigation>
