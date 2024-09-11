@@ -92,7 +92,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_sabt"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0dp"
                         android:layout_marginStart="8dp"
                         android:layout_marginEnd="8dp"
                         android:background="@drawable/frame_shape"
@@ -102,9 +102,9 @@
                         app:layout_constraintTop_toBottomOf="@id/txt_title">
 
                         <com.airbnb.lottie.LottieAnimationView
-                            android:id="@+id/img_ejare1"
-                            android:layout_width="100dp"
-                            android:layout_height="100dp"
+                            android:id="@+id/img_kharid_forosh"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
                             android:backgroundTint="@color/White"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
@@ -115,23 +115,23 @@
                         <LinearLayout
                             android:id="@+id/lay_line"
                             android:layout_width="1dp"
-                            android:layout_height="100dp"
+                            android:layout_height="50dp"
                             android:layout_margin="2dp"
                             android:background="@drawable/shape_color_line2"
                             android:orientation="vertical"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toStartOf="@+id/img_ejare1"
-                            app:layout_constraintStart_toEndOf="@+id/lay_register_forosh"
+                            app:layout_constraintEnd_toStartOf="@+id/img_kharid_forosh"
+                            app:layout_constraintStart_toEndOf="@+id/lay_register_kharid_forosh"
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/lay_register_forosh"
+                            android:id="@+id/lay_register_kharid_forosh"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toTopOf="@+id/lay_add_ejare"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_kharid_forosh"
                             app:layout_constraintEnd_toStartOf="@+id/lay_line"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="@+id/img_ejare1">
+                            app:layout_constraintTop_toTopOf="@+id/img_kharid_forosh">
 
 
                             <com.dev.amr.amlakfile.data.model.custom_views.ITextView
@@ -156,52 +156,108 @@
 
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <LinearLayout
-                            android:id="@+id/line"
-                            android:layout_width="0dp"
-                            android:layout_height="1dp"
-                            android:layout_marginStart="16dp"
-                            android:layout_marginEnd="16dp"
-                            android:background="@drawable/shape_color_line"
-                            android:orientation="vertical"
-                            app:layout_constraintBottom_toTopOf="@+id/lay_add_ejare"
-                            app:layout_constraintEnd_toStartOf="@+id/lay_line"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/lay_register_forosh" />
+<!--                        <LinearLayout-->
+<!--                            android:id="@+id/line"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="1dp"-->
+<!--                            android:layout_marginStart="16dp"-->
+<!--                            android:layout_marginEnd="16dp"-->
+<!--                            android:background="@drawable/shape_color_line"-->
+<!--                            android:orientation="vertical"-->
+<!--                            app:layout_constraintBottom_toTopOf="@+id/lay_register_rahn_ejare"-->
+<!--                            app:layout_constraintEnd_toStartOf="@+id/lay_line"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@id/lay_register_kharid_forosh" />-->
 
-                        <androidx.constraintlayout.widget.ConstraintLayout
-                            android:id="@+id/lay_add_ejare"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            app:layout_constraintBottom_toBottomOf="@+id/img_ejare1"
-                            app:layout_constraintEnd_toEndOf="@+id/lay_register_forosh"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@id/line">
+<!--                        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                            android:id="@+id/lay_register_rahn_ejare"-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            app:layout_constraintBottom_toBottomOf="@+id/img_ejare1"-->
+<!--                            app:layout_constraintEnd_toEndOf="@+id/lay_register_kharid_forosh"-->
+<!--                            app:layout_constraintStart_toStartOf="parent"-->
+<!--                            app:layout_constraintTop_toBottomOf="@id/line">-->
 
-                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="8dp"
-                                android:text="@string/txt_add_file_rahn_ejare"
-                                android:textColor="@color/md_indigo_700"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintEnd_toEndOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView-->
+<!--                                android:layout_width="wrap_content"-->
+<!--                                android:layout_height="wrap_content"-->
+<!--                                android:layout_margin="8dp"-->
+<!--                                android:text="@string/txt_add_file_rahn_ejare"-->
+<!--                                android:textColor="@color/md_indigo_700"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
-                            <androidx.appcompat.widget.AppCompatImageView
-                                android:layout_width="25dp"
-                                android:layout_height="28dp"
-                                android:background="@drawable/icons_back"
-                                android:backgroundTint="@color/md_indigo_700"
-                                app:layout_constraintBottom_toBottomOf="parent"
-                                app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+<!--                            <androidx.appcompat.widget.AppCompatImageView-->
+<!--                                android:layout_width="25dp"-->
+<!--                                android:layout_height="28dp"-->
+<!--                                android:background="@drawable/icons_back"-->
+<!--                                android:backgroundTint="@color/md_indigo_700"-->
+<!--                                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                                app:layout_constraintStart_toStartOf="parent"-->
+<!--                                app:layout_constraintTop_toTopOf="parent" />-->
 
 
-                        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--                        </androidx.constraintlayout.widget.ConstraintLayout>-->
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
 
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lay_register_rahn_ejare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        android:background="@drawable/frame_shape"
+                        android:padding="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/lay_sabt">
+
+
+                        <com.airbnb.lottie.LottieAnimationView
+                            android:id="@+id/img_rahn_ejare"
+                            android:layout_width="60dp"
+                            android:layout_height="60dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:lottie_autoPlay="true"
+                            app:lottie_rawRes="@raw/animation_rahn"
+                            tools:ignore="DuplicateIds" />
+
+                        <LinearLayout
+                            android:id="@+id/lay_line4"
+                            android:layout_width="1dp"
+                            android:layout_height="50dp"
+                            android:layout_marginEnd="5dp"
+                            android:background="@drawable/shape_color_line2"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/img_rahn_ejare"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="16dp"
+                            android:text="@string/txt_add_file_rahn_ejare"
+                            android:textColor="@color/md_indigo_700"
+                            app:layout_constraintBottom_toBottomOf="@id/img_rahn_ejare"
+                            app:layout_constraintEnd_toStartOf="@id/img_rahn_ejare"
+                            app:layout_constraintTop_toTopOf="@id/img_rahn_ejare" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="25dp"
+                            android:layout_height="28dp"
+                            android:background="@drawable/icons_back"
+                            android:backgroundTint="@color/md_indigo_700"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_add_zamin"
@@ -212,7 +268,7 @@
                         android:padding="8dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/lay_sabt">
+                        app:layout_constraintTop_toBottomOf="@id/lay_register_rahn_ejare">
 
 
                         <com.airbnb.lottie.LottieAnimationView

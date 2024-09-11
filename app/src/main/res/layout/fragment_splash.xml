@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/image_splash"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.splash.SplashFragment">
 
@@ -23,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="@string/app_name"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="18sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="@id/img_logo"
@@ -33,9 +34,10 @@
     <com.dev.amr.amlakfile.data.model.custom_views.ITextView
         android:id="@+id/txt_version"
         android:layout_width="wrap_content"
-        android:textSize="12dp"
+        android:textSize="10dp"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
+        android:textColor="@color/white"
         android:text="نسخه : 1.0.0"
         android:textStyle="italic"
         app:layout_constraintBottom_toTopOf="@id/progress_line"

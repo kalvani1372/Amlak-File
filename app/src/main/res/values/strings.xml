@@ -2,7 +2,9 @@
     <string name="app_name">املاک فایل همراه</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="txt_hint_full_name">نام و نام خانوادگی</string>
     <string name="txt_hint_name">نام</string>
+    <string name="txt_please_enter_full_name">لطفا نام و نام خانوادگی خود را وارد کنید</string>
     <string name="txt_hint_please_enter_name">لطفا نام خود را وارد کنید</string>
     <string name="txt_hint_family">نام خانوادگی</string>
     <string name="txt_hint_please_enter_family">لطفا نام خانوادگی خود را وارد کنید</string>
@@ -13,6 +15,7 @@
     <string name="txt_hint_please_enter_city">لطفا شهر خود را وارد کنید</string>
     <string name="txt_hint_please_enter_amlak_name">لطفا نام املاک خود را وارد کنید</string>
     <string name="txt_hint_name_amlak">نام املاک</string>
+    <string name="txt_enter_name_amlak">لطفا نام املاک خود را وارد کنید</string>
     <string name="txt_btn_next_program">ورود به برنامه</string>
     <string name="txt_frosh_maskoni">فروش مسکونی</string>
     <string name="txt_ejare_maskoni">اجاره مسکونی</string>
@@ -28,7 +31,7 @@
     <string name="txt_add_file_rahn_ejare">ثبت (رهن و اجاره)</string>
     <string name="txt_add_zamin">ثبت زمین</string>
     <string name="txt_mosharekat">مشارکت در ساخت</string>
-    <string name="txt_info_all">مشخصات کلی (اجباری)</string>
+    <string name="txt_info_all">مشخصات کلیدی (اجباری)</string>
     <string name="txt_user_add_file">لطفا کاربر ثبت کننده آگهی</string>
     <string name="txt_selected">انتخاب کنید</string>
     <string name="txt_type_file">نوع آگهی</string>
@@ -97,6 +100,7 @@
     <string name="txt_yes_i_register">بله ثبت میکنم</string>
     <string name="txt_kheyr_go_to_org_page">خیر برو به صفحه اول</string>
     <string name="txt_register_file_kharid_forosh">ثبت فایل خرید و فروش</string>
+    <string name="txt_register_file_rahn_ejare">ثبت فایل رهن و اجاره</string>
     <string name="txt_estelam_vekalatname">استعلام وکالتنامه</string>
     <string name="txt_akharin_moamelat_mataghe">آخرین معاملات منطقه ای</string>
     <string name="txt_estelam_chek_sayadi">استعلام چک صیادی</string>
@@ -105,9 +109,11 @@
     <string name="txt_motevajeh_shodam">متوجه شدم</string>
     <string name="txt_ejbari_mibashad">اجباری میباشد</string>
     <string name="txt_item">item</string>
-    <string name="txt_register_kharid">ثبت فایل خرید</string>
-    <string name="txt_register_forosh">ثبت فایل فروش</string>
+    <string name="txt_register_kharid">ثبت فایل با جزئیات کلیدی</string>
+    <string name="txt_register_all_jozeyat">ثبت فایل با تمام جزئیات‌</string>
     <string name="txt_owner_full_name">نام و نام خانوادگی مالک</string>
+    <string name="txt_hint_phone_number">شماره همراه</string>
+    <string name="txt_please_enter_phone_number">لطفا شماره همراه خود را وارد کنید</string>
     <string name="txt_phone_owner">شماره تلفن مالک</string>
     <string name="txt_cabinets">کابینت</string>
     <string name="txt_cabinets2">کابینت : </string>
@@ -164,4 +170,11 @@
     <string name="txt_info_owner">مشخصات مالک</string>
     <string name="txt_time">ساعت</string>
     <string name="txt_date">تاریخ</string>
+    <string name="txt_register_date_time">ساعت و تاریخ ثبت فایل</string>
+    <string name="txt_are_you_sure_vame">آیا ملک وام دارد ؟</string>
+    <string name="txt_mesal_vam_bale">مثال : بله</string>
+    <string name="txt_login">ورود</string>
+    <string name="txt_enter_phone_number_for_you">لطفا شماره همراه متعلق به خود را وارد کنید.</string>
+    <string name="txt_continue">ادامه</string>
+    <string name="txt_enter_full_name_and_phone_number">برای ورود نام، نام خانوادگی، نام املاک و شماره همراه خود را وارد نمایید</string>
 </resources>

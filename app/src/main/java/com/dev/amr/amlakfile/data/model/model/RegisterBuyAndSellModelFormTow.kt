@@ -3,8 +3,8 @@ package com.dev.amr.amlakfile.data.model.model
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "tbl_registerBuyAndSell")
-data class RegisterBuyAndSellModel(
+@Entity(tableName = "tbl_registerBuyAndSellFormTow")
+data class RegisterBuyAndSellModelFormTow(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
     val user: String,
@@ -29,6 +29,7 @@ data class RegisterBuyAndSellModel(
     val tabaghe: String,
     val cunterOtagh: String,
     val vaziyadMelk: String,
+    val sureVame: String,
     val priceMelk: String,
     val wc: String,
     val nemaSakhteman: String,
@@ -58,4 +59,18 @@ data class RegisterBuyAndSellModel(
     val image4: String,
     val image5: String,
     val image6: String
+)
+
+@Entity(tableName = "tbl_registerBuyAndSellFormOne")
+data class RegisterBuyAndSellModelFormOne(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int,
+    val user: String,
+    val ownerName: String,
+    val ownerPhone: String,
+    val addressFile: String,
+    val description: String,
+    val sureVame: String,
+    val metrazhMoraba: String,
+    val priceMelk: String,
 )

@@ -20,7 +20,7 @@
         android:id="@+id/loginFragment"
         android:name="com.dev.amr.amlakfile.ui.fragment.login.LoginFragment"
         android:label="LoginFragment"
-        tools:layout="@layout/fragment_login">
+        tools:layout="@layout/fragment_login3">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -49,9 +49,9 @@
     </fragment>
     <fragment
         android:id="@+id/registerMortgageAndRentFragment"
-        android:name="com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_mortgage_rent_fragment.RegisterMortgageAndRentFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_mortgage_and_rent_fragment.RegisterBuyMortgageAndRentFragment"
         android:label="fragment_register_mortgage_and_rent"
-        tools:layout="@layout/fragment_register_mortgage_and_rent" >
+        tools:layout="@layout/fragment_register_buy_mortgage_and_rent" >
         <action
             android:id="@+id/action_registerMortgageAndRentFragment_to_homeFragment"
             app:destination="@id/homeFragment" />

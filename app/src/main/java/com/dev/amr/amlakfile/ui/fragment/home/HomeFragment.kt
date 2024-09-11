@@ -25,7 +25,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         binding = FragmentHomeBinding.inflate(layoutInflater)
         binding.toolbar.btnMenu.setOnClickListener(this)
-        binding.layRegisterForosh.setOnClickListener(this)
+        binding.layRegisterKharidForosh.setOnClickListener(this)
+        binding.layRegisterRahnEjare.setOnClickListener(this)
         return binding.root
     }
 
@@ -45,8 +46,7 @@ class HomeFragment : Fragment(), View.OnClickListener {
         listStory.add(
             Slid(getString(R.string.txt_estelam_chek_sayadi), R.drawable.img_estelam_chek))
         listStory.add(
-            Slid(
-                getString(R.string.txt_taeidiye_postal_code), R.drawable.img_taeidiye_postal_code))
+            Slid(getString(R.string.txt_taeidiye_postal_code), R.drawable.img_taeidiye_postal_code))
 
         binding.viewPager.adapter = SliderAdapter(requireActivity(), listStory)
         binding.indicator.visibility = View.VISIBLE
@@ -87,9 +87,14 @@ class HomeFragment : Fragment(), View.OnClickListener {
     @SuppressLint("WrongConstant")
     override fun onClick(v: View?) {
         when (v?.id) {
-            R.id.lay_register_forosh -> {
+            R.id.lay_register_kharid_forosh -> {
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_homeFragment_to_registerBuyAndSellFragment)
+            }
+
+            R.id.lay_register_rahn_ejare -> {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_homeFragment_to_registerMortgageAndRentFragment)
             }
 
             R.id.btn_menu -> {

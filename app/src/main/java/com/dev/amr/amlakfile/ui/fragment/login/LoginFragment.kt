@@ -21,53 +21,42 @@ class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
 
-    private lateinit var name: String
-    private lateinit var family: String
-    private lateinit var username: String
-    private lateinit var province: String
-    private lateinit var city: String
+    private lateinit var fullName: String
     private lateinit var amlakName: String
+    private lateinit var phoneNumber: String
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentLoginBinding.inflate(layoutInflater)
         return binding.root
     }
 
 
-    @SuppressLint("ResourceType")
+    @SuppressLint("ResourceType", "UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if (binding.edtName.text.toString() != "" &&
+            binding.edtNameAmlak.text.toString() != "" &&
+            binding.edtPhoneNumber.text.toString() != ""){
 
-        val gson = Gson()
-        var reader: JsonReader? = null
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            reader = JsonReader(
-                InputStreamReader(
-                    requireActivity().assets.open("province.txt"),
-                    StandardCharsets.UTF_8)
-            )
+            binding.btnContinue.background = resources.getDrawable(R.drawable.btn_shape_blue)
+
+        }else {
+            binding.btnContinue.background = resources.getDrawable(R.drawable.btn_shape_gray)
+            binding.btnContinue.isClickable = false
         }
 
-        binding.btnNextProgram.setOnClickListener {
+        binding.btnContinue.setOnClickListener {
 
-            name = binding.edtName.text.toString()
-            Hawks.save(Hawks.KEY_NAME, name)
-            family = binding.edtFamily.text.toString()
-            Hawks.save(Hawks.KEY_FAMILY, family)
-            username = binding.edtUsername.text.toString()
-            Hawks.save(Hawks.KEY_USERNAME, username)
+            fullName = binding.edtName.text.toString()
+            Hawks.save(Hawks.KEY_NAME, fullName)
 
-
-
-            province = binding.edtProvince.text.toString()
-            Hawks.save(Hawks.KEY_PROVINCE, province)
-            city = binding.edtCity.text.toString()
-            Hawks.save(Hawks.KEY_CITY, city)
             amlakName = binding.edtNameAmlak.text.toString()
             Hawks.save(Hawks.KEY_NAME_AMLAK, amlakName)
+
+            phoneNumber = binding.edtPhoneNumber.text.toString()
+            Hawks.save(Hawks.KEY_PHONE_NUMBER, phoneNumber)
 
             findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
 

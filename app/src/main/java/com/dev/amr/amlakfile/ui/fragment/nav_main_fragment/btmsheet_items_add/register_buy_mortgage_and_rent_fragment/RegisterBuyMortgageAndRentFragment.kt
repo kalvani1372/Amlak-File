@@ -1,21 +1,24 @@
-package com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_sell_fragment
+package com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_mortgage_and_rent_fragment
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.AlertDialog
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
-import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
+import android.widget.DatePicker
+import android.widget.TimePicker
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.widget.doAfterTextChanged
@@ -26,16 +29,18 @@ import com.dev.amr.amlakfile.base.BaseFragment
 import com.dev.amr.amlakfile.base.BaseLiveDialog
 import com.dev.amr.amlakfile.data.db.DBRoom
 import com.dev.amr.amlakfile.data.hawk.Hawks
+import com.dev.amr.amlakfile.data.model.model.JDF
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormOne
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTow
-import com.dev.amr.amlakfile.databinding.FragmentRegisterBuyAndSellBinding
+import com.dev.amr.amlakfile.databinding.FragmentRegisterBuyMortgageAndRentBinding
 import com.dev.amr.amlakfile.ui.btmSheetDialog.BtmSheetKharidForoshDialog
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
+import java.util.Date
 
-class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
+class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener {
 
-    private lateinit var binding: FragmentRegisterBuyAndSellBinding
+    private lateinit var binding: FragmentRegisterBuyMortgageAndRentBinding
     private lateinit var countGetList: Number
     private var cameraRequest: Int = 0
     private lateinit var cameraIntent: Intent
@@ -47,7 +52,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private lateinit var ownerPhone: String
     private lateinit var cabinets: String
     private lateinit var addressFile: String
-    private var description: String = ""
+    private  var description: String = ""
     private lateinit var counterAllTabaghat: String
     private lateinit var counterAllVahedha: String
     private lateinit var counterVahedhaDarTabaghe: String
@@ -97,28 +102,31 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private var photo5: String = ""
     private var photo6: String = ""
 
-    private var checkForms: Int = 1
+    private lateinit var newMonth: String
+    private lateinit var newDay: String
+    private var month = 0
+    private var day = 0
+
+    private var checkForms : Int = 1
 
     private var btmSheetKharidForosh: BtmSheetKharidForoshDialog = BtmSheetKharidForoshDialog()
 
-    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentRegisterBuyAndSellBinding.inflate(layoutInflater)
+        binding = FragmentRegisterBuyMortgageAndRentBinding.inflate(layoutInflater)
         onClickViews()
 
         db = Room.databaseBuilder(requireActivity(), DBRoom::class.java, "amlak_db")
             .allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
-        getCurrentDate(binding.layFormOne.edtDate, binding.layFormOne.edtTime,
-            binding.layFormTow.edtDate, binding.layFormTow.edtTime)
+        getCurrentDate(binding.layFormOne.edtDate,binding.layFormOne.edtTime
+            ,binding.layFormTow.edtDate,binding.layFormTow.edtTime)
 
         return binding.root
     }
 
-
     private fun onClickViews() {
-        binding.toolbar.txtTitle.text = getString(R.string.txt_register_file_kharid_forosh)
+        binding.toolbar.txtTitle.text = getString(R.string.txt_register_file_rahn_ejare)
         binding.toolbar.btnMenu.visibility = View.GONE
         binding.btnCancel.setOnClickListener(this)
         binding.laySave.setOnClickListener(this)
@@ -304,9 +312,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
     }
 
-    private fun validationDisabled() {
-        when (checkForms) {
-            1 -> {
+    private fun validationDisabled(){
+        when(checkForms){
+            1 ->{
                 binding.layFormTow.edtUserAdded.error = null
                 binding.layFormTow.edtOwnerName.error = null
                 binding.layFormTow.edtOwnerPhone.error = null
@@ -333,8 +341,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 binding.layFormTow.edtWc.error = null
                 binding.layFormTow.edtNemaSakhteman.error = null
             }
-
-            2 -> {
+            2 ->{
                 binding.layFormOne.edtUserAdded.error = null
                 binding.layFormOne.edtOwnerName.error = null
                 binding.layFormOne.edtOwnerPhone.error = null
@@ -347,8 +354,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     }
 
     private fun itemsEmptyForms() {
-        when (checkForms) {
-            1 -> {
+        when(checkForms){
+            1 ->{
                 binding.layFormOne.edtUserAdded.setText("")
                 binding.layFormOne.edtOwnerName.setText("")
                 binding.layFormOne.edtOwnerPhone.setText("")
@@ -359,8 +366,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 binding.layFormOne.edtSureVame.setText("")
                 binding.layFormOne.txtPriceMelk.text = ""
             }
-
-            2 -> {
+            2 ->{
                 binding.layFormTow.edtUserAdded.setText("")
                 binding.layFormTow.edtOwnerName.setText("")
                 binding.layFormTow.edtOwnerPhone.setText("")
@@ -455,7 +461,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         when (v?.id) {
             R.id.btn_cancel -> {
                 Navigation.findNavController(binding.root)
-                    .navigate(R.id.action_registerBuyAndSellFragment_to_homeFragment)
+                    .navigate(R.id.action_registerMortgageAndRentFragment_to_homeFragment)
             }
 
             R.id.edt_type_user -> {
@@ -771,8 +777,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
             R.id.lay_save -> {
 
-                when (checkForms) {
-                    1 -> {
+                when(checkForms){
+                    1 ->{
                         if (binding.layFormOne.edtUserAdded.text.toString() == "" ||
                             binding.layFormOne.edtOwnerName.text.toString() == "" ||
                             binding.layFormOne.edtOwnerPhone.text.toString() == "" ||
@@ -803,8 +809,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             }
 
                             if (binding.layFormOne.edtSureVame.text.toString() == "") {
-                                binding.layFormOne.edtSureVame.error =
-                                    getString(R.string.txt_ejbari_mibashad)
+                                binding.layFormOne.edtSureVame.error = getString(R.string.txt_ejbari_mibashad)
                             }
 
                             if (binding.layFormOne.edtMetrazhMoraba.text.toString() == "") {
@@ -823,8 +828,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             ownerPhone = binding.layFormOne.edtOwnerPhone.text.toString()
                             addressFile = binding.layFormOne.edtAddressFile.text.toString()
                             sureVame = binding.layFormOne.edtSureVame.text.toString()
-                            metrazhMoraba =
-                                binding.layFormOne.edtMetrazhMoraba.text.toString() + "متر"
+                            metrazhMoraba = binding.layFormOne.edtMetrazhMoraba.text.toString() + "متر"
                             priceMelk = binding.layFormOne.edtPriceMelk.text.toString() + " , " +
                                     binding.layFormOne.txtPriceMelk.text.toString()
 
@@ -840,22 +844,19 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 priceMelk,
                             )
 
-                            val result = db.dBDao()
-                                .upsertRegisterBuyAndSellFormOne(registerBuyAndSellFormOne)
+                            val result = db.dBDao().upsertRegisterBuyAndSellFormOne(registerBuyAndSellFormOne)
                             if (result > 0) {
                                 showDialogDoYouContinue(requireActivity())
 //                        agreeDialog()
                             } else {
                                 Toast.makeText(
                                     requireActivity(),
-                                    getString(R.string.txt_save_infonmation_failure),
-                                    Toast.LENGTH_LONG
+                                    getString(R.string.txt_save_infonmation_failure), Toast.LENGTH_LONG
                                 ).show()
                             }
                         }
                     }
-
-                    2 -> {
+                    2 ->{
                         if (binding.layFormTow.edtUserAdded.text.toString() == "" ||
                             binding.layFormTow.edtOwnerName.text.toString() == "" ||
                             binding.layFormTow.edtOwnerPhone.text.toString() == "" ||
@@ -990,16 +991,13 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             garmayesh = binding.layFormTow.edtGarmayesh.text.toString()
                             sarmayesh = binding.layFormTow.edtSarmayesh.text.toString()
                             addressFile = binding.layFormTow.edtAddressFile.text.toString()
-                            counterAllTabaghat =
-                                binding.layFormTow.edtCounterAllTabaghat.text.toString()
-                            counterAllVahedha =
-                                binding.layFormTow.edtCounterAllVahedha.text.toString()
+                            counterAllTabaghat = binding.layFormTow.edtCounterAllTabaghat.text.toString()
+                            counterAllVahedha = binding.layFormTow.edtCounterAllVahedha.text.toString()
                             counterVahedhaDarTabaghe =
                                 binding.layFormTow.edtCounterVahedhaDarTabaghe.text.toString()
                             typeUser = binding.layFormTow.edtTypeUser.text.toString()
                             typeSanad = binding.layFormTow.edtTypeSanad.text.toString()
-                            metrazhMoraba =
-                                binding.layFormTow.edtMetrazhMoraba.text.toString() + "متر"
+                            metrazhMoraba = binding.layFormTow.edtMetrazhMoraba.text.toString() + "متر"
                             location = binding.layFormTow.edtLocation.text.toString()
                             ageBana = binding.layFormTow.edtAgeBana.text.toString()
                             tabaghe = binding.layFormTow.edtTabaghe.text.toString()
@@ -1054,12 +1052,11 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 getString(R.string.txt_does_not_have)
                             }
 
-                            checkDarbZedSerghat =
-                                if (binding.layFormTow.checkDarbZedSerghat.isChecked) {
-                                    binding.layFormTow.checkDarbZedSerghat.tag.toString()
-                                } else {
-                                    getString(R.string.txt_does_not_have)
-                                }
+                            checkDarbZedSerghat = if (binding.layFormTow.checkDarbZedSerghat.isChecked) {
+                                binding.layFormTow.checkDarbZedSerghat.tag.toString()
+                            } else {
+                                getString(R.string.txt_does_not_have)
+                            }
 
                             checkKomodDivari = if (binding.layFormTow.checkKomodDivari.isChecked) {
                                 binding.layFormTow.checkKomodDivari.tag.toString()
@@ -1091,12 +1088,11 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 getString(R.string.txt_does_not_have)
                             }
 
-                            checkIphonTasviri =
-                                if (binding.layFormTow.checkIphonTasviri.isChecked) {
-                                    binding.layFormTow.checkIphonTasviri.tag.toString()
-                                } else {
-                                    getString(R.string.txt_does_not_have)
-                                }
+                            checkIphonTasviri = if (binding.layFormTow.checkIphonTasviri.isChecked) {
+                                binding.layFormTow.checkIphonTasviri.tag.toString()
+                            } else {
+                                getString(R.string.txt_does_not_have)
+                            }
 
                             checkLabi = if (binding.layFormTow.checkLabi.isChecked) {
                                 binding.layFormTow.checkLabi.tag.toString()
@@ -1104,26 +1100,23 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 getString(R.string.txt_does_not_have)
                             }
 
-                            checkSalonVarzeshi =
-                                if (binding.layFormTow.checkSalonVarzeshi.isChecked) {
-                                    binding.layFormTow.checkSalonVarzeshi.tag.toString()
-                                } else {
-                                    getString(R.string.txt_does_not_have)
-                                }
+                            checkSalonVarzeshi = if (binding.layFormTow.checkSalonVarzeshi.isChecked) {
+                                binding.layFormTow.checkSalonVarzeshi.tag.toString()
+                            } else {
+                                getString(R.string.txt_does_not_have)
+                            }
 
-                            checkSalonEjtemaat =
-                                if (binding.layFormTow.checkSalonEjtemaat.isChecked) {
-                                    binding.layFormTow.checkSalonEjtemaat.tag.toString()
-                                } else {
-                                    getString(R.string.txt_does_not_have)
-                                }
+                            checkSalonEjtemaat = if (binding.layFormTow.checkSalonEjtemaat.isChecked) {
+                                binding.layFormTow.checkSalonEjtemaat.tag.toString()
+                            } else {
+                                getString(R.string.txt_does_not_have)
+                            }
 
-                            checkAntenMarkazi =
-                                if (binding.layFormTow.checkAntenMarkazi.isChecked) {
-                                    binding.layFormTow.checkAntenMarkazi.tag.toString()
-                                } else {
-                                    getString(R.string.txt_does_not_have)
-                                }
+                            checkAntenMarkazi = if (binding.layFormTow.checkAntenMarkazi.isChecked) {
+                                binding.layFormTow.checkAntenMarkazi.tag.toString()
+                            } else {
+                                getString(R.string.txt_does_not_have)
+                            }
 
                             checkJarobarghiMarkazi =
                                 if (binding.layFormTow.checkJarobarghiMarkazi.isChecked) {
@@ -1213,16 +1206,14 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 photo1
                             )
 
-                            val result = db.dBDao()
-                                .upsertRegisterBuyAndSellFormTow(registerBuyAndSellFormTow)
+                            val result = db.dBDao().upsertRegisterBuyAndSellFormTow(registerBuyAndSellFormTow)
                             if (result > 0) {
                                 showDialogDoYouContinue(requireActivity())
 //                        agreeDialog()
                             } else {
                                 Toast.makeText(
                                     requireActivity(),
-                                    getString(R.string.txt_save_infonmation_failure),
-                                    Toast.LENGTH_LONG
+                                    getString(R.string.txt_save_infonmation_failure), Toast.LENGTH_LONG
                                 ).show()
                             }
                         }
@@ -1231,7 +1222,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
             }
 
-            R.id.r_b_form_one -> {
+            R.id.r_b_form_one ->{
                 checkForms = 1
                 binding.layFormOne.layOne.visibility = View.VISIBLE
                 binding.layFormTow.layTow.visibility = View.GONE
@@ -1239,7 +1230,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 validationDisabled()
             }
 
-            R.id.r_b_form_tow -> {
+            R.id.r_b_form_tow ->{
                 checkForms = 2
                 binding.layFormOne.layOne.visibility = View.GONE
                 binding.layFormTow.layTow.visibility = View.VISIBLE
@@ -1313,55 +1304,4 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         }
 
     }
-
-
-    private fun agreeDialog() {
-        var alertDialogBuilder = AlertDialog.Builder(requireActivity(), R.style.CustomAlertDialog)
-        val li = LayoutInflater.from(context)
-        @SuppressLint("InflateParams") val promptsView: View =
-            li.inflate(R.layout.dialog_do_you_continue_layout, null)
-
-
-        promptsView.background = resources.getDrawable(R.color.transparent)
-        alertDialogBuilder.setView(promptsView)
-        alertDialogBuilder.setCancelable(true)
-        val alertDialog = alertDialogBuilder.create()
-
-        alertDialog.show()
-    }
-
-//    override fun onDateSet(view: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int) {
-//        var stringOfDate = year.toString() + "/" + (monthOfYear + 1) + "/" + dayOfMonth
-//        val month: Int = monthOfYear + 1
-//        val newmonth: String
-//        val newday: String
-//        newmonth = if (month < 10) {
-//            "0$month"
-//        } else {
-//            month.toString()
-//        }
-//        newday = if (dayOfMonth < 10) {
-//            "0$dayOfMonth"
-//        } else {
-//            dayOfMonth.toString()
-//        }
-//        stringOfDate = "$year/$newmonth/$newday"
-//        binding.layFormTow.edtDate.setText("")
-//        binding.layFormTow.edtDate.setText(stringOfDate)
-//        binding.layFormOne.edtDate.setText("")
-//        binding.layFormOne.edtDate.setText(stringOfDate)
-//    }
-//
-//    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-//        val hourString = if (hourOfDay < 10) "0$hourOfDay" else "" + hourOfDay
-//        val minuteString = if (minute < 10) "0$minute" else "" + minute
-//        val time = "$hourString:$minuteString"
-//        binding.layFormTow.edtTime.setText("")
-//        binding.layFormTow.edtTime.setText(time)
-//        binding.layFormOne.edtTime.setText("")
-//        binding.layFormOne.edtTime.setText(time)
-//    }
-
-
-
 }
