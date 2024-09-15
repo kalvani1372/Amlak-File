@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.activity.main.CommissionActivity">
+
+    <!-- Input Field for Transaction Price -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layPriceEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundMode="outline">
+
+        <EditText
+            android:id="@+id/priceEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="قیمت معامله را وارد کنید"
+            android:inputType="numberDecimal"
+            android:importantForAccessibility="yes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Button to Calculate Commission -->
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="محاسبه کمیسیون"
+        android:layout_below="@id/layPriceEditText"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false" />
+
+    <!-- Result TextView -->
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="کمیسیون: "
+        android:layout_below="@id/calculateButton"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center"
+        android:padding="16dp" />
+</RelativeLayout>

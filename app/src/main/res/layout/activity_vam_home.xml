@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ui.activity.main.VamHomeActivity">
+
+    <!-- Input Field for Loan Amount -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layLoanAmountEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:boxBackgroundMode="outline">
+
+        <EditText
+            android:id="@+id/loanAmountEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="مبلغ وام را وارد کنید"
+            android:inputType="numberDecimal"
+            android:importantForAccessibility="yes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Input Field for Interest Rate -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layInterestRateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layLoanAmountEditText"
+        app:boxBackgroundMode="outline">
+
+        <EditText
+            android:id="@+id/interestRateEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="نرخ بهره سالانه (%)"
+            android:inputType="numberDecimal"
+            android:importantForAccessibility="yes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Input Field for Loan Term -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/layLoanTermEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layInterestRateEditText"
+        app:boxBackgroundMode="outline">
+
+        <EditText
+            android:id="@+id/loanTermEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="مدت وام (ماه)"
+            android:inputType="number"
+            android:importantForAccessibility="yes" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Button to Calculate Monthly Payment -->
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="محاسبه قسط ماهانه"
+        android:layout_below="@id/layLoanTermEditText"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColor="@android:color/white"
+        android:textAllCaps="false" />
+
+    <!-- RecyclerView for Monthly Payments -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/paymentsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/calculateButton"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp" />
+
+</RelativeLayout>

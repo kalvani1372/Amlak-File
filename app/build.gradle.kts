@@ -86,6 +86,4 @@ dependencies {
 
     implementation ("info.hoang8f:android-segmented:1.0.6")
 
-//    implementation ("com.mohamadamin:persianmaterialdatetimepicker:1.2.0")
-
 }
