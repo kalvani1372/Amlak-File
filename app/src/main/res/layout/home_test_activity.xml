@@ -72,7 +72,7 @@
         android:id="@+id/lay_services"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        android:layout_margin="16dp"
         android:paddingTop="8dp"
         android:paddingBottom="8dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +102,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="محاسبه وام مسکن"
+                android:gravity="center"
+                android:text="محاسبه\nکمیسیون"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -131,7 +132,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="محاسبه وام مسکن"
+                android:gravity="center"
+                android:text="محاسبه\nوام مسکن"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -159,7 +161,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="تبدیل رهن به اجاره"
+                android:gravity="center"
+                android:text="تبدیل\nرهن به اجاره"
                 android:textSize="12sp" />
 
         </LinearLayout>
@@ -187,7 +190,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
-                android:text="تبدیل اجاره به رهن"
+                android:gravity="center"
+                android:text="تبدیل\nاجاره به رهن"
                 android:textSize="12sp" />
 
         </LinearLayout>
