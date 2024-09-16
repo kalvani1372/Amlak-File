@@ -1,51 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".ui.activity.main.CommissionActivity">
+    tools:context=".MainActivity">
 
-    <!-- Input Field for Transaction Price -->
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/layPriceEditText"
-        android:layout_width="match_parent"
+    <!-- CardView برای ورودی‌ها -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/inputCardView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:boxBackgroundMode="outline">
+        android:layout_marginTop="16dp"
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp"
+        app:cardBackgroundColor="@android:color/white"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <EditText
-            android:id="@+id/priceEditText"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="قیمت معامله را وارد کنید"
-            android:inputType="numberDecimal"
-            android:importantForAccessibility="yes" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:orientation="vertical"
+            android:padding="16dp">
 
-    <!-- Button to Calculate Commission -->
+            <!-- ورودی مبلغ کل -->
+            <TextView
+                android:id="@+id/totalAmountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="مبلغ پایه (تومان)"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"/>
+
+            <EditText
+                android:id="@+id/baseAmountInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="مبلغ پایه (تومان)"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"/>
+
+            <!-- ورودی درصد کمیسیون -->
+            <TextView
+                android:id="@+id/commissionPercentageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="درصد کمیسیون"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/commissionRateInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="درصد کمیسیون"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"/>
+
+            <!-- ورودی درصد مالیات -->
+            <TextView
+                android:id="@+id/taxPercentageLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="درصد مالیات بر ارزش افزوده"
+                android:textSize="16sp"
+                android:textColor="@android:color/black"
+                android:layout_marginTop="16dp"/>
+
+            <EditText
+                android:id="@+id/vatRateInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="numberDecimal"
+                android:hint="درصد مالیات بر ارزش افزوده"
+                android:background="@drawable/edittext_bg"
+                android:padding="12dp"/>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- دکمه محاسبه -->
     <Button
         android:id="@+id/calculateButton"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="محاسبه کمیسیون"
-        android:layout_below="@id/layPriceEditText"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:text="محاسبه"
         android:textColor="@android:color/white"
-        android:textAllCaps="false" />
+        android:backgroundTint="@color/colorPrimary"
+        app:layout_constraintTop_toBottomOf="@id/inputCardView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
 
-    <!-- Result TextView -->
+    <!-- نمایش نتایج -->
     <TextView
-        android:id="@+id/resultTextView"
-        android:layout_width="match_parent"
+        android:id="@+id/resultText"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="کمیسیون: "
-        android:layout_below="@id/calculateButton"
-        android:layout_marginTop="24dp"
-        android:textSize="18sp"
-        android:textColor="@color/colorPrimary"
-        android:gravity="center"
-        android:padding="16dp" />
-</RelativeLayout>
+        android:text="نتایج:"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        app:layout_constraintTop_toBottomOf="@id/calculateButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

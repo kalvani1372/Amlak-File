@@ -27,6 +27,9 @@ class HomeFragment : Fragment(), View.OnClickListener {
         binding.toolbar.btnMenu.setOnClickListener(this)
         binding.layRegisterKharidForosh.setOnClickListener(this)
         binding.layRegisterRahnEjare.setOnClickListener(this)
+        binding.btnVam.setOnClickListener(this)
+        binding.btnComission.setOnClickListener(this)
+        binding.btnConverter.setOnClickListener(this)
         return binding.root
     }
 
@@ -101,6 +104,21 @@ class HomeFragment : Fragment(), View.OnClickListener {
                 if (!binding.drawer.isDrawerOpen(Gravity.END))
                     binding.drawer.openDrawer(Gravity.END)
                 else binding.drawer.closeDrawer(Gravity.END)
+            }
+
+            R.id.btn_vam -> {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_homeFragment_to_vamHomeFragment)
+            }
+
+            R.id.btn_comission -> {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_homeFragment_to_commissionFragment)
+            }
+
+            R.id.btn_converter -> {
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_homeFragment_to_convertDepositToRentAndItsReverseFragment)
             }
 
         }

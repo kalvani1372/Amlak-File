@@ -3,55 +3,59 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:background="@color/back_first_color"
+    android:background="@drawable/image_splash"
     android:layout_height="match_parent"
     tools:context=".ui.fragment.splash.SplashFragment">
 
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="@drawable/ic_launcher_foreground"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+        android:id="@+id/txt_name_app"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="@id/img_logo"
+        app:layout_constraintStart_toStartOf="@id/img_logo"
+        app:layout_constraintTop_toBottomOf="@id/img_logo" />
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="@drawable/image_splash"
+        android:layout_height="0dp"
+        android:background="@color/back_first_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topGuidLine"/>
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/img_logo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/ic_launcher_foreground"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginTop="24dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-            android:id="@+id/txt_name_app"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            android:textStyle="bold|italic"
-            app:layout_constraintEnd_toEndOf="@id/img_logo"
-            app:layout_constraintStart_toStartOf="@id/img_logo"
-            app:layout_constraintTop_toBottomOf="@id/img_logo" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/topGuidLine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_marginBottom="16dp"
+        android:layout_height="0dp"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:background="@drawable/shape_frame_login"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/txt_name_app">
 
 
         <com.dev.amr.amlakfile.data.model.custom_views.ITextView
@@ -75,7 +79,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txt_login"
             android:text="@string/txt_enter_full_name_and_phone_number"
-            android:textSize="11sp"
+            android:textSize="10sp"
             android:layout_marginTop="4dp"
             android:textColor="@color/txt_color_description_login"/>
 
@@ -109,7 +113,7 @@
                 android:inputType="text"
                 android:minHeight="36dp"
                 android:padding="18dp"
-                android:textColor="@color/md_indigo_700"
+                android:textColor="@color/black"
                 android:textColorHint="@color/md_grey_500"
                 android:textSize="12sp"
                 app:mode="PERSIAN_TEXT_NORMAL16"
@@ -146,7 +150,7 @@
                 android:inputType="text"
                 android:minHeight="36dp"
                 android:padding="18dp"
-                android:textColor="@color/md_indigo_700"
+                android:textColor="@color/black"
                 android:textColorHint="@color/md_grey_500"
                 android:textSize="12sp"
                 app:mode="PERSIAN_TEXT_NORMAL16"
@@ -180,11 +184,12 @@
                 android:layout_gravity="center"
                 android:enabled="true"
                 android:hint="@string/txt_please_enter_phone_number"
-                android:inputType="text"
+                android:inputType="number"
+                android:maxLength="11"
                 android:minHeight="36dp"
                 android:letterSpacing="0.5"
                 android:padding="18dp"
-                android:textColor="@color/md_indigo_700"
+                android:textColor="@color/black"
                 android:textColorHint="@color/md_grey_500"
                 android:textSize="12sp"
                 app:mode="PERSIAN_TEXT_NORMAL16"

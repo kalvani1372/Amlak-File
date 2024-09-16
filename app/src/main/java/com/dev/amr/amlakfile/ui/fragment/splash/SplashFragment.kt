@@ -21,18 +21,14 @@ class SplashFragment : Fragment() {
 
     private lateinit var animation: Animation
 
-    private lateinit var name: String
-    private lateinit var family: String
-    private lateinit var username: String
-    private lateinit var province: String
-    private lateinit var city: String
+    private lateinit var fullName: String
     private lateinit var amlakName: String
+    private lateinit var phoneNumber: String
 
     private lateinit var versionApp: String
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = FragmentSplashBinding.inflate(layoutInflater)
         Hawk.init(requireContext()).build()
         return binding.root
@@ -62,20 +58,16 @@ class SplashFragment : Fragment() {
             override fun onAnimationEnd(animation: Animation?) {
 
 
-                name = Hawks.getString(Hawks.KEY_NAME)
-                family = Hawks.getString(Hawks.KEY_FAMILY)
-                username = Hawks.getString(Hawks.KEY_USERNAME)
-                province = Hawks.getString(Hawks.KEY_PROVINCE)
-                city = Hawks.getString(Hawks.KEY_CITY)
+                fullName = Hawks.getString(Hawks.KEY_FULL_NAME)
                 amlakName = Hawks.getString(Hawks.KEY_NAME_AMLAK)
+                phoneNumber = Hawks.getString(Hawks.KEY_PHONE_NUMBER)
 
-                if (name == "" && family == "" && province == "" && city == "") {
-                    Navigation.findNavController(requireView())
-                        .navigate(R.id.action_splashFragment_to_loginFragment)
-                } else {
+                if (fullName != "" && amlakName != "" && phoneNumber != "") {
                     Navigation.findNavController(requireView())
                         .navigate(R.id.action_splashFragment_to_homeFragment)
-//                    }
+                } else {
+                    Navigation.findNavController(requireView())
+                        .navigate(R.id.action_splashFragment_to_loginFragment)
                 }
 
 

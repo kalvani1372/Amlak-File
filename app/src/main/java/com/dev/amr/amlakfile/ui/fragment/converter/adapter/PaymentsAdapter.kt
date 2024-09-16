@@ -1,13 +1,11 @@
-package com.dev.amr.amlakfile.ui.activity.main.adapter
+package com.dev.amr.amlakfile.ui.fragment.converter.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.dev.amr.amlakfile.databinding.ItemPaymentBinding
-import com.dev.amr.amlakfile.ui.activity.main.model.PaymentDetail
+import com.dev.amr.amlakfile.ui.fragment.converter.model.PaymentDetail
 import java.text.DecimalFormat
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 class PaymentsAdapter : RecyclerView.Adapter<PaymentsAdapter.PaymentViewHolder>() {
 

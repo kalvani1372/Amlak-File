@@ -6,6 +6,7 @@ import com.orhanobut.hawk.Hawk
 object Hawks {
     var KEY_NAME = "name"
     var KEY_FAMILY = "family"
+    var KEY_FULL_NAME = "full_name"
     var KEY_PHONE_NUMBER = "phone_number"
     var KEY_USERNAME = "username"
     var KEY_PROVINCE = "province"

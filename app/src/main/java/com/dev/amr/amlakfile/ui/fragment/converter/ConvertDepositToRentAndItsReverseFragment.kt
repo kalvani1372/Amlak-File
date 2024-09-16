@@ -1,17 +1,28 @@
-package com.dev.amr.amlakfile.ui.activity.main
+package com.dev.amr.amlakfile.ui.fragment.converter
 
-import androidx.appcompat.app.AppCompatActivity
+import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.databinding.ActivityTestBinding
 import java.text.DecimalFormat
 
-class ConvertDepositToRentAndItsReverseActivity : AppCompatActivity() {
+@Suppress("UNREACHABLE_CODE")
+class ConvertDepositToRentAndItsReverseFragment : Fragment() {
 
     private lateinit var binding : ActivityTestBinding
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    @SuppressLint("SetTextI18n")
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityTestBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         // todo تبدیل رهن به اجاره
         binding.convertToRentButton.setOnClickListener {
@@ -44,7 +55,6 @@ class ConvertDepositToRentAndItsReverseActivity : AppCompatActivity() {
             binding.inputValue.text.clear()
             binding.resultTextView.text = "نتیجه"
         }
-
     }
 
     //  todo فرمول تبدیل رهن به اجاره
@@ -57,7 +67,4 @@ class ConvertDepositToRentAndItsReverseActivity : AppCompatActivity() {
         return (rent / 30000) * 1000000
     }
 
-
-    }
-
-
+}

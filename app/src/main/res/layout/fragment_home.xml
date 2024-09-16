@@ -389,6 +389,7 @@
             android:layout_height="match_parent">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_toolbar"
@@ -469,6 +470,37 @@
 
 
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@+id/lay_header">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="وام"
+                    android:id="@+id/btn_vam"/>
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="کمیسیون"
+                    android:id="@+id/btn_comission"/>
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:text="تبدیل"
+                    android:id="@+id/btn_converter"/>
+
+            </LinearLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

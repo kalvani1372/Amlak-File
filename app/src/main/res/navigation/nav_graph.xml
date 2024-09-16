@@ -37,6 +37,15 @@
         <action
             android:id="@+id/action_homeFragment_to_registerMortgageAndRentFragment"
             app:destination="@id/registerMortgageAndRentFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_commissionFragment"
+            app:destination="@id/commissionFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_convertDepositToRentAndItsReverseFragment"
+            app:destination="@id/convertDepositToRentAndItsReverseFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_vamHomeFragment"
+            app:destination="@id/vamHomeFragment" />
     </fragment>
     <fragment
         android:id="@+id/registerBuyAndSellFragment"
@@ -54,6 +63,33 @@
         tools:layout="@layout/fragment_register_buy_mortgage_and_rent" >
         <action
             android:id="@+id/action_registerMortgageAndRentFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commissionFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.converter.CommissionFragment"
+        android:label="CommissionFragment"
+        tools:layout="@layout/activity_commission">
+        <action
+            android:id="@+id/action_commissionFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/convertDepositToRentAndItsReverseFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.converter.ConvertDepositToRentAndItsReverseFragment"
+        android:label="ConvertDepositToRentAndItsReverseFragment"
+        tools:layout="@layout/activity_test">
+        <action
+            android:id="@+id/action_convertDepositToRentAndItsReverseFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vamHomeFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.converter.VamHomeFragment"
+        android:label="VamHomeFragment"
+        tools:layout="@layout/activity_vam_home">
+        <action
+            android:id="@+id/action_vamHomeFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
     </fragment>
 
