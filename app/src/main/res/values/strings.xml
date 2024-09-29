@@ -105,6 +105,7 @@
     <string name="txt_akharin_moamelat_mataghe">آخرین معاملات منطقه ای</string>
     <string name="txt_estelam_chek_sayadi">استعلام چک صیادی</string>
     <string name="txt_taeidiye_postal_code">تایدیه کد پستی</string>
+    <string name="txt_ok">تایید</string>
     <string name="txt_karbar_grami">کاربر گرامی</string>
     <string name="txt_motevajeh_shodam">متوجه شدم</string>
     <string name="txt_ejbari_mibashad">اجباری میباشد</string>
@@ -166,8 +167,10 @@
     <string name="txt_show_jozeiyat_bishtar">نمایش جزئیات بیشتر</string>
     <string name="txt_full_name">نام و نام خانوادگی :</string>
     <string name="txt_phone_num">شماره تلفن :</string>
+    <string name="txt_phone_number">091112233</string>
     <string name="txt_info_melk">مشخصات کامل ملک</string>
     <string name="txt_info_owner">مشخصات مالک</string>
+    <string name="txt_register">ثبت نام</string>
     <string name="txt_time">ساعت</string>
     <string name="txt_date">تاریخ</string>
     <string name="txt_register_date_time">ساعت و تاریخ ثبت فایل</string>
@@ -176,5 +179,10 @@
     <string name="txt_login">ورود</string>
     <string name="txt_enter_phone_number_for_you">لطفا شماره همراه متعلق به خود را وارد کنید.</string>
     <string name="txt_continue">ادامه</string>
-    <string name="txt_enter_full_name_and_phone_number">برای ورود نام، نام خانوادگی، نام املاک و شماره همراه خود را وارد نمایید</string>
+    <string name="txt_enter_full_name_and_phone_number">برای ورود شماره همراه خود را وارد نمایید</string>
+    <string name="txt_sharayet_register">با ثبت نام، با شرایط خدمات و قرارداد پردازش داده موافقت می کنید</string>
+    <string name="txt_num_version">v 1.0.0</string>
+    <string name="txt_enter_number_verification_code">لطفا کد ۴ رقمی ارسال شده را وارد نمایید.</string>
+    <string name="txt_edit_phone_number">ویرایش شماره</string>
+    <string name="txt_shart_register">برای ثبت نام، نام و نام خانوادگی و نام املاک خود را وارد نمایید.</string>
 </resources>

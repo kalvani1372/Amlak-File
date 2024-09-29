@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.data.adapter.SliderAdapter
@@ -38,6 +39,8 @@ class HomeFragment : Fragment(), View.OnClickListener {
         bindViews()
         getData()
     }
+
+
 
     @SuppressLint("WrongConstant")
     private fun bindViews() {

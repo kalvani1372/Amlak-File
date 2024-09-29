@@ -307,8 +307,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
         )
 
             ActivityCompat.requestPermissions(
-                requireActivity(), arrayOf(Manifest.permission.CAMERA), cameraRequest
-            )
+                requireActivity(), arrayOf(Manifest.permission.CAMERA), cameraRequest)
 
     }
 
