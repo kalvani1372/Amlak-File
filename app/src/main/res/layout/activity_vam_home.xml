@@ -1,79 +1,390 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
 
-    <!-- سایر ویوها -->
-    <!-- مبلغ وام -->
-    <TextView
-        android:id="@+id/loanAmountLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="مبلغ وام (تومان)"
-        android:textSize="18sp" />
-
-    <EditText
-        android:id="@+id/loanAmountInput"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="مبلغ وام را وارد کنید" />
+        android:layout_height="64dp"
+        android:elevation="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- نرخ بهره سالانه -->
-    <TextView
-        android:id="@+id/interestRateLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="نرخ بهره سالانه (%)"
-        android:textSize="18sp" />
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
 
-    <EditText
-        android:id="@+id/interestRateInput"
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_items"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="numberDecimal"
-        android:hint="نرخ بهره را وارد کنید" />
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:elevation="5dp"
+        android:visibility="visible"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_toolbar">
 
-    <!-- مدت وام به سال -->
-    <TextView
-        android:id="@+id/loanTermLabel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="مدت وام (ماه)"
-        android:textSize="18sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
 
-    <EditText
-        android:id="@+id/loanTermInput"
+            android:background="@drawable/border2"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/loanAmountLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginBottom="4dp"
+                android:gravity="center"
+                android:text="مبلغ وام (تومان)"
+                android:textSize="14sp" />
+
+            <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                android:id="@+id/loanAmountInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:drawableStart="@drawable/toman"
+                android:hint="@string/txt_hint_mablagh_vam"
+                android:drawablePadding="8dp"
+                android:inputType="number"
+                android:paddingStart="12dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="16dp"
+                android:textSize="14sp" />
+
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/txt_price_vam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/color_btn_login"
+                android:visibility="gone"
+                android:layout_marginTop="4dp"
+                app:layout_constraintBottom_toTopOf="@+id/img_information_all"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_txt_price_melk" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_warning_1"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_marginTop="4dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_warring"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/info_circle_red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/txt_enter_mablagh_vam"
+                    android:textColor="@color/color_warning"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_warring"
+                    app:layout_constraintEnd_toStartOf="@+id/img_warring"
+                    app:layout_constraintTop_toTopOf="@+id/img_warring" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <!-- نرخ بهره سالانه -->
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/interestRateLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="نرخ بهره سالانه  (درصد)"
+                android:textSize="14sp" />
+
+            <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                android:id="@+id/interestRateInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:drawableStart="@drawable/sale"
+                android:hint="نرخ بهره سالانه را وارد کنید"
+                android:inputType="number"
+                android:drawablePadding="8dp"
+                android:paddingStart="12dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="16dp"
+                android:textSize="14sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_warning_2"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_marginTop="4dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_warring_2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/info_circle_red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/txt_nerkh_salane"
+                    android:textColor="@color/color_warning"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_warring_2"
+                    app:layout_constraintEnd_toStartOf="@+id/img_warring_2"
+                    app:layout_constraintTop_toTopOf="@+id/img_warring_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!-- مدت وام به سال -->
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/loanTermLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="4dp"
+                android:text="مدت وام (ماه)"
+                android:textSize="14sp" />
+
+            <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                android:id="@+id/loanTermInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:hint="مدت وام را وارد کنید"
+                android:inputType="number"
+                android:paddingStart="12dp"
+                android:paddingTop="16dp"
+                android:paddingEnd="12dp"
+                android:paddingBottom="16dp"
+                android:textSize="14sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_warning_3"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                android:layout_marginTop="4dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/img_warring_3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/info_circle_red"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/txt_modat_vam"
+                    android:textColor="@color/color_warning"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_warring_3"
+                    app:layout_constraintEnd_toStartOf="@+id/img_warring_3"
+                    app:layout_constraintTop_toTopOf="@+id/img_warring_3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_show_detail_vam"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:visibility="gone"
+                android:background="@drawable/border4"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border3"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_aghsad_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/toman"
+                        android:drawablePadding="8dp"
+                        android:gravity="center|start"
+                        android:text="42,000,000"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                    <!-- نمایش نتیجه -->
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_aghsad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:text="قسط ماهانه وام"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:id="@+id/btn_show_list_aghsad"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="16dp"
+                    android:background="@drawable/frame_txt_list"
+                    android:gravity="center"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:text="مشاهده لیست اقساط"
+                    android:textColor="@color/color_btn_login"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.dev.amr.amlakfile.data.model.custom_views.IButton
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:background="@drawable/btn_shape_purple"
+            android:text="محاسبه"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_list_aghsad"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="مدت وام را وارد کنید" />
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:elevation="5dp"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_toolbar">
 
-    <!-- دکمه محاسبه -->
-    <Button
-        android:id="@+id/calculateButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="محاسبه" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <!-- نمایش نتیجه -->
-    <TextView
-        android:id="@+id/resultText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text=""
-        android:textSize="20sp"
-        android:textStyle="bold" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|end"
+                android:orientation="horizontal">
 
-    <!-- RecyclerView برای نمایش لیست اقساط -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/installmentRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp" />
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@+id/lay_btn_back"
+                    app:layout_constraintTop_toTopOf="@+id/lay_btn_back"
+                    android:text="لیست اقساط"
+                    android:textSize="14sp"
+                    android:textColor="@color/txt_color_title"
+                    app:layout_constraintBottom_toBottomOf="@+id/lay_btn_back"/>
 
-</LinearLayout>
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lay_btn_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_margin="8dp"
+                    android:layout_gravity="center|end"
+                    android:background="@drawable/frame_verification_code"
+                    android:backgroundTint="@color/back_first_color2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_back"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bill"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:background="@color/color_btn_gray"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_height="1dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/installmentRecyclerView"
+                android:layout_width="match_parent"
+                tools:listitem="@layout/installment_item"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp" />
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

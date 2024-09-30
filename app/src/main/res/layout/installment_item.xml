@@ -1,27 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:background="@drawable/border5"
+    android:layout_marginBottom="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:padding="8dp">
+    android:padding="12dp">
 
-    <TextView
-        android:id="@+id/installmentNumberText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="16sp"
-        android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/paymentDateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/amountText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="14sp" />
-</LinearLayout>
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/installmentNumberText"
+                android:layout_width="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/color_txt_vam"
+                android:textSize="12sp"
+                android:text="قسط"
+                android:gravity="center|end"
+                android:textStyle="bold" />
+
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/paymentDateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:drawableStart="@drawable/calendar"
+                android:textSize="12sp"
+                android:textColor="@color/color_txt_vam"
+                android:drawablePadding="8dp"
+                android:text="----/--/--"
+                android:gravity="center|start"
+                android:textStyle="bold" />
+
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/amountText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/frame_txt_list"
+                android:gravity="center"
+                app:layout_constraintStart_toStartOf="@+id/installmentNumberText"
+                app:layout_constraintEnd_toEndOf="@+id/installmentNumberText"
+                app:layout_constraintTop_toBottomOf="@+id/installmentNumberText"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp"
+                android:text="400,000,000 تومان"
+                android:textColor="@color/color_btn_login"
+                android:textSize="14sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

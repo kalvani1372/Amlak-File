@@ -185,4 +185,10 @@
     <string name="txt_enter_number_verification_code">لطفا کد ۴ رقمی ارسال شده را وارد نمایید.</string>
     <string name="txt_edit_phone_number">ویرایش شماره</string>
     <string name="txt_shart_register">برای ثبت نام، نام و نام خانوادگی و نام املاک خود را وارد نمایید.</string>
+    <string name="txt_enter_mablagh_vam">لطفا مبلغ وام را به تومان وارد کنید.</string>
+    <string name="txt_nerkh_salane">لطفا نرخ بهره سالانه را وارد کنید.</string>
+    <string name="txt_modat_vam">لطفا مدت وام را به ماه وارد کنید.</string>
+    <string name="txt_hint_mablagh_vam">مبلغ وام را وارد کنید</string>
+    <string name="txt_list_vam_maskan">لیست اقساط وام مسکن</string>
+    <string name="txt_mohasebat_vam_maskan">محاسبات وام مسکن</string>
 </resources>

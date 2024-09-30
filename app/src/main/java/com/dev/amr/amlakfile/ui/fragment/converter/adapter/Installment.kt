@@ -33,8 +33,8 @@ data class Installment(val installmentNumber: String, val paymentDate: String, v
         override fun onBindViewHolder(holder: InstallmentViewHolder, position: Int) {
             val installment = installmentList[position]
             holder.installmentNumberText.text = "قسط ${installment.installmentNumber}"
-            holder.paymentDateText.text = "تاریخ پرداخت: ${installment.paymentDate}"
-            holder.amountText.text = "مبلغ : ${decimalFormat.format(installment.amount)} تومان "
+            holder.paymentDateText.text = installment.paymentDate
+            holder.amountText.text = "${decimalFormat.format(installment.amount)} تومان "
         }
 
         override fun getItemCount(): Int {
