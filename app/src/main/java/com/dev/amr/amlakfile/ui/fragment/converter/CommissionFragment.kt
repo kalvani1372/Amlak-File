@@ -9,18 +9,23 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
+import androidx.navigation.fragment.findNavController
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.databinding.ActivityCommissionBinding
 import com.dev.amr.amlakfile.ui.fragment.converter.model.CalculateCommissionAndTax
+import com.dev.amr.amlakfile.utils.NumberTextWatcher
+import com.github.yamin8000.ppn.PersianDigits
 import java.text.DecimalFormat
 
-@Suppress("UNREACHABLE_CODE")
 class CommissionFragment : Fragment() {
 
     private lateinit var binding : ActivityCommissionBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityCommissionBinding.inflate(layoutInflater)
+        binding.toolbar.txtTitle.text = resources.getString(R.string.txt_mohasebe_komisiyon)
         return binding.root
     }
 
@@ -28,23 +33,80 @@ class CommissionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.calculateButton.setOnClickListener {
-            val baseAmount = binding.baseAmountInput.text.toString().toDouble()
-            val commissionRate = binding.commissionRateInput.text.toString().toDouble()
-            val vatRate = binding.vatRateInput.text.toString().toDouble()
-
-            val result = calculateCommissionAndTax(
-                baseAmount, commissionRate, vatRate
-            )
-
-            val resultString = """
-                کمیسیون: ${result["commission"]}
-                مالیات بر ارزش افزوده: ${result["vat"]}
-                مجموع نهایی: ${result["totalAmount"]}
-            """.trimIndent()
-
-            binding.resultText.text = resultString
+        binding.edtBaseAmountInput.addTextChangedListener (NumberTextWatcher(binding.edtBaseAmountInput))
+        binding.edtBaseAmountInput.addTextChangedListener {
+            if (it.toString() != "") {
+                binding.layWarning1.visibility = View.GONE
+                binding.txtPricePaye.visibility = View.VISIBLE
+            } else {
+                binding.txtPricePaye.visibility = View.GONE
+            }
         }
+        binding.edtBaseAmountInput.doAfterTextChanged {
+            if (binding.edtBaseAmountInput.length() == 0) {
+                binding.txtPricePaye.visibility = View.GONE
+            } else if (binding.edtBaseAmountInput.length() != 0) {
+                binding.txtPricePaye.visibility = View.VISIBLE
+                val number = it.toString()
+                binding.txtPricePaye.text =
+                    PersianDigits.spellToPersian(number.replace(",", "")) + " تومان"
+            }
+        }
+
+        binding.calculateButton.setOnClickListener{
+            if (binding.edtBaseAmountInput.text.toString() == "" &&
+                binding.edtCommissionRateInput.text.toString() == "" &&
+                binding.edtVatRatInput.text.toString() == "") {
+                binding.layWarning1.visibility = View.VISIBLE
+                binding.layWarning2.visibility = View.VISIBLE
+                binding.layWarning3.visibility = View.VISIBLE
+            } else if (binding.edtBaseAmountInput.text.toString() == "") {
+                binding.layWarning1.visibility = View.VISIBLE
+            } else if (binding.edtCommissionRateInput.text.toString() == "") {
+                binding.layWarning2.visibility = View.VISIBLE
+            } else if (binding.edtVatRatInput.text.toString() == "") {
+                binding.layWarning3.visibility = View.VISIBLE
+            } else {
+                binding.layWarning1.visibility = View.GONE
+                binding.layWarning2.visibility = View.GONE
+                binding.layWarning3.visibility = View.GONE
+
+                binding.layShowDetailCommission.visibility = View.VISIBLE
+
+                val baseAmount = (binding.edtBaseAmountInput.text.toString()).replace(",","").toDouble()
+                val commissionRate = binding.edtCommissionRateInput.text.toString().toDouble()
+                val vatRate = binding.edtVatRatInput.text.toString().toDouble()
+
+                val result = calculateCommissionAndTax(
+                    baseAmount, commissionRate, vatRate
+                )
+
+                binding.txtCommissionResult.text = result["commission"]!!.trimIndent()
+                binding.txtMaliyatResult.text = result["vat"]!!.trimIndent()
+                binding.txtMjmoeNahayiResult.text = result["totalAmount"]!!.trimIndent()
+
+            }
+        }
+
+        binding.toolbar.btnBack.setOnClickListener{
+            findNavController().navigate(R.id.action_commissionFragment_to_homeFragment)
+        }
+
+//        binding.calculateButton.setOnClickListener {
+//
+//
+//            val resultString = """
+//                کمیسیون: ${result["commission"]}
+//                مالیات بر ارزش افزوده: ${result["vat"]}
+//                مجموع نهایی: ${result["totalAmount"]}
+//            """.trimIndent()
+//
+//            binding.txtCommissionResult.text = result["commission"]!!.trimIndent()
+//            binding.txtMaliyatResult.text = result["vat"]
+//            binding.txtMjmoeNahayiResult.text = result["totalAmount"]
+//
+//            binding.resultText.text = resultString
+//        }
 
     }
     fun calculateCommissionAndTax(
@@ -67,9 +129,9 @@ class CommissionFragment : Fragment() {
 
         // برگرداندن نتایج به صورت فرمت تومان
         return mapOf(
-            "commission" to "${decimalFormat.format(commission)} تومان",
-            "vat" to "${decimalFormat.format(vat)} تومان",
-            "totalAmount" to "${decimalFormat.format(totalAmount)} تومان"
+            "commission" to "${decimalFormat.format(commission)}",
+            "vat" to "${decimalFormat.format(vat)}",
+            "totalAmount" to "${decimalFormat.format(totalAmount)}"
         )
     }
 

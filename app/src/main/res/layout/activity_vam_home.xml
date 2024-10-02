@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
@@ -52,38 +52,48 @@
             android:orientation="vertical"
             android:padding="12dp">
 
-            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-                android:id="@+id/loanAmountLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|end"
-                android:layout_marginBottom="4dp"
-                android:gravity="center"
-                android:text="مبلغ وام (تومان)"
-                android:textSize="14sp" />
-
-            <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                android:id="@+id/loanAmountInput"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_txt_loan_amount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:drawableStart="@drawable/toman"
-                android:hint="@string/txt_hint_mablagh_vam"
-                android:drawablePadding="8dp"
-                android:inputType="number"
-                android:paddingStart="12dp"
-                android:paddingTop="16dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="16dp"
-                android:textSize="14sp" />
+                android:hint="مبلغ وام (تومان)"
+                android:textColorHint="@color/color_btn_login"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/color_btn_login"
+                app:boxStrokeWidth="1dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/color_btn_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconTint="@color/color_btn_login">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                    android:id="@+id/edt_loan_amount"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/toman"
+                    android:drawablePadding="8dp"
+                    android:hint="@string/txt_hint_mablagh_vam"
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <com.dev.amr.amlakfile.data.model.custom_views.ITextView
                 android:id="@+id/txt_price_vam"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
                 android:textColor="@color/color_btn_login"
                 android:visibility="gone"
-                android:layout_marginTop="4dp"
                 app:layout_constraintBottom_toTopOf="@+id/img_information_all"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -91,18 +101,18 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lay_warning_1"
-                android:visibility="gone"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_height="wrap_content">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_warring"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:background="@drawable/info_circle_red"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.dev.amr.amlakfile.data.model.custom_views.ITextView
@@ -119,46 +129,59 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-            <!-- نرخ بهره سالانه -->
-            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-                android:id="@+id/interestRateLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|end"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="4dp"
-                android:text="نرخ بهره سالانه  (درصد)"
-                android:textSize="14sp" />
-
-            <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                android:id="@+id/interestRateInput"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_txt_interest_rate_label"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:drawableStart="@drawable/sale"
-                android:hint="نرخ بهره سالانه را وارد کنید"
-                android:inputType="number"
-                android:drawablePadding="8dp"
-                android:paddingStart="12dp"
-                android:paddingTop="16dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="16dp"
-                android:textSize="14sp" />
+                android:layout_marginTop="8dp"
+                android:hint="نرخ بهره سالانه  (درصد)"
+                android:textColorHint="@color/color_btn_login"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/color_btn_login"
+                app:boxStrokeWidth="1dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/color_btn_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconTint="@color/color_btn_login">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                    android:id="@+id/edt_interest_rate_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/sale"
+                    android:drawablePadding="8dp"
+                    android:hint="نرخ بهره سالانه را وارد کنید"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="12dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="14sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lay_warning_2"
                 android:layout_width="match_parent"
-                android:visibility="gone"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_height="wrap_content">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_warring_2"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:background="@drawable/info_circle_red"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.dev.amr.amlakfile.data.model.custom_views.ITextView
@@ -174,44 +197,59 @@
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <!-- مدت وام به سال -->
-            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-                android:id="@+id/loanTermLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center|end"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="4dp"
-                android:text="مدت وام (ماه)"
-                android:textSize="14sp" />
-
-            <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                android:id="@+id/loanTermInput"
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_txt_ioan_term_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/border"
-                android:hint="مدت وام را وارد کنید"
-                android:inputType="number"
-                android:paddingStart="12dp"
-                android:paddingTop="16dp"
-                android:paddingEnd="12dp"
-                android:paddingBottom="16dp"
-                android:textSize="14sp" />
+                android:layout_marginTop="8dp"
+                android:hint="مدت وام (ماه)"
+                android:textColorHint="@color/color_btn_login"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/color_btn_login"
+                app:boxStrokeWidth="1dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/color_btn_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconTint="@color/color_btn_login">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                    android:id="@+id/edt_ioan_term_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/calendar2"
+                    android:drawablePadding="8dp"
+                    android:hint="مدت وام را وارد کنید"
+                    android:inputType="number"
+                    android:paddingStart="12dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/lay_warning_3"
                 android:layout_width="match_parent"
-                android:visibility="gone"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
-                android:layout_height="wrap_content">
+                android:visibility="gone">
 
                 <ImageView
                     android:id="@+id/img_warring_3"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:background="@drawable/info_circle_red"
-                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <com.dev.amr.amlakfile.data.model.custom_views.ITextView
@@ -232,10 +270,10 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:visibility="gone"
                 android:background="@drawable/border4"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="8dp"
+                android:visibility="gone">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -254,7 +292,6 @@
                         android:drawableStart="@drawable/toman"
                         android:drawablePadding="8dp"
                         android:gravity="center|start"
-                        android:text="42,000,000"
                         android:textColor="@color/txt_color_version"
                         android:textSize="12sp" />
 
@@ -272,7 +309,7 @@
                 </LinearLayout>
 
                 <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-                    android:id="@+id/btn_show_list_aghsad"
+                    android:id="@+id/btnShowListAghsad"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center|end"
@@ -333,19 +370,19 @@
                 <com.dev.amr.amlakfile.data.model.custom_views.ITextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    app:layout_constraintEnd_toStartOf="@+id/lay_btn_back"
-                    app:layout_constraintTop_toTopOf="@+id/lay_btn_back"
                     android:text="لیست اقساط"
-                    android:textSize="14sp"
                     android:textColor="@color/txt_color_title"
-                    app:layout_constraintBottom_toBottomOf="@+id/lay_btn_back"/>
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/lay_btn_back"
+                    app:layout_constraintEnd_toStartOf="@+id/lay_btn_back"
+                    app:layout_constraintTop_toTopOf="@+id/lay_btn_back" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lay_btn_back"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:layout_margin="8dp"
                     android:layout_gravity="center|end"
+                    android:layout_margin="8dp"
                     android:background="@drawable/frame_verification_code"
                     android:backgroundTint="@color/back_first_color2"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -368,18 +405,18 @@
 
             <View
                 android:layout_width="match_parent"
-                android:background="@color/color_btn_gray"
-                android:layout_marginEnd="16dp"
+                android:layout_height="1dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:layout_height="1dp"/>
+                android:layout_marginEnd="16dp"
+                android:background="@color/color_btn_gray" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/installmentRecyclerView"
                 android:layout_width="match_parent"
-                tools:listitem="@layout/installment_item"
                 android:layout_height="wrap_content"
-                android:layout_margin="12dp" />
+                android:layout_margin="12dp"
+                tools:listitem="@layout/installment_item" />
 
         </LinearLayout>
 

@@ -186,9 +186,21 @@
     <string name="txt_edit_phone_number">ویرایش شماره</string>
     <string name="txt_shart_register">برای ثبت نام، نام و نام خانوادگی و نام املاک خود را وارد نمایید.</string>
     <string name="txt_enter_mablagh_vam">لطفا مبلغ وام را به تومان وارد کنید.</string>
+    <string name="txt_enter_mablagh_paye">لطفا مبلغ پایه را به تومان وارد کنید.</string>
     <string name="txt_nerkh_salane">لطفا نرخ بهره سالانه را وارد کنید.</string>
+    <string name="txt_nerkh_commission">لطفا نرخ کمیسیون را وارد کنید.</string>
     <string name="txt_modat_vam">لطفا مدت وام را به ماه وارد کنید.</string>
+    <string name="txt_maliyat_bar_arzesh_afzode">لطفا مالیات بر ارزش افزوده را به ماه وارد کنید.</string>
     <string name="txt_hint_mablagh_vam">مبلغ وام را وارد کنید</string>
+    <string name="txt_hint_mablagh_rahn">مبلغ رهن را وارد کنید</string>
+    <string name="txt_hint_mablagh_ejare">مبلغ اجاره را وارد کنید</string>
+    <string name="txt_ejare_mahiyane">اجاره ماهیانه</string>
+    <string name="txt_mablagh_rahn_kamel">مبلغ رهن کامل</string>
+    <string name="txt_hint_mablagh_rahn_toman">مبلغ رهن (تومان)</string>
+    <string name="txt_hint_mablagh_ejare_toman">مبلغ اجاره (تومان)</string>
     <string name="txt_list_vam_maskan">لیست اقساط وام مسکن</string>
     <string name="txt_mohasebat_vam_maskan">محاسبات وام مسکن</string>
+    <string name="txt_mohasebe_komisiyon">محاسبه کمیسیون</string>
+    <string name="txt_convert_rahn_to_ejare">تبدیل رهن به اجاره</string>
+    <string name="txt_convert_ejare_to_rahn">تبدیل اجاره به رهن</string>
 </resources>

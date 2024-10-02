@@ -6,55 +6,139 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.widget.addTextChangedListener
+import androidx.core.widget.doAfterTextChanged
+import androidx.navigation.fragment.findNavController
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.databinding.ActivityTestBinding
+import com.dev.amr.amlakfile.utils.NumberTextWatcher
+import com.github.yamin8000.ppn.PersianDigits
 import java.text.DecimalFormat
 
 @Suppress("UNREACHABLE_CODE")
 class ConvertDepositToRentAndItsReverseFragment : Fragment() {
 
-    private lateinit var binding : ActivityTestBinding
+    private lateinit var binding: ActivityTestBinding
+    private var counter: Int = 1
+
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         binding = ActivityTestBinding.inflate(layoutInflater)
         return binding.root
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.toolbar.txtTitle.text = resources.getString(R.string.txt_convert_rahn_to_ejare)
+
+        binding.toolbar.btnBack.setOnClickListener {
+            findNavController().navigate(R.id.action_convertDepositToRentAndItsReverseFragment_to_homeFragment)
+        }
+
         // todo تبدیل رهن به اجاره
+        binding.btnRahnEjare.setOnClickListener {
+            counter = 1
+            binding.edtMablaghRahn.setText("")
+            binding.toolbar.txtTitle.text = resources.getString(R.string.txt_convert_rahn_to_ejare)
+            binding.btnRahnEjare.background = resources.getDrawable(R.drawable.border7)
+            binding.btnRahnEjare.setTextColor(resources.getColor(R.color.color_btn_login))
+
+            binding.btnEjareRahn.background = resources.getDrawable(R.drawable.border6)
+            binding.btnEjareRahn.setTextColor(resources.getColor(R.color.txt_color_description_login))
+
+            binding.inputTxtMablaghRahn.hint =
+                resources.getString(R.string.txt_hint_mablagh_rahn_toman)
+            binding.edtMablaghRahn.hint = resources.getString(R.string.txt_hint_mablagh_rahn)
+
+            binding.txt.text = resources.getString(R.string.txt_ejare_mahiyane)
+            binding.layShowDetailVam.visibility = View.GONE
+
+        }
+
+        binding.btnEjareRahn.setOnClickListener {
+            counter = 2
+            binding.edtMablaghRahn.setText("")
+            binding.toolbar.txtTitle.text = resources.getString(R.string.txt_convert_ejare_to_rahn)
+            binding.btnEjareRahn.background = resources.getDrawable(R.drawable.border7)
+            binding.btnEjareRahn.setTextColor(resources.getColor(R.color.color_btn_login))
+
+            binding.btnRahnEjare.background = resources.getDrawable(R.drawable.border6)
+            binding.btnRahnEjare.setTextColor(resources.getColor(R.color.txt_color_description_login))
+
+            binding.inputTxtMablaghRahn.hint =
+                resources.getString(R.string.txt_hint_mablagh_ejare_toman)
+            binding.edtMablaghRahn.hint = resources.getString(R.string.txt_hint_mablagh_ejare)
+
+            binding.txt.text = resources.getString(R.string.txt_mablagh_rahn_kamel)
+            binding.layShowDetailVam.visibility = View.GONE
+
+        }
+
+        binding.edtMablaghRahn.addTextChangedListener(NumberTextWatcher(binding.edtMablaghRahn))
+        binding.edtMablaghRahn.addTextChangedListener {
+            if (it.toString() != "") {
+                binding.layWarning.visibility = View.GONE
+                binding.txtShowPrice.visibility = View.VISIBLE
+            } else {
+                binding.txtShowPrice.visibility = View.GONE
+            }
+        }
+        binding.edtMablaghRahn.doAfterTextChanged {
+            if (binding.edtMablaghRahn.length() == 0) {
+                binding.txtShowPrice.visibility = View.GONE
+            } else if (binding.edtMablaghRahn.length() != 0) {
+                binding.txtShowPrice.visibility = View.VISIBLE
+                val number = it.toString()
+                binding.txtShowPrice.text =
+                    PersianDigits.spellToPersian(number.replace(",", "")) + " تومان"
+            }
+        }
+
+
         binding.convertToRentButton.setOnClickListener {
-            val deposit = binding.inputValue.text.toString().toDoubleOrNull()
-            if (deposit != null) {
-                val rent = convertDepositToRent(deposit)
-                val decimalFormat = DecimalFormat("#,###")
-                val formattedDeposit = decimalFormat.format(rent)
-                binding.resultTextView.text = "اجاره معادل: ${formattedDeposit} تومان"
-            } else {
-                binding.resultTextView.text = "لطفاً مبلغ معتبر وارد کنید"
+            when (counter) {
+                1 -> {
+                    binding.layShowDetailVam.visibility = View.VISIBLE
+                    if (binding.edtMablaghRahn.text.toString() == "") {
+                        binding.layWarning.visibility = View.VISIBLE
+                    } else {
+                        val deposit = (binding.edtMablaghRahn.text.toString()).replace(",", "")
+                            .toDoubleOrNull()
+                        if (deposit != null) {
+                            val rent = convertDepositToRent(deposit)
+                            val decimalFormat = DecimalFormat("#,###")
+                            val formattedDeposit = decimalFormat.format(rent)
+                            binding.txtResult.text = formattedDeposit
+                        } else {
+                            binding.txtResult.text = "لطفاً مبلغ معتبر وارد کنید"
+                        }
+                    }
+                }
+
+                2 -> {
+                    binding.layShowDetailVam.visibility = View.VISIBLE
+                    if (binding.edtMablaghRahn.text.toString() == "") {
+                        binding.layWarning.visibility = View.VISIBLE
+                    } else {
+                        val rent = (binding.edtMablaghRahn.text.toString()).replace(",", "")
+                            .toDoubleOrNull()
+                        if (rent != null) {
+                            val deposit = convertRentToDeposit(rent)
+                            val decimalFormat = DecimalFormat("#,###")
+                            val formattedDeposit = decimalFormat.format(deposit)
+                            binding.txtResult.text = formattedDeposit
+                        } else {
+                            binding.txtResult.text = "لطفاً مبلغ معتبر وارد کنید"
+                        }
+                    }
+                }
             }
         }
 
-        // todo تبدیل اجاره به رهن
-        binding.convertToDepositButton.setOnClickListener {
-            val rent = binding.inputValue.text.toString().toDoubleOrNull()
-            if (rent != null) {
-                val deposit = convertRentToDeposit(rent)
-                val decimalFormat = DecimalFormat("#,###")
-                val formattedDeposit = decimalFormat.format(deposit)
-                binding.resultTextView.text = "رهن معادل: ${formattedDeposit} تومان"
-            } else {
-                binding.resultTextView.text = "لطفاً مبلغ معتبر وارد کنید"
-            }
-        }
-
-        // دکمه بازنشانی
-        binding.resetButton.setOnClickListener {
-            binding.inputValue.text.clear()
-            binding.resultTextView.text = "نتیجه"
-        }
     }
 
     //  todo فرمول تبدیل رهن به اجاره

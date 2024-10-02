@@ -3,111 +3,578 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <!-- CardView برای ورودی‌ها -->
+<!--    &lt;!&ndash; CardView برای ورودی‌ها &ndash;&gt;-->
+<!--    <androidx.cardview.widget.CardView-->
+<!--        android:id="@+id/inputCardView"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        app:cardElevation="8dp"-->
+<!--        app:cardCornerRadius="8dp"-->
+<!--        app:cardBackgroundColor="@android:color/white"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent">-->
+
+<!--        <LinearLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="vertical"-->
+<!--            android:padding="16dp">-->
+
+<!--            &lt;!&ndash; ورودی مبلغ کل &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/totalAmountLabel"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:hint="مبلغ پایه (تومان)"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="@android:color/black"/>-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/baseAmountInput"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="numberDecimal"-->
+<!--                android:hint="مبلغ پایه (تومان)"-->
+<!--                android:background="@drawable/edittext_bg"-->
+<!--                android:padding="12dp"/>-->
+
+<!--            &lt;!&ndash; ورودی درصد کمیسیون &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/commissionPercentageLabel"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="درصد کمیسیون"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:layout_marginTop="16dp"/>-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/commissionRateInput"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="numberDecimal"-->
+<!--                android:hint="درصد کمیسیون"-->
+<!--                android:background="@drawable/edittext_bg"-->
+<!--                android:padding="12dp"/>-->
+
+<!--            &lt;!&ndash; ورودی درصد مالیات &ndash;&gt;-->
+<!--            <TextView-->
+<!--                android:id="@+id/taxPercentageLabel"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="درصد مالیات بر ارزش افزوده"-->
+<!--                android:textSize="16sp"-->
+<!--                android:textColor="@android:color/black"-->
+<!--                android:layout_marginTop="16dp"/>-->
+
+<!--            <EditText-->
+<!--                android:id="@+id/vatRateInput"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:inputType="numberDecimal"-->
+<!--                android:hint="درصد مالیات بر ارزش افزوده"-->
+<!--                android:background="@drawable/edittext_bg"-->
+<!--                android:padding="12dp"/>-->
+
+<!--        </LinearLayout>-->
+<!--    </androidx.cardview.widget.CardView>-->
+
+<!--    &lt;!&ndash; دکمه محاسبه &ndash;&gt;-->
+<!--    <Button-->
+<!--        android:id="@+id/calculateButton1"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="محاسبه"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        android:backgroundTint="@color/colorPrimary"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/inputCardView"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="24dp"/>-->
+
+<!--    &lt;!&ndash; نمایش نتایج &ndash;&gt;-->
+<!--    <TextView-->
+<!--        android:id="@+id/resultText"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:text="نتایج:"-->
+<!--        android:textSize="16sp"-->
+<!--        android:textColor="@android:color/black"-->
+<!--        app:layout_constraintTop_toBottomOf="@id/calculateButton1"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        android:layout_marginTop="24dp"/>-->
+
     <androidx.cardview.widget.CardView
-        android:id="@+id/inputCardView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="8dp"
-        app:cardBackgroundColor="@android:color/white"
-        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/card_view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:elevation="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_items"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:elevation="5dp"
+        android:visibility="visible"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/border2"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_txt_base_amount_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="مبلغ پایه (تومان)"
+                android:textColorHint="@color/color_btn_login"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/color_btn_login"
+                app:boxStrokeWidth="1dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/color_btn_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconTint="@color/color_btn_login">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                    android:id="@+id/edt_base_amount_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:drawableStart="@drawable/toman"
+                    android:drawablePadding="8dp"
+                    android:hint="مبلغ پایه را وارد کنید."
+                    android:inputType="number"
+                    android:maxLength="15"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:id="@+id/txt_price_paye"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/color_btn_login"
+                android:visibility="gone"
+                app:layout_constraintBottom_toTopOf="@+id/img_information_all"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/input_txt_price_melk" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_warning_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/img_warring"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/info_circle_red"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/txt_enter_mablagh_paye"
+                    android:textColor="@color/color_warning"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_warring"
+                    app:layout_constraintEnd_toStartOf="@+id/img_warring"
+                    app:layout_constraintTop_toTopOf="@+id/img_warring" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_txt_commission_rate_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="کمیسیون (درصد)"
+                android:textColorHint="@color/color_btn_login"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/color_btn_login"
+                app:boxStrokeWidth="1dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/color_btn_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconTint="@color/color_btn_login">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                    android:id="@+id/edt_commission_rate_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/sale"
+                    android:drawablePadding="8dp"
+                    android:hint="درصد کمیسیون را وارد کنید."
+                    android:inputType="numberDecimal"
+                    android:paddingStart="12dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="14sp" />
+
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_warning_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/img_warring_2"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/info_circle_red"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/txt_nerkh_commission"
+                    android:textColor="@color/color_warning"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_warring_2"
+                    app:layout_constraintEnd_toStartOf="@+id/img_warring_2"
+                    app:layout_constraintTop_toTopOf="@+id/img_warring_2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_txt_vat_rat_input"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:hint="مالیات بر ارزش افزوده (درصد)"
+                android:textColorHint="@color/color_btn_login"
+                app:boxCornerRadiusBottomEnd="8dp"
+                app:boxCornerRadiusBottomStart="8dp"
+                app:boxCornerRadiusTopEnd="8dp"
+                app:boxCornerRadiusTopStart="8dp"
+                app:boxStrokeColor="@color/color_btn_login"
+                app:boxStrokeWidth="1dp"
+                app:expandedHintEnabled="false"
+                app:hintAnimationEnabled="true"
+                app:hintTextColor="@color/color_btn_login"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:startIconTint="@color/color_btn_login">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                    android:id="@+id/edt_vat_rat_input"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableStart="@drawable/sale"
+                    android:drawablePadding="8dp"
+                    android:hint="درصدمالیات بر ارزش افزوده را وارد کنید."
+                    android:inputType="numberDecimal"
+                    android:paddingStart="12dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="12dp"
+                    android:paddingBottom="16dp"
+                    android:textSize="14sp" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lay_warning_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/img_warring_3"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:background="@drawable/info_circle_red"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:text="@string/txt_maliyat_bar_arzesh_afzode"
+                    android:textColor="@color/color_warning"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/img_warring_3"
+                    app:layout_constraintEnd_toStartOf="@+id/img_warring_3"
+                    app:layout_constraintTop_toTopOf="@+id/img_warring_3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <LinearLayout
+                android:id="@+id/lay_show_detail_commission"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/border4"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border3"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_commission_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/toman"
+                        android:drawablePadding="8dp"
+                        android:gravity="center|start"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_commission"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:text="کمیسیون"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border3"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_maliyat_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/toman"
+                        android:drawablePadding="8dp"
+                        android:gravity="center|start"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                    <!-- نمایش نتیجه -->
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_maliyat"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.3"
+                        android:gravity="center|start"
+                        android:text="مالیات بر ارزش افزوده"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border3"
+                    android:gravity="center"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_mjmoe_nahayi_result"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:drawableStart="@drawable/toman"
+                        android:drawablePadding="8dp"
+                        android:gravity="center|start"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                    <!-- نمایش نتیجه -->
+                    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                        android:id="@+id/txt_mjmoe_nahayi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center|start"
+                        android:text="مجموع نهایی"
+                        android:textColor="@color/txt_color_version"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.dev.amr.amlakfile.data.model.custom_views.IButton
+            android:id="@+id/calculateButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom"
+            android:layout_margin="16dp"
+            android:background="@drawable/btn_shape_purple"
+            android:text="محاسبه"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_list_aghsad"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:elevation="5dp"
+        android:visibility="gone"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:orientation="vertical">
 
-            <!-- ورودی مبلغ کل -->
-            <TextView
-                android:id="@+id/totalAmountLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:hint="مبلغ پایه (تومان)"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"/>
-
-            <EditText
-                android:id="@+id/baseAmountInput"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="مبلغ پایه (تومان)"
-                android:background="@drawable/edittext_bg"
-                android:padding="12dp"/>
+                android:gravity="center|end"
+                android:orientation="horizontal">
 
-            <!-- ورودی درصد کمیسیون -->
-            <TextView
-                android:id="@+id/commissionPercentageLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="درصد کمیسیون"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="16dp"/>
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="لیست اقساط"
+                    android:textColor="@color/txt_color_title"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/lay_btn_back"
+                    app:layout_constraintEnd_toStartOf="@+id/lay_btn_back"
+                    app:layout_constraintTop_toTopOf="@+id/lay_btn_back" />
 
-            <EditText
-                android:id="@+id/commissionRateInput"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/lay_btn_back"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center|end"
+                    android:layout_margin="8dp"
+                    android:background="@drawable/frame_verification_code"
+                    android:backgroundTint="@color/back_first_color2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageButton
+                        android:id="@+id/btn_back"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/bill"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/color_btn_gray" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/installmentRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="درصد کمیسیون"
-                android:background="@drawable/edittext_bg"
-                android:padding="12dp"/>
-
-            <!-- ورودی درصد مالیات -->
-            <TextView
-                android:id="@+id/taxPercentageLabel"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="درصد مالیات بر ارزش افزوده"
-                android:textSize="16sp"
-                android:textColor="@android:color/black"
-                android:layout_marginTop="16dp"/>
-
-            <EditText
-                android:id="@+id/vatRateInput"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="numberDecimal"
-                android:hint="درصد مالیات بر ارزش افزوده"
-                android:background="@drawable/edittext_bg"
-                android:padding="12dp"/>
+                android:layout_margin="12dp"
+                tools:listitem="@layout/installment_item" />
 
         </LinearLayout>
+
+
     </androidx.cardview.widget.CardView>
 
-    <!-- دکمه محاسبه -->
-    <Button
-        android:id="@+id/calculateButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="محاسبه"
-        android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@id/inputCardView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
-
-    <!-- نمایش نتایج -->
-    <TextView
-        android:id="@+id/resultText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="نتایج:"
-        android:textSize="16sp"
-        android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/calculateButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

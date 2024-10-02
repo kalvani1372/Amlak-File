@@ -2,22 +2,16 @@ package com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.r
 
 import android.Manifest
 import android.annotation.SuppressLint
-import android.app.AlertDialog
-import android.app.DatePickerDialog
-import android.app.TimePickerDialog
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.provider.MediaStore
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import android.widget.DatePicker
-import android.widget.TimePicker
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -29,14 +23,12 @@ import com.dev.amr.amlakfile.base.BaseFragment
 import com.dev.amr.amlakfile.base.BaseLiveDialog
 import com.dev.amr.amlakfile.data.db.DBRoom
 import com.dev.amr.amlakfile.data.hawk.Hawks
-import com.dev.amr.amlakfile.data.model.model.JDF
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormOne
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTow
 import com.dev.amr.amlakfile.databinding.FragmentRegisterBuyMortgageAndRentBinding
 import com.dev.amr.amlakfile.ui.btmSheetDialog.BtmSheetKharidForoshDialog
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
-import java.util.Date
 
 class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener {
 
@@ -269,20 +261,6 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
             itemsEmptyForms()
         }
 
-        binding.layFormOne.edtPriceMelk.doAfterTextChanged {
-            if (binding.layFormOne.edtPriceMelk.length() == 0) {
-                binding.layFormOne.txtPriceMelk.visibility = View.GONE
-            } else if (binding.layFormOne.edtPriceMelk.length() != 0) {
-                binding.layFormOne.txtPriceMelk.visibility = View.VISIBLE
-                val number = it.toString()
-                binding.layFormOne.txtPriceMelk.text =
-                    PersianDigits.spellToPersian(number.replace(",", "")) + " تومان"
-            }
-        }
-
-        binding.layFormOne.edtPriceMelk.addTextChangedListener(
-            NumberTextWatcher(binding.layFormOne.edtPriceMelk)
-        )
         if (ContextCompat.checkSelfPermission(requireActivity(), Manifest.permission.CAMERA) ==
             PackageManager.PERMISSION_DENIED
         )
