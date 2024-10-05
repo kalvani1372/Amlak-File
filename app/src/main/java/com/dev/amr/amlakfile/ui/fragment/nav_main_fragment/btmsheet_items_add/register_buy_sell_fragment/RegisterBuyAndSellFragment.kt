@@ -253,7 +253,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         BaseLiveDialog.liveDataBackToHomePage.observe(requireActivity()) {
             if (it != null) {
                 Navigation.findNavController(binding.root)
-                    .navigate(R.id.action_registerBuyAndSellFragment_to_homeFragment)
+                    .navigate(R.id.action_registerBuyAndSellFragment_to_mainFragment)
             }
         }
 
@@ -455,7 +455,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         when (v?.id) {
             R.id.btn_cancel -> {
                 Navigation.findNavController(binding.root)
-                    .navigate(R.id.action_registerBuyAndSellFragment_to_homeFragment)
+                    .navigate(R.id.action_registerBuyMortgageAndRentFragment_to_mainFragment)
             }
 
             R.id.edt_type_user -> {

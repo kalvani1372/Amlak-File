@@ -23,8 +23,7 @@ class ConvertDepositToRentAndItsReverseFragment : Fragment() {
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityTestBinding.inflate(layoutInflater)
         return binding.root
     }
@@ -32,11 +31,12 @@ class ConvertDepositToRentAndItsReverseFragment : Fragment() {
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.toolbar.layLogo.visibility = View.GONE
+        binding.toolbar.layBtnBack.visibility = View.VISIBLE
         binding.toolbar.txtTitle.text = resources.getString(R.string.txt_convert_rahn_to_ejare)
 
         binding.toolbar.btnBack.setOnClickListener {
-            findNavController().navigate(R.id.action_convertDepositToRentAndItsReverseFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_convertDepositToRentAndItsReverseFragment_to_mainFragment)
         }
 
         // todo تبدیل رهن به اجاره

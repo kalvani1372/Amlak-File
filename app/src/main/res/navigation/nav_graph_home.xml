@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_home"
+    app:startDestination="@id/mainFragment">
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_vamHomeFragment"
+            app:destination="@id/vamHomeFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_commissionFragment"
+            app:destination="@id/commissionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_convertDepositToRentAndItsReverseFragment"
+            app:destination="@id/convertDepositToRentAndItsReverseFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_registerBuyAndSellFragment"
+            app:destination="@id/registerBuyAndSellFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_registerBuyMortgageAndRentFragment"
+            app:destination="@id/registerBuyMortgageAndRentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/vamHomeFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.converter.VamHomeFragment"
+        android:label="VamHomeFragment" >
+        <action
+            android:id="@+id/action_vamHomeFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/commissionFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.converter.CommissionFragment"
+        android:label="CommissionFragment" >
+        <action
+            android:id="@+id/action_commissionFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/convertDepositToRentAndItsReverseFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.converter.ConvertDepositToRentAndItsReverseFragment"
+        android:label="ConvertDepositToRentAndItsReverseFragment" >
+        <action
+            android:id="@+id/action_convertDepositToRentAndItsReverseFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerBuyAndSellFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_sell_fragment.RegisterBuyAndSellFragment"
+        android:label="RegisterBuyAndSellFragment" >
+        <action
+            android:id="@+id/action_registerBuyAndSellFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerBuyMortgageAndRentFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_mortgage_and_rent_fragment.RegisterBuyMortgageAndRentFragment"
+        android:label="RegisterBuyMortgageAndRentFragment" >
+        <action
+            android:id="@+id/action_registerBuyMortgageAndRentFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.profile.ProfileFragment"
+        tools:layout="@layout/fragment_profile"
+        android:label="ProfileFragment" />
+    <fragment
+        android:id="@+id/reportsFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.categories.ReportsFragment"
+        android:label="fragment_reports"
+        tools:layout="@layout/fragment_reports" />
+    <fragment
+        android:id="@+id/settingFragment"
+        android:name="com.dev.amr.amlakfile.ui.fragment.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+</navigation>

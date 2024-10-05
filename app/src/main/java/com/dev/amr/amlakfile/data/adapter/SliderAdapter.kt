@@ -35,7 +35,7 @@ class SliderAdapter(context: Context, list: List<Slid>) :
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: SliderVH, position: Int) {
         val imgList = listImg[position]
-        binding.txtTitleStory.text = imgList.title
+//        binding.txtTitleStory.text = imgList.title
         binding.imgSlid.background = iContext.resources.getDrawable(imgList.image)
         binding.imgSlid.setOnClickListener {
             when(position){

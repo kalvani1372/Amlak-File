@@ -64,7 +64,7 @@ class SplashFragment : Fragment() {
 
                 if (fullName != "" && amlakName != "" && phoneNumber != "") {
                     Navigation.findNavController(requireView())
-                        .navigate(R.id.action_splashFragment_to_homeFragment)
+                        .navigate(R.id.action_splashFragment_to_homeActivity)
                 } else {
                     Navigation.findNavController(requireView())
                         .navigate(R.id.action_splashFragment_to_loginFragment)

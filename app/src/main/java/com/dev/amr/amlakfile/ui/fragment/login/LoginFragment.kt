@@ -8,15 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.ui.NavigationUI
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.data.hawk.Hawks
 import com.dev.amr.amlakfile.databinding.FragmentLoginBinding
-import com.dev.amr.amlakfile.ui.fragment.home.HomeFragment
-import kotlinx.coroutines.Delay
 import kotlin.random.Random
 
 class LoginFragment : Fragment() {
@@ -107,7 +102,7 @@ class LoginFragment : Fragment() {
 
                 3 -> {
                     ifRegister()
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+                    findNavController().navigate(R.id.action_loginFragment_to_homeActivity)
                 }
 
                 else -> {

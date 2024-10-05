@@ -8,8 +8,8 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/lay_img_slid"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_margin="10dp"
+        android:layout_height="124dp"
+        app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp">
 
@@ -28,24 +28,12 @@
         <com.dev.amr.amlakfile.data.model.custom_views.ITextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
+            android:layout_gravity="start|bottom"
             android:textColor="@color/md_grey_400"
             android:text="@string/app_name"
-            android:textSize="14sp"
-            android:layout_margin="16dp"/>
+            android:textSize="10sp"
+            android:layout_margin="8dp"/>
 
     </androidx.cardview.widget.CardView>
-
-
-    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-        android:id="@+id/txt_title_story"
-        android:layout_width="match_parent"
-        android:gravity="center"
-        android:textSize="16sp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginStart="4dp"
-        android:textColor="@color/md_indigo_700"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
 
 </LinearLayout>

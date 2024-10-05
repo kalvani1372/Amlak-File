@@ -25,6 +25,8 @@ class CommissionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityCommissionBinding.inflate(layoutInflater)
+        binding.toolbar.layLogo.visibility = View.GONE
+        binding.toolbar.layBtnBack.visibility = View.VISIBLE
         binding.toolbar.txtTitle.text = resources.getString(R.string.txt_mohasebe_komisiyon)
         return binding.root
     }
@@ -89,24 +91,8 @@ class CommissionFragment : Fragment() {
         }
 
         binding.toolbar.btnBack.setOnClickListener{
-            findNavController().navigate(R.id.action_commissionFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_commissionFragment_to_mainFragment)
         }
-
-//        binding.calculateButton.setOnClickListener {
-//
-//
-//            val resultString = """
-//                کمیسیون: ${result["commission"]}
-//                مالیات بر ارزش افزوده: ${result["vat"]}
-//                مجموع نهایی: ${result["totalAmount"]}
-//            """.trimIndent()
-//
-//            binding.txtCommissionResult.text = result["commission"]!!.trimIndent()
-//            binding.txtMaliyatResult.text = result["vat"]
-//            binding.txtMjmoeNahayiResult.text = result["totalAmount"]
-//
-//            binding.resultText.text = resultString
-//        }
 
     }
     fun calculateCommissionAndTax(

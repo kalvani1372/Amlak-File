@@ -27,10 +27,10 @@
     <string name="txt_add_file">ثبت فایل جدید</string>
     <string name="txt_btn_add_file">ثبت فایل جدید</string>
     <string name="txt_please_selected_file">کاربر گرامی لطفا جهت ثبت فایل یکی از گزینه های زیر را انتخاب کنید.</string>
-    <string name="txt_add_kharid_frosh">ثبت (خرید و فروش)</string>
-    <string name="txt_add_file_rahn_ejare">ثبت (رهن و اجاره)</string>
+    <string name="txt_add_kharid_frosh">ثبت خرید و فروش</string>
+    <string name="txt_add_file_rahn_ejare">ثبت رهن و اجاره</string>
     <string name="txt_add_zamin">ثبت زمین</string>
-    <string name="txt_mosharekat">مشارکت در ساخت</string>
+    <string name="txt_mosharekat">مشارکت در ساخت و ساز</string>
     <string name="txt_info_all">مشخصات کلیدی (اجباری)</string>
     <string name="txt_user_add_file">لطفا کاربر ثبت کننده آگهی</string>
     <string name="txt_selected">انتخاب کنید</string>
@@ -203,4 +203,7 @@
     <string name="txt_mohasebe_komisiyon">محاسبه کمیسیون</string>
     <string name="txt_convert_rahn_to_ejare">تبدیل رهن به اجاره</string>
     <string name="txt_convert_ejare_to_rahn">تبدیل اجاره به رهن</string>
+    <string name="txt_reports">گزارشات</string>
+    <string name="setting">تنظیمات</string>
+    <string name="txt_home">خانه</string>
 </resources>

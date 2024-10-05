@@ -1,4 +1,4 @@
-package com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.categories
+package com.dev.amr.amlakfile.ui.fragment.categories
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,15 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.dev.amr.amlakfile.R
-import com.dev.amr.amlakfile.databinding.FragmentCategoriesBinding
+import com.dev.amr.amlakfile.databinding.FragmentReportsBinding
 
-class CategoriesFragment : Fragment(), View.OnClickListener {
+class ReportsFragment : Fragment(), View.OnClickListener {
 
-    private lateinit var binding: FragmentCategoriesBinding
+    private lateinit var binding: FragmentReportsBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = FragmentCategoriesBinding.inflate(layoutInflater)
+        binding = FragmentReportsBinding.inflate(layoutInflater)
         return binding.root
     }
 

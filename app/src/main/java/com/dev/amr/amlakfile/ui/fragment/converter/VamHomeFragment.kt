@@ -41,7 +41,8 @@ class VamHomeFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        binding.toolbar.layLogo.visibility = View.GONE
+        binding.toolbar.layBtnBack.visibility = View.VISIBLE
         binding.toolbar.txtTitle.text = resources.getString(R.string.txt_mohasebat_vam_maskan)
 
         binding.edtLoanAmount.addTextChangedListener (NumberTextWatcher(binding.edtLoanAmount))
@@ -108,7 +109,7 @@ class VamHomeFragment : Fragment() {
             binding.installmentRecyclerView.adapter = adapter
         }
         binding.toolbar.btnBack.setOnClickListener{
-            findNavController().navigate(R.id.action_vamHomeFragment_to_homeFragment)
+            findNavController().navigate(R.id.action_vamHomeFragment_to_mainFragment)
         }
 
     }

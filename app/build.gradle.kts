@@ -60,7 +60,6 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
     implementation("com.google.accompanist:accompanist-placeholder-material:0.28.0")
-//    implementation("io.coil-kt:coil:2.6.0")
 
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
@@ -85,5 +84,8 @@ dependencies {
     implementation("com.tbuonomo:dotsindicator:5.0")
 
     implementation ("info.hoang8f:android-segmented:1.0.6")
+
+    implementation ("androidx.viewpager2:viewpager2:1.0.0")
+    implementation ("androidx.fragment:fragment-ktx:1.3.0")
 
 }
