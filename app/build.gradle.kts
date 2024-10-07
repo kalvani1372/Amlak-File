@@ -85,7 +85,10 @@ dependencies {
 
     implementation ("info.hoang8f:android-segmented:1.0.6")
 
-    implementation ("androidx.viewpager2:viewpager2:1.0.0")
-    implementation ("androidx.fragment:fragment-ktx:1.3.0")
+    implementation ("com.mikhaellopez:circularprogressbar:3.1.0")
+
+    implementation ("com.github.anastr:CustomGauge:v1.0.6")
+
+    implementation ("com.google.android.material:material:1.5.0-alpha01")
 
 }

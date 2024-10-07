@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_one"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape2">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_img"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/frame_verification_code"
+        android:backgroundTint="@color/back_first_color2"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:background="@drawable/key_square"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+        android:id="@+id/txt_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="@string/txt_moshakhasat_kilidi"
+        android:textColor="@color/txt_color_title"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/lay_img"
+        app:layout_constraintEnd_toStartOf="@+id/lay_img"
+        app:layout_constraintTop_toTopOf="@+id/lay_img" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/shape_color_line"
+        app:layout_constraintBottom_toTopOf="@id/txt_if_vam_darad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
+
+    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+        android:id="@+id/txt_if_vam_darad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_margin="16dp"
+        android:text="@string/txt_if_melk_vam_darad"
+        android:gravity="center"
+        android:textColor="@color/txt_color_title"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line"/>
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_if_vam_darad"
+        app:startIconTint="@color/md_indigo_500"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center|end"
+            android:background="@drawable/border4"
+            android:orientation="horizontal"
+            android:layout_height="56dp">
+
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_ok2"
+                android:textSize="14sp"
+                android:textColor="@color/color_4"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:layout_width="wrap_content"
+                android:layoutDirection="rtl"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="center|end"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/border9"
+            android:orientation="horizontal"
+            android:layout_height="56dp">
+
+            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_not_ok"
+                android:textSize="14sp"
+                android:textColor="@color/color_4"/>
+
+            <androidx.appcompat.widget.AppCompatRadioButton
+                android:layout_width="wrap_content"
+                android:layoutDirection="rtl"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+
+
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/input_txt_description"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:hint="@string/txt_description"
+        android:textColorHint="@color/md_indigo_500"
+        app:boxCornerRadiusBottomEnd="10dp"
+        app:boxCornerRadiusBottomStart="10dp"
+        app:boxCornerRadiusTopEnd="10dp"
+        app:boxCornerRadiusTopStart="10dp"
+        app:boxStrokeColor="@color/md_indigo_500"
+        app:boxStrokeWidth="1dp"
+        app:expandedHintEnabled="false"
+        app:hintAnimationEnabled="true"
+        app:hintTextColor="@color/md_indigo_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radio_group"
+        app:startIconTint="@color/md_indigo_500">
+
+        <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+            android:id="@+id/edt_description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center|top"
+            android:gravity="top"
+            android:enabled="true"
+            android:hint="@string/txt_sure_description"
+            android:inputType="text"
+            android:text="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"
+            android:padding="20dp"
+            android:textColor="@color/md_indigo_500"
+            android:textColorHint="@color/md_grey_500"
+            android:textSize="14sp"
+            app:mode="PERSIAN_TEXT_NORMAL16"
+            tools:ignore="MissingPrefix" />
+    </com.google.android.material.textfield.TextInputLayout>
+    
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.dev.amr.amlakfile.data.model.custom_views.IButton
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/btn_shape"
+            android:gravity="center"
+            android:text="@string/txt_next"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.IButton
+            android:id="@+id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_weight="1"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/btn_shape_gray"
+            android:gravity="center"
+            android:text="@string/txt_previous"
+            android:textColor="@color/color_btn_login"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_next" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

@@ -4,6 +4,6 @@
 
     <corners android:radius="10dp"/>
 
-    <solid android:color="@color/md_indigo_500"/>
+    <solid android:color="@color/color_btn_login"/>
 
 </shape>

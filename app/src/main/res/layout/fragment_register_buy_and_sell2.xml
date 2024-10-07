@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F4F4">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:elevation="5dp"
+        app:cardElevation="5dp"
+        app:cardMaxElevation="5dp"
+        app:elevation="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/lay_step_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border6"
+        android:orientation="horizontal"
+        android:layout_margin="8dp"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_view_toolbar">
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:id="@+id/r_b_form_tow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/border6"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:text="@string/txt_register_all_jozeyat"
+            android:textColor="@color/txt_color_description_login" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:id="@+id/r_b_form_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="4dp"
+            android:layout_weight="1"
+            android:background="@drawable/border7"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="16dp"
+            android:text="@string/txt_register_kharid"
+            android:textColor="@color/color_btn_login" />
+
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_one"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/border2"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_step_item">
+
+        <!--        <com.google.android.material.progressindicator.CircularProgressIndicator-->
+        <!--            android:id="@+id/circularProgressBar"-->
+        <!--            style="?android:attr/progressBarStyleInverse"-->
+        <!--            android:layout_width="72dp"-->
+        <!--            android:layout_height="72dp"-->
+        <!--            app:indicatorColor="@color/black"-->
+        <!--            app:trackColor="@color/violet"-->
+        <!--            android:max="100"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintTop_toTopOf="parent"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            android:progress="10"-->
+        <!--            android:indeterminate="false"-->
+        <!--            tools:ignore="MissingClass" />-->
+
+        <ProgressBar
+            android:id="@+id/circularProgressBar"
+            android:layout_width="95dp"
+            android:layout_height="95dp"
+            android:indeterminate="false"
+            android:max="100"
+            android:progress="25"
+            style="@style/CircularProgressBarStyle"
+            android:layout_centerInParent="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="45dp"
+            android:layout_height="1dp"
+            android:background="#E0E0E0"
+            app:layout_constraintBottom_toBottomOf="@+id/circularProgressBar"
+            app:layout_constraintEnd_toEndOf="@+id/circularProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/circularProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/circularProgressBar" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:id="@+id/txt_top"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:gravity="bottom|center"
+            android:text="1"
+            android:textColor="@color/txt_color_title"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toTopOf="@+id/line"
+            app:layout_constraintEnd_toEndOf="@+id/circularProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/circularProgressBar" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:id="@+id/txt_bottom"
+            android:layout_width="45dp"
+            android:layout_height="wrap_content"
+            android:gravity="bottom|center"
+            android:text="5"
+            android:textColor="@color/txt_color_title"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            app:layout_constraintEnd_toEndOf="@+id/circularProgressBar"
+            app:layout_constraintStart_toStartOf="@+id/circularProgressBar" />
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/circularProgressBar"
+            app:layout_constraintTop_toTopOf="@+id/circularProgressBar"
+            android:orientation="vertical"
+            android:gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/circularProgressBar">
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/txt_color_title"
+                    android:text="تایید اطلاعات پایه آگهی"/>
+
+                <View
+                    android:layout_width="5dp"
+                    android:layout_height="5dp"
+                    android:background="@drawable/circle"/>
+
+
+                
+            </LinearLayout>
+            
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:gravity="center"
+                android:layout_gravity="center|end"
+                android:orientation="horizontal">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginEnd="8dp"
+                    android:textColor="@color/txt_color_description_login"
+                    android:text="بعدی : اطلاعات مالک"/>
+
+                <View
+                    android:layout_width="4.5dp"
+                    android:layout_height="4.5dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="@color/md_grey_600"/>
+                
+            </LinearLayout>
+            
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/lay_btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="8dp"
+            android:visibility="visible"
+            android:background="@drawable/frame_verification_code"
+            android:backgroundTint="@color/back_first_color2"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/btn_eye"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:background="@drawable/eye"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <include
+        android:id="@+id/lay_form_one"
+        layout="@layout/register_form_one_layout2"
+        android:layout_width="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@+id/lay_one"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/lay_form_Two"
+        layout="@layout/register_form_two_layout2"
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_one"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/lay_form_Three"
+        layout="@layout/register_form_three_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_one"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/lay_form_four"
+        layout="@layout/register_form_four_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_one"
+        android:layout_height="0dp"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/lay_form_five"
+        layout="@layout/register_form_five_layout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_one"
+        android:layout_height="0dp"
+        android:visibility="visible" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_one">
+
+        <LinearLayout
+            android:id="@+id/lay_forms"
+            android:layout_width="match_parent"
+            android:layout_marginTop="24dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+
+            <include
+                android:id="@+id/lay_form_tow"
+                layout="@layout/register_form_tow_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

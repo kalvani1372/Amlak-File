@@ -27,4 +27,19 @@
         <item name="android:windowExitAnimation">@anim/slide_down</item>
     </style>
 
+    <style name="FontFamily">
+        <item name="android:windowEnterAnimation">@anim/slide_up</item>
+        <item name="android:fontFamily">assets/font/Dirooz.ttf</item>
+        <item name="android:windowExitAnimation">@anim/slide_down</item>
+    </style>
+
+    <style name="CircularProgressBarStyle" parent="Widget.AppCompat.ProgressBar">
+        <item name="android:indeterminateDrawable">@drawable/circular_progress_bar</item>
+        <item name="android:max">100</item>
+        <item name="android:progress">75</item> <!-- مقدار پیشرفت پیش‌فرض -->
+        <item name="android:layout_width">150dp</item>
+        <item name="android:layout_height">150dp</item>
+        <item name="android:indeterminate">false</item>
+    </style>
+
 </resources>

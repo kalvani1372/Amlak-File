@@ -32,7 +32,7 @@
     <string name="txt_add_zamin">ثبت زمین</string>
     <string name="txt_mosharekat">مشارکت در ساخت و ساز</string>
     <string name="txt_info_all">مشخصات کلیدی (اجباری)</string>
-    <string name="txt_user_add_file">لطفا کاربر ثبت کننده آگهی</string>
+    <string name="txt_user_add_file">ثبت کننده آگهی</string>
     <string name="txt_selected">انتخاب کنید</string>
     <string name="txt_type_file">نوع آگهی</string>
     <string name="txt_type_user">نوع کاربری</string>
@@ -162,7 +162,7 @@
     <string name="txt_mesal_250">مثال : 250</string>
     <string name="txt_kharid">خرید :</string>
     <string name="txt_id_melk">کد ملک :</string>
-    <string name="txt_address">آدرس :</string>
+    <string name="txt_address">آدرس</string>
     <string name="txt_price">قیمت :</string>
     <string name="txt_show_jozeiyat_bishtar">نمایش جزئیات بیشتر</string>
     <string name="txt_full_name">نام و نام خانوادگی :</string>
@@ -171,8 +171,8 @@
     <string name="txt_info_melk">مشخصات کامل ملک</string>
     <string name="txt_info_owner">مشخصات مالک</string>
     <string name="txt_register">ثبت نام</string>
-    <string name="txt_time">ساعت</string>
-    <string name="txt_date">تاریخ</string>
+    <string name="txt_time">ساعت ثبت</string>
+    <string name="txt_date">تاریخ ثبت</string>
     <string name="txt_register_date_time">ساعت و تاریخ ثبت فایل</string>
     <string name="txt_are_you_sure_vame">آیا ملک وام دارد ؟</string>
     <string name="txt_mesal_vam_bale">مثال : بله</string>
@@ -206,4 +206,25 @@
     <string name="txt_reports">گزارشات</string>
     <string name="setting">تنظیمات</string>
     <string name="txt_home">خانه</string>
+    <string name="txt_edit">ویرایش</string>
+    <string name="txt_next">بعدی</string>
+    <string name="txt_information_owner">اطلاعات مالک</string>
+    <string name="txt_name_owner">نام مالک</string>
+    <string name="txt_please_enter_name_owner">لطفا نام مالک را وارد کنید.</string>
+    <string name="txt_family_owner">نام خانوادگی مالک</string>
+    <string name="txt_enter_family_owner">لطفا نام خانوادگی مالک را وارد کنید.</string>
+    <string name="txt_phone_number_owner">شماره همراه مالک</string>
+    <string name="txt_enter_phone_number_owner">لطفا شماره همراه مالک را وارد کنید.</string>
+    <string name="txt_previous">قبلی</string>
+    <string name="txt_price_the_property">قیمت</string>
+    <string name="edt_price_the_property">قیمت ملک (تومان)</string>
+    <string name="txt_address_and_metrazh">آدرس و متراژ</string>
+    <string name="txt_enter_price_melk2">لطفا قیمت ملک را به تومان وارد کنید</string>
+    <string name="txt_select_map">انتخاب آدرس از نقشه</string>
+    <string name="txt_enter_metrazh_moraba">لطفا متراژ ملک را به متر مربع وارد کنید.</string>
+    <string name="txt_enter_address_melk">لطفا آدرس ملک را وارد کنید.</string>
+    <string name="txt_moshakhasat_kilidi">مشخصات کلیدی</string>
+    <string name="txt_if_melk_vam_darad">آیا ملک وام دارد ؟</string>
+    <string name="txt_ok2">بله</string>
+    <string name="txt_not_ok">خیر</string>
 </resources>
