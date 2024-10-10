@@ -173,6 +173,8 @@
     <string name="txt_register">ثبت نام</string>
     <string name="txt_time">ساعت ثبت</string>
     <string name="txt_date">تاریخ ثبت</string>
+    <string name="txt_select_date">لطفا تاریخ ثبت ملک را انتخاب کنید.</string>
+    <string name="txt_select_time">لطفا ساعت ثبت ملک را انتخاب کنید.</string>
     <string name="txt_register_date_time">ساعت و تاریخ ثبت فایل</string>
     <string name="txt_are_you_sure_vame">آیا ملک وام دارد ؟</string>
     <string name="txt_mesal_vam_bale">مثال : بله</string>

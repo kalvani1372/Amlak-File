@@ -85,8 +85,5 @@ dependencies {
 
     implementation ("info.hoang8f:android-segmented:1.0.6")
 
-    implementation ("com.mikhaellopez:circularprogressbar:3.1.0")
-
-    implementation ("com.github.anastr:CustomGauge:v1.0.6")
 
 }
