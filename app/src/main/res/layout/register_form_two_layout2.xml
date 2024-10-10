@@ -6,61 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/lay_img"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="16dp"
-        android:background="@drawable/frame_verification_code"
-        android:backgroundTint="@color/back_first_color2"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:layout_width="24dp"
-            android:layout_height="24dp"
-            android:background="@drawable/user2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-    <com.dev.amr.amlakfile.data.model.custom_views.ITextView
-        android:id="@+id/txt_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:text="@string/txt_information_owner"
-        android:textColor="@color/txt_color_title"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/lay_img"
-        app:layout_constraintEnd_toStartOf="@+id/lay_img"
-        app:layout_constraintTop_toTopOf="@+id/lay_img" />
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/line"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/shape_color_line"
-        app:layout_constraintBottom_toTopOf="@id/input_txt_name_owner"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_title" />
-
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_txt_name_owner"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/txt_name_owner"
         android:textColorHint="@color/md_indigo_500"
@@ -75,7 +26,7 @@
         app:hintTextColor="@color/md_indigo_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/line"
+        app:layout_constraintTop_toTopOf="parent"
         app:startIconTint="@color/md_indigo_500">
 
         <com.dev.amr.amlakfile.data.model.custom_views.IEditText
