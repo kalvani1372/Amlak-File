@@ -89,6 +89,4 @@ dependencies {
 
     implementation ("com.github.anastr:CustomGauge:v1.0.6")
 
-    implementation ("com.google.android.material:material:1.5.0-alpha01")
-
 }

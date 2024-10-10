@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/lay_one"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/shape2">
+    android:layout_height="wrap_content">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/lay_img"
@@ -108,7 +107,6 @@
         android:textColor="@color/color_btn_login"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/input_txt_metrazh_moraba"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/input_txt_address_file"/>
 
@@ -117,9 +115,7 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_margin="16dp"
         android:hint="@string/txt_metrazh_moraba"
         android:textColorHint="@color/md_indigo_500"
         app:boxCornerRadiusBottomEnd="10dp"
@@ -132,6 +128,7 @@
         app:hintAnimationEnabled="true"
         app:hintTextColor="@color/md_indigo_500"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_select_map"
         app:startIconTint="@color/md_indigo_500">
@@ -157,6 +154,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">

@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lay_one"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/nested_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <RadioGroup
+                    android:id="@+id/radio_g1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_margin="8dp"
+                    app:layout_constraintStart_toEndOf="@id/radio_g2"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lay_asansor"
+                        android:background="@drawable/border4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/icon_asonsor"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/elevator"
+                            android:backgroundTint="@color/md_indigo_500"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/check_asansor"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="8dp"
+                            android:tag="@string/txt_asansor"
+                            app:layout_constraintBottom_toBottomOf="@id/icon_asonsor"
+                            app:layout_constraintEnd_toStartOf="@id/icon_asonsor"
+                            app:layout_constraintTop_toTopOf="@id/icon_asonsor" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_asansor"
+                            android:textColor="@color/md_indigo_500"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@id/check_asansor"
+                            app:layout_constraintEnd_toStartOf="@id/check_asansor"
+                            app:layout_constraintTop_toTopOf="@id/check_asansor" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lay_melk_bazsazi_shode"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border4"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/icon_melk_bazsazi_shode"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/icon_bazsazi_melk"
+                            android:backgroundTint="@color/md_indigo_500"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/check_melk_bazsazi_shode"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="8dp"
+                            android:tag="@string/txt_melk_bazsazi_shode"
+                            app:layout_constraintBottom_toBottomOf="@id/icon_melk_bazsazi_shode"
+                            app:layout_constraintEnd_toStartOf="@id/icon_melk_bazsazi_shode"
+                            app:layout_constraintTop_toTopOf="@id/icon_melk_bazsazi_shode" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_melk_bazsazi_shode"
+                            android:textColor="@color/md_indigo_500"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@id/check_melk_bazsazi_shode"
+                            app:layout_constraintEnd_toStartOf="@id/check_melk_bazsazi_shode"
+                            app:layout_constraintTop_toTopOf="@id/check_melk_bazsazi_shode" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lay_items_radio_1"
+                        android:layout_width="match_parent"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_anbari"
+                            android:visibility="visible"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_anbari"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/warehouse"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_anbari"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_anbari"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_anbari"
+                                app:layout_constraintEnd_toStartOf="@id/icon_anbari"
+                                app:layout_constraintTop_toTopOf="@id/icon_anbari" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_anbari"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_anbari"
+                                app:layout_constraintEnd_toStartOf="@id/check_anbari"
+                                app:layout_constraintTop_toTopOf="@id/check_anbari" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_balkon"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_balkon"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/icon_balkon"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_balkon"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_balkon_darad"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_balkon"
+                                app:layout_constraintEnd_toStartOf="@id/icon_balkon"
+                                app:layout_constraintTop_toTopOf="@id/icon_balkon" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_balkon_darad"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_balkon"
+                                app:layout_constraintEnd_toStartOf="@id/check_balkon"
+                                app:layout_constraintTop_toTopOf="@id/check_balkon" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_sona"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_sona"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/icon_sona"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_sona"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_sona"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_sona"
+                                app:layout_constraintEnd_toStartOf="@id/icon_sona"
+                                app:layout_constraintTop_toTopOf="@id/icon_sona" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_sona"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_sona"
+                                app:layout_constraintEnd_toStartOf="@id/check_sona"
+                                app:layout_constraintTop_toTopOf="@id/check_sona" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_gaz_romizi"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_gaz_romizi"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/icon_gazromizi"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_gaz_romizi"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_gaz_romozi"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_gaz_romizi"
+                                app:layout_constraintEnd_toStartOf="@id/icon_gaz_romizi"
+                                app:layout_constraintTop_toTopOf="@id/icon_gaz_romizi" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_gaz_romozi"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_gaz_romizi"
+                                app:layout_constraintEnd_toStartOf="@id/check_gaz_romizi"
+                                app:layout_constraintTop_toTopOf="@id/check_gaz_romizi" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_hod"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_hod"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/icon_hood"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_hod"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_hod"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_hod"
+                                app:layout_constraintEnd_toStartOf="@id/icon_hod"
+                                app:layout_constraintTop_toTopOf="@id/icon_hod" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_hod"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_hod"
+                                app:layout_constraintEnd_toStartOf="@id/check_hod"
+                                app:layout_constraintTop_toTopOf="@id/check_hod" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_darb_zed_serghat"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_darb_zed_serghat"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/icon_darb_zed_serghat"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_darb_zed_serghat"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_darb_zed_serghat"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_darb_zed_serghat"
+                                app:layout_constraintEnd_toStartOf="@id/icon_darb_zed_serghat"
+                                app:layout_constraintTop_toTopOf="@id/icon_darb_zed_serghat" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_darb_zed_serghat"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_darb_zed_serghat"
+                                app:layout_constraintEnd_toStartOf="@id/check_darb_zed_serghat"
+                                app:layout_constraintTop_toTopOf="@id/check_darb_zed_serghat" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_komod_divari"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_komod_divari"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/icon_komod_divari"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_komod_divari"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_komod_divari"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_komod_divari"
+                                app:layout_constraintEnd_toStartOf="@id/icon_komod_divari"
+                                app:layout_constraintTop_toTopOf="@id/icon_komod_divari" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_komod_divari"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_komod_divari"
+                                app:layout_constraintEnd_toStartOf="@id/check_komod_divari"
+                                app:layout_constraintTop_toTopOf="@id/check_komod_divari" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_hayat"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_hayat"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/icon_hayat"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_hayat"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_hayat"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_hayat"
+                                app:layout_constraintEnd_toStartOf="@id/icon_hayat"
+                                app:layout_constraintTop_toTopOf="@id/icon_hayat" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_hayat"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_hayat"
+                                app:layout_constraintEnd_toStartOf="@id/check_hayat"
+                                app:layout_constraintTop_toTopOf="@id/check_hayat" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                </RadioGroup>
+
+                <RadioGroup
+                    android:id="@+id/radio_g2"
+                    android:layout_width="0dp"
+                    android:layout_margin="8dp"
+                    android:layout_height="match_parent"
+                    app:layout_constraintEnd_toStartOf="@id/radio_g1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lay_parking"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/border4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/icon_parking"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/parking"
+                            android:backgroundTint="@color/md_indigo_500"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/check_parking"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="8dp"
+                            android:tag="@string/txt_jakozi"
+                            app:layout_constraintBottom_toBottomOf="@id/icon_parking"
+                            app:layout_constraintEnd_toStartOf="@id/icon_parking"
+                            app:layout_constraintTop_toTopOf="@id/icon_parking" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_parking"
+                            android:textColor="@color/md_indigo_500"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@id/check_parking"
+                            app:layout_constraintEnd_toStartOf="@id/check_parking"
+                            app:layout_constraintTop_toTopOf="@id/check_parking" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/lay_jakozi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border4"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/icon_jakozi"
+                            android:layout_width="25dp"
+                            android:layout_height="25dp"
+                            android:layout_marginTop="16dp"
+                            android:background="@drawable/icon_jakozi"
+                            android:backgroundTint="@color/md_indigo_500"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginBottom="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatCheckBox
+                            android:id="@+id/check_jakozi"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_marginEnd="8dp"
+                            android:tag="@string/txt_jakozi"
+                            app:layout_constraintBottom_toBottomOf="@id/icon_jakozi"
+                            app:layout_constraintEnd_toStartOf="@id/icon_jakozi"
+                            app:layout_constraintTop_toTopOf="@id/icon_jakozi" />
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_jakozi"
+                            android:textColor="@color/md_indigo_500"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@id/check_jakozi"
+                            app:layout_constraintEnd_toStartOf="@id/check_jakozi"
+                            app:layout_constraintTop_toTopOf="@id/check_jakozi" />
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lay_items_radio_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_estakhr"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="@+id/lay_asansor"
+                            app:layout_constraintTop_toBottomOf="@+id/lay_asansor">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_estakhr"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/icon_estakhr"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_estakhr"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_estakhr"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_estakhr"
+                                app:layout_constraintEnd_toStartOf="@id/icon_estakhr"
+                                app:layout_constraintTop_toTopOf="@id/icon_estakhr" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_estakhr"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_estakhr"
+                                app:layout_constraintEnd_toStartOf="@id/check_estakhr"
+                                app:layout_constraintTop_toTopOf="@id/check_estakhr" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_iphon_tasviri"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_iphon_tasviri"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:background="@drawable/icon_iphon_tasviri"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_iphon_tasviri"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_iphon_tasviri"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_iphon_tasviri"
+                                app:layout_constraintEnd_toStartOf="@id/icon_iphon_tasviri"
+                                app:layout_constraintTop_toTopOf="@id/icon_iphon_tasviri" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_iphon_tasviri"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_iphon_tasviri"
+                                app:layout_constraintEnd_toStartOf="@id/check_iphon_tasviri"
+                                app:layout_constraintTop_toTopOf="@id/check_iphon_tasviri" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_labi"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_labi"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@drawable/icon_lobby"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_labi"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_labi"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_labi"
+                                app:layout_constraintEnd_toStartOf="@id/icon_labi"
+                                app:layout_constraintTop_toTopOf="@id/icon_labi" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_labi"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_labi"
+                                app:layout_constraintEnd_toStartOf="@id/check_labi"
+                                app:layout_constraintTop_toTopOf="@id/check_labi" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_salon_varzeshi"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_salon_varzeshi"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@drawable/icon_gym"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_salon_varzeshi"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_salon_varzesh"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_salon_varzeshi"
+                                app:layout_constraintEnd_toStartOf="@id/icon_salon_varzeshi"
+                                app:layout_constraintTop_toTopOf="@id/icon_salon_varzeshi" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_salon_varzesh"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_salon_varzeshi"
+                                app:layout_constraintEnd_toStartOf="@id/check_salon_varzeshi"
+                                app:layout_constraintTop_toTopOf="@id/check_salon_varzeshi" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_salon_ejtemaat"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_salon_ejtemaat"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@drawable/icon_salon_ejtemaat"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_salon_ejtemaat"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_salon_ejtemaat"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_salon_ejtemaat"
+                                app:layout_constraintEnd_toStartOf="@id/icon_salon_ejtemaat"
+                                app:layout_constraintTop_toTopOf="@id/icon_salon_ejtemaat" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_salon_ejtemaat"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_salon_ejtemaat"
+                                app:layout_constraintEnd_toStartOf="@id/check_salon_ejtemaat"
+                                app:layout_constraintTop_toTopOf="@id/check_salon_ejtemaat" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_anten_markazi"
+                            android:visibility="visible"
+                            android:layout_width="match_parent"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_anten_markazi"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@drawable/icon_anten_markazi"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_anten_markazi"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_anten_markazi"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_anten_markazi"
+                                app:layout_constraintEnd_toStartOf="@id/icon_anten_markazi"
+                                app:layout_constraintTop_toTopOf="@id/icon_anten_markazi" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_anten_markazi"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_anten_markazi"
+                                app:layout_constraintEnd_toStartOf="@id/check_anten_markazi"
+                                app:layout_constraintTop_toTopOf="@id/check_anten_markazi" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_jarobarghi_markazi"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_jarobarghi_markazi"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                android:layout_marginBottom="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:background="@drawable/icon_jarobarghi_markazi"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_jarobarghi_markazi"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_jarobarghi_markazi"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_jarobarghi_markazi"
+                                app:layout_constraintEnd_toStartOf="@id/icon_jarobarghi_markazi"
+                                app:layout_constraintTop_toTopOf="@id/icon_jarobarghi_markazi" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="12sp"
+                                android:text="@string/txt_jarobarghi_markazi"
+                                android:textColor="@color/md_indigo_500"
+                                app:layout_constraintBottom_toBottomOf="@id/check_jarobarghi_markazi"
+                                app:layout_constraintEnd_toStartOf="@id/check_jarobarghi_markazi"
+                                app:layout_constraintTop_toTopOf="@id/check_jarobarghi_markazi" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/lay_select_all"
+                            android:layout_width="match_parent"
+                            android:visibility="visible"
+                            android:layout_marginTop="8dp"
+                            android:background="@drawable/border4"
+                            android:layout_height="match_parent">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/icon_select_all"
+                                android:layout_width="25dp"
+                                android:layout_height="25dp"
+                                android:layout_marginTop="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:layout_marginBottom="16dp"
+                                android:background="@drawable/select_all_icon"
+                                android:backgroundTint="@color/md_indigo_500"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <androidx.appcompat.widget.AppCompatCheckBox
+                                android:id="@+id/check_select_all"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:layout_marginEnd="8dp"
+                                android:tag="@string/txt_select_all"
+                                app:layout_constraintBottom_toBottomOf="@id/icon_select_all"
+                                app:layout_constraintEnd_toStartOf="@id/icon_select_all"
+                                app:layout_constraintTop_toTopOf="@id/icon_select_all" />
+
+                            <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/txt_select_all"
+                                android:textColor="@color/md_indigo_500"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="@id/check_select_all"
+                                app:layout_constraintEnd_toStartOf="@id/check_select_all"
+                                app:layout_constraintTop_toTopOf="@id/check_select_all" />
+
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+
+                </RadioGroup>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/lay_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.dev.amr.amlakfile.data.model.custom_views.IButton
+            android:id="@+id/btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape"
+            android:gravity="center"
+            android:text="@string/txt_next"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toTopOf="@+id/btn_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.IButton
+            android:id="@+id/btn_edit"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="1"
+            android:background="@drawable/btn_shape_gray"
+            android:gravity="center"
+            android:text="@string/txt_previous"
+            android:textColor="@color/color_btn_login"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_next" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

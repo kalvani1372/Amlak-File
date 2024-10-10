@@ -227,4 +227,5 @@
     <string name="txt_if_melk_vam_darad">آیا ملک وام دارد ؟</string>
     <string name="txt_ok2">بله</string>
     <string name="txt_not_ok">خیر</string>
+    <string name="txt_please_select_img">لطفا عکس را انتخاب کنید</string>
 </resources>

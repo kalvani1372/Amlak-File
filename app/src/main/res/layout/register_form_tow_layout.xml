@@ -1254,7 +1254,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_anbari"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -1294,7 +1294,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_balkon"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -1335,7 +1335,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_sona"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -1376,7 +1376,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_gaz_romizi"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -1417,7 +1417,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_hod"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
@@ -1459,7 +1459,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_darb_zed_serghat"
                         android:layout_width="match_parent"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_height="match_parent">
 
                         <androidx.appcompat.widget.AppCompatImageView
@@ -1500,7 +1500,7 @@
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_komod_divari"
                         android:layout_width="match_parent"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_height="match_parent">
 
                         <androidx.appcompat.widget.AppCompatImageView
@@ -1540,7 +1540,7 @@
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:id="@+id/lay_hayat"
-                        android:visibility="gone"
+                        android:visibility="visible"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
