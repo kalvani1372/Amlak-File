@@ -230,4 +230,5 @@
     <string name="txt_ok2">بله</string>
     <string name="txt_not_ok">خیر</string>
     <string name="txt_please_select_img">لطفا عکس را انتخاب کنید</string>
+    <string name="txt_info_paye_registering">اطلاعات پایه ثبت آگهی</string>
 </resources>
