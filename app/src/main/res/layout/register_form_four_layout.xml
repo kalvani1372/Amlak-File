@@ -30,7 +30,7 @@
         app:startIconTint="@color/md_indigo_500">
 
         <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-            android:id="@+id/edt_name_owner"
+            android:id="@+id/edt_address_file"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -39,12 +39,43 @@
             android:hint="@string/txt_enter_address_melk"
             android:inputType="text"
             android:padding="18dp"
-            android:textColor="@color/md_indigo_500"
+            android:textColor="@color/txt_color_title"
             android:textColorHint="@color/md_grey_500"
             android:textSize="12sp"
             app:mode="PERSIAN_TEXT_NORMAL16"
             tools:ignore="MissingPrefix" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_txt_address_file"
+        app:layout_constraintTop_toBottomOf="@+id/input_txt_address_file"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_enter_address_melk"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring"
+            app:layout_constraintTop_toTopOf="@+id/img_warring" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.dev.amr.amlakfile.data.model.custom_views.ITextView
         android:id="@+id/btn_select_map"
@@ -59,7 +90,7 @@
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_txt_address_file"/>
+        app:layout_constraintTop_toBottomOf="@id/lay_warning_1"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_txt_metrazh_moraba"
@@ -92,14 +123,45 @@
             android:drawablePadding="8dp"
             android:enabled="true"
             android:hint="@string/txt_enter_metrazh_moraba"
-            android:inputType="text"
+            android:inputType="number"
             android:padding="18dp"
-            android:textColor="@color/md_indigo_500"
+            android:textColor="@color/txt_color_title"
             android:textColorHint="@color/md_grey_500"
             android:textSize="12sp"
             app:mode="PERSIAN_TEXT_NORMAL16"
             tools:ignore="MissingPrefix" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_txt_metrazh_moraba"
+        app:layout_constraintTop_toBottomOf="@+id/input_txt_metrazh_moraba"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_enter_metrazh_moraba"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring2"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring2"
+            app:layout_constraintTop_toTopOf="@+id/img_warring2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
         android:layout_width="match_parent"

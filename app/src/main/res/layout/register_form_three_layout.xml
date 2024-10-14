@@ -37,15 +37,47 @@
                 android:drawableStart="@drawable/toman"
                 android:drawablePadding="8dp"
                 android:enabled="true"
+                android:maxLength="15"
                 android:hint="@string/txt_enter_price_melk2"
-                android:inputType="text"
+                android:inputType="numberDecimal"
                 android:padding="18dp"
-                android:textColor="@color/md_indigo_500"
+                android:textColor="@color/txt_color_title"
                 android:textColorHint="@color/md_grey_500"
                 android:textSize="12sp"
                 app:mode="PERSIAN_TEXT_NORMAL16"
                 tools:ignore="MissingPrefix" />
         </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_txt_price_melk"
+        app:layout_constraintTop_toBottomOf="@+id/input_txt_price_melk"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_enter_price_melk2"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring"
+            app:layout_constraintTop_toTopOf="@+id/img_warring" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.dev.amr.amlakfile.data.model.custom_views.ITextView
             android:id="@+id/txt_price"
@@ -53,6 +85,7 @@
             android:layout_height="56dp"
             android:layout_weight="1"
             android:layout_margin="16dp"
+            android:visibility="gone"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -63,7 +96,7 @@
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/input_txt_price_melk"/>
+            app:layout_constraintTop_toBottomOf="@id/lay_warning_1"/>
 
 
 <!--    <LinearLayout-->

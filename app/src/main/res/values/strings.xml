@@ -171,6 +171,7 @@
     <string name="txt_info_melk">مشخصات کامل ملک</string>
     <string name="txt_info_owner">مشخصات مالک</string>
     <string name="txt_register">ثبت نام</string>
+    <string name="txt_register2">ثبت</string>
     <string name="txt_time">ساعت ثبت</string>
     <string name="txt_date">تاریخ ثبت</string>
     <string name="txt_select_date">لطفا تاریخ ثبت ملک را انتخاب کنید.</string>
@@ -218,11 +219,11 @@
     <string name="txt_phone_number_owner">شماره همراه مالک</string>
     <string name="txt_enter_phone_number_owner">لطفا شماره همراه مالک را وارد کنید.</string>
     <string name="txt_previous">قبلی</string>
-    <string name="txt_price_the_property">قیمت</string>
+    <string name="txt_price_the_property">قیمت ملک</string>
     <string name="edt_price_the_property">قیمت ملک (تومان)</string>
     <string name="txt_address_and_metrazh">آدرس و متراژ</string>
     <string name="txt_enter_price_melk2">لطفا قیمت ملک را به تومان وارد کنید</string>
-    <string name="txt_select_map">انتخاب آدرس از نقشه</string>
+    <string name="txt_select_map">انتخاب آدرس از روی نقشه</string>
     <string name="txt_enter_metrazh_moraba">لطفا متراژ ملک را به متر مربع وارد کنید.</string>
     <string name="txt_enter_address_melk">لطفا آدرس ملک را وارد کنید.</string>
     <string name="txt_moshakhasat_kilidi">مشخصات کلیدی</string>
@@ -231,4 +232,5 @@
     <string name="txt_not_ok">خیر</string>
     <string name="txt_please_select_img">لطفا عکس را انتخاب کنید</string>
     <string name="txt_info_paye_registering">اطلاعات پایه ثبت آگهی</string>
+    <string name="txt_description_melk">در صورت لزوم، توضیحات مربوطه را وارد کنید</string>
 </resources>

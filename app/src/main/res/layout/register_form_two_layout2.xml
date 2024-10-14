@@ -38,12 +38,43 @@
             android:hint="@string/txt_please_enter_name_owner"
             android:inputType="text"
             android:padding="18dp"
-            android:textColor="@color/md_indigo_500"
+            android:textColor="@color/txt_color_title"
             android:textColorHint="@color/md_grey_500"
             android:textSize="12sp"
             app:mode="PERSIAN_TEXT_NORMAL16"
             tools:ignore="MissingPrefix" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_txt_name_owner"
+        app:layout_constraintTop_toBottomOf="@+id/input_txt_name_owner"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_please_enter_name_owner"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring"
+            app:layout_constraintTop_toTopOf="@+id/img_warring" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/input_txt_family_owner"
@@ -66,31 +97,59 @@
         app:hintTextColor="@color/md_indigo_500"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/input_txt_name_owner">
+        app:layout_constraintTop_toBottomOf="@id/lay_warning_1">
 
         <com.dev.amr.amlakfile.data.model.custom_views.IEditText
             android:id="@+id/edt_family_owner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:clickable="false"
-            android:cursorVisible="false"
             android:drawablePadding="8dp"
-            android:focusable="false"
             android:hint="@string/txt_enter_family_owner"
-            android:inputType="number"
+            android:inputType="text"
             android:letterSpacing="0.2"
             android:minHeight="36dp"
             android:padding="18dp"
-            android:textColor="@color/md_indigo_500"
+            android:textColor="@color/txt_color_title"
             android:textColorHint="@color/md_grey_500"
             android:textSize="12sp"
             app:mode="PERSIAN_TEXT_NORMAL16"
             tools:ignore="MissingPrefix" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_txt_family_owner"
+        app:layout_constraintTop_toBottomOf="@+id/input_txt_family_owner"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_enter_family_owner"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring2"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring2"
+            app:layout_constraintTop_toTopOf="@+id/img_warring2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/input_txt_time"
+        android:id="@+id/input_txt_mobile_phone_number"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -109,31 +168,58 @@
         app:expandedHintEnabled="false"
         app:hintAnimationEnabled="true"
         app:hintTextColor="@color/md_indigo_500"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/input_txt_family_owner">
+        app:layout_constraintTop_toBottomOf="@+id/lay_warning_2">
 
         <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-            android:id="@+id/edt_time"
+            android:id="@+id/edt_mobile_phone_number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:clickable="false"
-            android:cursorVisible="false"
             android:drawableStart="@drawable/phone"
             android:drawablePadding="8dp"
-            android:focusable="false"
             android:hint="@string/txt_enter_phone_number_owner"
             android:inputType="number"
+            android:maxLength="11"
             android:minHeight="36dp"
             android:padding="18dp"
-            android:letterSpacing="1"
-            android:textColor="@color/md_indigo_500"
+            android:textColor="@color/txt_color_title"
             android:textColorHint="@color/md_grey_500"
             android:textSize="12sp"
             app:mode="PERSIAN_TEXT_NORMAL16"
             tools:ignore="MissingPrefix" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_txt_mobile_phone_number"
+        app:layout_constraintTop_toBottomOf="@+id/input_txt_mobile_phone_number"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_enter_phone_number_owner"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring3"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring3"
+            app:layout_constraintTop_toTopOf="@+id/img_warring3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

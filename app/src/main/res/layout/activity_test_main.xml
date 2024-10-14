@@ -165,7 +165,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
+                android:layout_gravity="center|end"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -187,6 +187,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/lay_des_2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center|end"
@@ -225,7 +226,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <androidx.appcompat.widget.AppCompatImageButton
+            <com.dev.amr.amlakfile.data.model.custom_views.IButton
                 android:id="@+id/btn_eye"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
@@ -382,7 +383,7 @@
 
             <include
                 android:id="@+id/lay_form_five"
-                layout="@layout/register_form_eghte2_layout"
+                layout="@layout/register_form_five_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>
 
@@ -443,48 +444,70 @@
 <!--        </LinearLayout>-->
 <!--    </androidx.constraintlayout.widget.ConstraintLayout>-->
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/center_guid_line"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.50" />
-
-    <com.dev.amr.amlakfile.data.model.custom_views.IButton
-        android:id="@+id/btn_next123"
-        android:layout_width="0dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="16dp"
-        android:layout_weight="1"
-        android:background="@drawable/btn_shape"
-        android:gravity="center"
-        android:text="@string/txt_next"
-        android:textColor="@color/white"
-        android:textSize="16sp"
+    <LinearLayout
+        android:id="@+id/lay_btn"
+        android:layout_width="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/center_guid_line"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="wrap_content">
 
-
-        <com.dev.amr.amlakfile.data.model.custom_views.IButton
-            android:id="@+id/btn_previous"
-            android:layout_width="0dp"
-            android:layout_height="56dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginStart="4dp"
-            android:layout_marginBottom="16dp"
-            android:layout_weight="1"
-            android:background="@drawable/btn_shape_gray"
-            android:gravity="center"
-            android:visibility="gone"
-            android:text="@string/txt_previous"
-            android:textColor="@color/color_btn_login"
-            android:textSize="16sp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/center_guid_line"/>
+            android:background="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="wrap_content">
 
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/center_guid_line"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.50" />
+
+            <com.dev.amr.amlakfile.data.model.custom_views.IButton
+                android:id="@+id/btn_next123"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape"
+                android:gravity="center"
+                android:text="@string/txt_next"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/center_guid_line"
+                app:layout_constraintStart_toStartOf="parent" />
+
+
+            <com.dev.amr.amlakfile.data.model.custom_views.IButton
+                android:id="@+id/btn_previous"
+                android:layout_width="0dp"
+                android:layout_height="56dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/btn_shape_gray"
+                android:gravity="center"
+                android:visibility="gone"
+                android:text="@string/txt_previous"
+                android:textColor="@color/color_btn_login"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/center_guid_line"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

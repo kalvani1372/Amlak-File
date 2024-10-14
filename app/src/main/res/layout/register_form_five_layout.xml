@@ -30,6 +30,7 @@
                 app:startIconTint="@color/md_indigo_500">
 
                 <LinearLayout
+                    android:id="@+id/lay_radio_btn1"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:background="@drawable/border4"
@@ -44,17 +45,20 @@
                         android:textSize="14sp" />
 
                     <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/radio_btn1"
                         android:layout_width="wrap_content"
+                        android:tag="@string/txt_ok2"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl" />
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/lay_radio_btn2"
                     android:layout_width="match_parent"
                     android:layout_height="56dp"
                     android:layout_marginTop="8dp"
-                    android:background="@drawable/border9"
+                    android:background="@drawable/border4"
                     android:gravity="center|end"
                     android:orientation="horizontal">
 
@@ -66,6 +70,8 @@
                         android:textSize="14sp" />
 
                     <androidx.appcompat.widget.AppCompatRadioButton
+                        android:id="@+id/radio_btn2"
+                        android:tag="@string/txt_not_ok"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layoutDirection="rtl" />
@@ -105,10 +111,10 @@
                     android:layout_gravity="center"
                     android:enabled="true"
                     android:gravity="top"
+                    android:hint="@string/txt_description_melk"
                     android:lineSpacingExtra="2dp"
                     android:padding="20dp"
-                    android:text="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"
-                    android:textColor="@color/md_indigo_500"
+                    android:textColor="@color/txt_color_title"
                     android:textColorHint="@color/md_grey_500"
                     android:textSize="14sp"
                     app:mode="PERSIAN_TEXT_NORMAL16"
