@@ -81,6 +81,37 @@
 
             </RadioGroup>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/radio_group"
+        app:layout_constraintTop_toBottomOf="@+id/radio_group"
+        android:layout_marginTop="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="کاربر گرامی میبایست یکی از گزینه های بالا را انتخاب کنید."
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring"
+            app:layout_constraintTop_toTopOf="@+id/img_warring" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input_txt_description"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -101,7 +132,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/radio_group"
+                app:layout_constraintTop_toBottomOf="@id/lay_warning_1"
                 app:startIconTint="@color/md_indigo_500">
 
                 <com.dev.amr.amlakfile.data.model.custom_views.IEditText

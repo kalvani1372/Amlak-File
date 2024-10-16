@@ -106,6 +106,8 @@
     <string name="txt_estelam_chek_sayadi">استعلام چک صیادی</string>
     <string name="txt_taeidiye_postal_code">تایدیه کد پستی</string>
     <string name="txt_ok">تایید</string>
+    <string name="ok">بله</string>
+    <string name="n_ok">خیر</string>
     <string name="txt_karbar_grami">کاربر گرامی</string>
     <string name="txt_motevajeh_shodam">متوجه شدم</string>
     <string name="txt_ejbari_mibashad">اجباری میباشد</string>

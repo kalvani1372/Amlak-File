@@ -41,7 +41,7 @@
                 app:startIconTint="@color/md_indigo_500">
 
                 <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                    android:id="@+id/edt_user_added"
+                    android:id="@+id/edt_user_registering"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"

@@ -46,8 +46,8 @@ class TestMainActivity : AppCompatActivity(), View.OnClickListener {
     @SuppressLint("SetTextI18n")
     private fun textWatchers() {
         // Todo Text Watcher Step One
-        binding.layFormOne.edtUserAdded.addTextChangedListener {
-            if (binding.layFormOne.edtUserAdded.text.toString() != "") {
+        binding.layFormOne.edtUserRegistering.addTextChangedListener {
+            if (binding.layFormOne.edtUserRegistering.text.toString() != "") {
                 binding.layFormOne.layWarning1.visibility = View.GONE
             }
         }
@@ -167,7 +167,7 @@ class TestMainActivity : AppCompatActivity(), View.OnClickListener {
                 when (counterStepsOne) {
                     1 -> {
                         counterStepsOne = 1
-                        if (binding.layFormOne.edtUserAdded.text.toString() == "" &&
+                        if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
                             binding.layFormOne.edtDate.text.toString() == "" &&
                             binding.layFormOne.edtTime.text.toString() == ""
                         ) {
@@ -183,21 +183,21 @@ class TestMainActivity : AppCompatActivity(), View.OnClickListener {
                             binding.layFormOne.layWarning2.visibility = View.VISIBLE
                             binding.layFormOne.layWarning3.visibility = View.VISIBLE
 
-                        } else if (binding.layFormOne.edtUserAdded.text.toString() == "" &&
+                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
                             binding.layFormOne.edtDate.text.toString() == ""
                         ) {
 
                             binding.layFormOne.layWarning1.visibility = View.VISIBLE
                             binding.layFormOne.layWarning2.visibility = View.VISIBLE
 
-                        } else if (binding.layFormOne.edtUserAdded.text.toString() == "" &&
+                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
                             binding.layFormOne.edtTime.text.toString() == ""
                         ) {
 
                             binding.layFormOne.layWarning1.visibility = View.VISIBLE
                             binding.layFormOne.layWarning3.visibility = View.VISIBLE
 
-                        } else if (binding.layFormOne.edtUserAdded.text.toString() == "") {
+                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "") {
                             binding.layFormOne.layWarning1.visibility = View.VISIBLE
 
                         } else if (binding.layFormOne.edtDate.text.toString() == "") {

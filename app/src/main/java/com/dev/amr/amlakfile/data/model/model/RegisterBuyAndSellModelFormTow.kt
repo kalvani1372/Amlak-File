@@ -65,12 +65,15 @@ data class RegisterBuyAndSellModelFormTow(
 data class RegisterBuyAndSellModelFormOne(
     @PrimaryKey(autoGenerate = true)
     val id: Int,
-    val user: String,
+    val userRegistering: String,
+    val DateRegistering: String,
+    val TimeRegistering: String,
     val ownerName: String,
+    val ownerFamily: String,
     val ownerPhone: String,
-    val addressFile: String,
-    val description: String,
-    val sureVame: String,
-    val metrazhMoraba: String,
     val priceMelk: String,
+    val addressFile: String,
+    val metrazhMoraba: String,
+    val sureVame: String,
+    val description: String
 )

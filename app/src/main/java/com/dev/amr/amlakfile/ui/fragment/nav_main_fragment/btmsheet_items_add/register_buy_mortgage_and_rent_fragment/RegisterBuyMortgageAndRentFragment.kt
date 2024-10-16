@@ -44,12 +44,20 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
     private lateinit var db: DBRoom
     private lateinit var animation: Animation
 
-    private lateinit var user: String
+    private lateinit var userRegistering : String
+    private lateinit var DateRegistering : String
+    private lateinit var TimeRegistering : String
     private lateinit var ownerName: String
-    private lateinit var ownerPhone: String
-    private lateinit var cabinets: String
+    private lateinit var ownerFamily: String
+    private lateinit var ownerMobilePhone: String
     private lateinit var addressFile: String
-    private  var description: String = ""
+    private lateinit var metrazhMoraba: String
+    private lateinit var sureVameOk: String
+    private lateinit var sureVameNOk: String
+    private lateinit var priceMelk: String
+    private  lateinit var description: String
+
+    private lateinit var cabinets: String
     private lateinit var counterAllTabaghat: String
     private lateinit var counterAllVahedha: String
     private lateinit var counterVahedhaDarTabaghe: String
@@ -60,14 +68,11 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
     private lateinit var sarmayesh: String
     private lateinit var typeUser: String
     private lateinit var typeSanad: String
-    private lateinit var sureVame: String
-    private lateinit var metrazhMoraba: String
     private lateinit var location: String
     private lateinit var ageBana: String
     private lateinit var tabaghe: String
     private lateinit var cunterOtagh: String
     private lateinit var vaziyatMelk: String
-    private lateinit var priceMelk: String
     private lateinit var wC: String
     private lateinit var nemaSakhteman: String
 
@@ -118,8 +123,8 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
         binding = ActivityTestMainBinding.inflate(layoutInflater)
 //        onClickViews()
 //
-//        db = Room.databaseBuilder(requireActivity(), DBRoom::class.java, "amlak_db")
-//            .allowMainThreadQueries().fallbackToDestructiveMigration().build()
+        db = Room.databaseBuilder(requireActivity(), DBRoom::class.java, "amlak_db")
+            .allowMainThreadQueries().fallbackToDestructiveMigration().build()
 
 //        getCurrentDate(binding.layFormOne.edtDate,binding.layFormOne.edtTime
 //            ,binding.layFormTow.edtDate,binding.layFormTow.edtTime)
@@ -312,7 +317,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //    private fun validationDisabled(){
 //        when(checkForms){
 //            1 ->{
-//                binding.layFormTow.edtUserAdded.error = null
+//                binding.layFormTow.edtUserRegistering.error = null
 //                binding.layFormTow.edtOwnerName.error = null
 //                binding.layFormTow.edtOwnerPhone.error = null
 //                binding.layFormTow.edtCabinets.error = null
@@ -339,7 +344,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //                binding.layFormTow.edtNemaSakhteman.error = null
 //            }
 //            2 ->{
-//                binding.layFormOne.edtUserAdded.error = null
+//                binding.layFormOne.edtUserRegistering.error = null
 //                binding.layFormOne.edtOwnerName.error = null
 //                binding.layFormOne.edtOwnerPhone.error = null
 //                binding.layFormOne.edtAddressFile.error = null
@@ -353,7 +358,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //    private fun itemsEmptyForms() {
 //        when(checkForms){
 //            1 ->{
-//                binding.layFormOne.edtUserAdded.setText("")
+//                binding.layFormOne.edtUserRegistering.setText("")
 //                binding.layFormOne.edtOwnerName.setText("")
 //                binding.layFormOne.edtOwnerPhone.setText("")
 //                binding.layFormOne.edtAddressFile.setText("")
@@ -364,7 +369,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //                binding.layFormOne.txtPriceMelk.text = ""
 //            }
 //            2 ->{
-//                binding.layFormTow.edtUserAdded.setText("")
+//                binding.layFormTow.edtUserRegistering.setText("")
 //                binding.layFormTow.edtOwnerName.setText("")
 //                binding.layFormTow.edtOwnerPhone.setText("")
 //                binding.layFormTow.edtCabinets.setText("")
@@ -776,7 +781,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //
 //                when(checkForms){
 //                    1 ->{
-//                        if (binding.layFormOne.edtUserAdded.text.toString() == "" ||
+//                        if (binding.layFormOne.edtUserRegistering.text.toString() == "" ||
 //                            binding.layFormOne.edtOwnerName.text.toString() == "" ||
 //                            binding.layFormOne.edtOwnerPhone.text.toString() == "" ||
 //                            binding.layFormOne.edtAddressFile.text.toString() == "" ||
@@ -787,8 +792,8 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //
 ////                    showDialogEmpty(requireActivity())
 //
-//                            if (binding.layFormOne.edtUserAdded.text.toString() == "") {
-//                                binding.layFormOne.edtUserAdded.error =
+//                            if (binding.layFormOne.edtUserRegistering.text.toString() == "") {
+//                                binding.layFormOne.edtUserRegistering.error =
 //                                    getString(R.string.txt_ejbari_mibashad)
 //                            }
 //                            if (binding.layFormOne.edtOwnerName.text.toString() == "") {
@@ -820,7 +825,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //                            }
 //
 //                        } else {
-//                            user = binding.layFormOne.edtUserAdded.text.toString()
+//                            user = binding.layFormOne.edtUserRegistering.text.toString()
 //                            ownerName = binding.layFormOne.edtOwnerName.text.toString()
 //                            ownerPhone = binding.layFormOne.edtOwnerPhone.text.toString()
 //                            addressFile = binding.layFormOne.edtAddressFile.text.toString()
@@ -854,7 +859,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //                        }
 //                    }
 //                    2 ->{
-//                        if (binding.layFormTow.edtUserAdded.text.toString() == "" ||
+//                        if (binding.layFormTow.edtUserRegistering.text.toString() == "" ||
 //                            binding.layFormTow.edtOwnerName.text.toString() == "" ||
 //                            binding.layFormTow.edtOwnerPhone.text.toString() == "" ||
 //                            binding.layFormTow.edtCabinets.text.toString() == "" ||
@@ -883,8 +888,8 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //
 ////                    showDialogEmpty(requireActivity())
 //
-//                            if (binding.layFormTow.edtUserAdded.text.toString() == "") {
-//                                binding.layFormTow.edtUserAdded.error =
+//                            if (binding.layFormTow.edtUserRegistering.text.toString() == "") {
+//                                binding.layFormTow.edtUserRegistering.error =
 //                                    getString(R.string.txt_ejbari_mibashad)
 //                            }
 //                            if (binding.layFormTow.edtOwnerName.text.toString() == "") {
@@ -978,7 +983,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 //                            }
 //
 //                        } else {
-//                            user = binding.layFormTow.edtUserAdded.text.toString()
+//                            user = binding.layFormTow.edtUserRegistering.text.toString()
 //                            ownerName = binding.layFormTow.edtOwnerName.text.toString()
 //                            ownerPhone = binding.layFormTow.edtOwnerPhone.text.toString()
 //                            cabinets = binding.layFormTow.edtCabinets.text.toString()
@@ -1306,35 +1311,41 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
     @SuppressLint("SetTextI18n")
     private fun textWatchers() {
         // Todo Text Watcher Step One
-        binding.layFormOne.edtUserAdded.addTextChangedListener {
-            if (binding.layFormOne.edtUserAdded.text.toString() != "") {
+        binding.layFormOne.edtUserRegistering.addTextChangedListener {
+            if (binding.layFormOne.edtUserRegistering.text.toString() != "" &&
+                binding.layFormOne.edtUserRegistering.text.toString() != " ") {
                 binding.layFormOne.layWarning1.visibility = View.GONE
             }
         }
         binding.layFormOne.edtDate.addTextChangedListener {
-            if (binding.layFormOne.edtDate.text.toString() != "") {
+            if (binding.layFormOne.edtDate.text.toString() != "" &&
+                binding.layFormOne.edtDate.text.toString() != " ") {
                 binding.layFormOne.layWarning2.visibility = View.GONE
             }
         }
         binding.layFormOne.edtTime.addTextChangedListener {
-            if (binding.layFormOne.edtTime.text.toString() != "") {
+            if (binding.layFormOne.edtTime.text.toString() != "" &&
+                binding.layFormOne.edtTime.text.toString() != " ") {
                 binding.layFormOne.layWarning3.visibility = View.GONE
             }
         }
 
         // Todo Text Watcher Step Two
         binding.layFormTwo.edtNameOwner.addTextChangedListener {
-            if (binding.layFormTwo.edtNameOwner.text.toString() != "") {
+            if (binding.layFormTwo.edtNameOwner.text.toString() != "" &&
+                binding.layFormTwo.edtNameOwner.text.toString() != " ") {
                 binding.layFormTwo.layWarning1.visibility = View.GONE
             }
         }
         binding.layFormTwo.edtFamilyOwner.addTextChangedListener {
-            if (binding.layFormTwo.edtFamilyOwner.text.toString() != "") {
+            if (binding.layFormTwo.edtFamilyOwner.text.toString() != "" &&
+                binding.layFormTwo.edtFamilyOwner.text.toString() != " ") {
                 binding.layFormTwo.layWarning2.visibility = View.GONE
             }
         }
         binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener {
-            if (binding.layFormTwo.edtMobilePhoneNumber.text.toString() != "") {
+            if (binding.layFormTwo.edtMobilePhoneNumber.text.toString() != "" &&
+                binding.layFormTwo.edtMobilePhoneNumber.text.toString() != " ") {
                 binding.layFormTwo.edtMobilePhoneNumber.letterSpacing = 1F
                 binding.layFormTwo.layWarning3.visibility = View.GONE
             }
@@ -1342,7 +1353,8 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 
         // Todo Text Watcher Step Three
         binding.layFormThree.edtPriceMelk.addTextChangedListener {
-            if (binding.layFormThree.edtPriceMelk.text.toString() != "") {
+            if (binding.layFormThree.edtPriceMelk.text.toString() != "" &&
+                binding.layFormThree.edtPriceMelk.text.toString() != " ") {
                 binding.layFormThree.layWarning1.visibility = View.GONE
                 NumberTextWatcher(binding.layFormThree.edtPriceMelk)
             }
@@ -1351,7 +1363,8 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
             NumberTextWatcher(binding.layFormThree.edtPriceMelk)
         )
         binding.layFormThree.edtPriceMelk.doAfterTextChanged {
-            if (binding.layFormThree.edtPriceMelk.length() == 0) {
+            if (binding.layFormThree.edtPriceMelk.length() == 0 &&
+                binding.layFormThree.edtPriceMelk.equals("0")) {
                 binding.layFormThree.txtPrice.visibility = View.GONE
             } else if (binding.layFormThree.edtPriceMelk.length() != 0) {
                 binding.layFormThree.txtPrice.visibility = View.VISIBLE
@@ -1363,42 +1376,17 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
 
         // Todo Text Watcher Step Three
         binding.layFormFour.edtAddressFile.addTextChangedListener {
-            if (binding.layFormFour.edtAddressFile.text.toString() != "") {
+            if (binding.layFormFour.edtAddressFile.text.toString() != "" &&
+                binding.layFormFour.edtAddressFile.text.toString() != " ") {
                 binding.layFormFour.layWarning1.visibility = View.GONE
             }
         }
         binding.layFormFour.edtMetrazhMoraba.addTextChangedListener {
-            if (binding.layFormFour.edtMetrazhMoraba.text.toString() != "") {
+            if (binding.layFormFour.edtMetrazhMoraba.text.toString() != "" &&
+                binding.layFormFour.edtMetrazhMoraba.text.toString() != " ") {
                 binding.layFormFour.layWarning2.visibility = View.GONE
             }
         }
-    }
-
-    @SuppressLint("SetTextI18n")
-    fun getCurrentDate(dateFormOne: IEditText, timeFormOne: IEditText) {
-        val jdf = JDF()
-        val date = Date()
-        month = jdf.iranianMonth
-        day = jdf.iranianDay
-        if (month < 10) {
-            newMonth = "0" + jdf.iranianMonth
-        } else {
-            newMonth = java.lang.String.valueOf(jdf.iranianMonth)
-        }
-        if (day < 10) {
-            newDay = "0$day"
-        } else {
-            newDay = day.toString()
-        }
-        val hourString = if (date.hours < 10) "0" + date.hours else "" + date.hours
-        val minuteString = if (date.minutes < 10) "0" + date.minutes else "" + date.minutes
-        val time = "$hourString : $minuteString"
-
-        dateFormOne.setText("${jdf.iranianYear} / $newMonth / $newDay")
-        timeFormOne.setText(time)
-
-//        dateFormTow.setText("${jdf.iranianYear} / $newMonth / $newDay")
-//        timeFormTow.setText(time)
     }
 
     @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
@@ -1427,7 +1415,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
                 when (counterStepsOne) {
                     1 -> {
                         counterStepsOne = 1
-                        if (binding.layFormOne.edtUserAdded.text.toString() == "" &&
+                        if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
                             binding.layFormOne.edtDate.text.toString() == "" &&
                             binding.layFormOne.edtTime.text.toString() == ""
                         ) {
@@ -1443,21 +1431,21 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
                             binding.layFormOne.layWarning2.visibility = View.VISIBLE
                             binding.layFormOne.layWarning3.visibility = View.VISIBLE
 
-                        } else if (binding.layFormOne.edtUserAdded.text.toString() == "" &&
+                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
                             binding.layFormOne.edtDate.text.toString() == ""
                         ) {
 
                             binding.layFormOne.layWarning1.visibility = View.VISIBLE
                             binding.layFormOne.layWarning2.visibility = View.VISIBLE
 
-                        } else if (binding.layFormOne.edtUserAdded.text.toString() == "" &&
+                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
                             binding.layFormOne.edtTime.text.toString() == ""
                         ) {
 
                             binding.layFormOne.layWarning1.visibility = View.VISIBLE
                             binding.layFormOne.layWarning3.visibility = View.VISIBLE
 
-                        } else if (binding.layFormOne.edtUserAdded.text.toString() == "") {
+                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "") {
                             binding.layFormOne.layWarning1.visibility = View.VISIBLE
 
                         } else if (binding.layFormOne.edtDate.text.toString() == "") {
@@ -1607,7 +1595,48 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
                                 resources.getString(R.string.txt_moshakhasat_kilidi)
                         }
                     }
-                    5 -> {}
+                    5 -> {
+                        if (binding.layFormFive.radioBtn1.isChecked ||
+                            binding.layFormFive.radioBtn2.isChecked) {
+                            userRegistering = binding.layFormOne.edtUserRegistering.text.toString()
+                            DateRegistering = binding.layFormOne.edtDate.text.toString()
+                            TimeRegistering = binding.layFormOne.edtTime.text.toString()
+
+                            ownerName = binding.layFormTwo.edtNameOwner.text.toString()
+                            ownerFamily = binding.layFormTwo.edtFamilyOwner.text.toString()
+                            ownerMobilePhone = binding.layFormTwo.edtMobilePhoneNumber.text.toString()
+
+                            priceMelk = binding.layFormThree.edtPriceMelk.text.toString() + " , " +
+                                    binding.layFormThree.txtPrice.text.toString()
+
+                            addressFile = binding.layFormFour.edtAddressFile.text.toString()
+                            metrazhMoraba = binding.layFormFour.edtMetrazhMoraba.text.toString() + "متر"
+
+                            sureVameOk = binding.layFormFive.radioBtn1.tag.toString()
+                            sureVameNOk = binding.layFormFive.radioBtn2.tag.toString()
+                            description = binding.layFormFive.edtDescription.text.toString()
+
+                            val registerBuyAndSellFormOne = RegisterBuyAndSellModelFormOne(
+                                0,
+                                userRegistering,DateRegistering,TimeRegistering
+                                ,ownerName,ownerFamily,ownerMobilePhone
+                                ,priceMelk,
+                                addressFile,metrazhMoraba,
+                                sureVameOk,description)
+
+                            val result = db.dBDao().upsertRegisterBuyAndSellFormOne(registerBuyAndSellFormOne)
+                            if (result > 0) {
+                                showDialogDoYouContinue(requireActivity())
+                            } else {
+                                Toast.makeText(
+                                    requireActivity(),
+                                    getString(R.string.txt_save_infonmation_failure), Toast.LENGTH_LONG
+                                ).show()
+                            }
+                        }else {
+                            binding.layFormFive.layWarning1.visibility = View.VISIBLE
+                        }
+                    }
                 }
 
             }
@@ -1699,6 +1728,7 @@ class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener 
                         binding.layDes2.visibility = View.VISIBLE
                         binding.txtPageTitleBottom.text = " بعدی : ${resources.getString(R.string.txt_moshakhasat_kilidi)}"
 
+                        binding.btnNext123.text = resources.getString(R.string.txt_next)
 
                         binding.img.background = resources.getDrawable(R.drawable.map_point)
                         binding.txtPageTitle.text =

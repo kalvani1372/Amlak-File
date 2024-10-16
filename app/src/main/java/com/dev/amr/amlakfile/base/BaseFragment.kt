@@ -68,8 +68,7 @@ abstract class BaseFragment : Fragment() {
     }
 
     @SuppressLint("SetTextI18n")
-    fun getCurrentDate(dateFormOne: IEditText, timeFormOne: IEditText,
-        dateFormTow: IEditText, timeFormTow: IEditText) {
+    fun getCurrentDate(dateFormOne: IEditText, timeFormOne: IEditText) {
         val jdf = JDF()
         val date = Date()
         month = jdf.iranianMonth
@@ -91,8 +90,6 @@ abstract class BaseFragment : Fragment() {
         dateFormOne.setText("${jdf.iranianYear} / $newMonth / $newDay")
         timeFormOne.setText(time)
 
-        dateFormTow.setText("${jdf.iranianYear} / $newMonth / $newDay")
-        timeFormTow.setText(time)
     }
 
 //    fun onDateSet(view: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int,dateFormOne: IEditText,dateFormTow: IEditText) {
