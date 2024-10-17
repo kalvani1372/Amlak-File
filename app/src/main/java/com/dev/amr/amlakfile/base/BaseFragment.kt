@@ -5,11 +5,17 @@ import android.app.AlertDialog
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
+import android.content.Context.INPUT_METHOD_SERVICE
 import android.graphics.Bitmap
 import android.os.Bundle
+import android.text.InputFilter
+import android.text.Spanned
 import android.util.Base64
+import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
 import android.widget.TimePicker
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.data.model.custom_views.IEditText
@@ -21,15 +27,17 @@ import java.util.Date
 
 abstract class BaseFragment : Fragment() {
 
-    private lateinit var dialog : AlertDialog
+    private lateinit var dialog: AlertDialog
     private lateinit var newMonth: String
     private lateinit var newDay: String
     private var month = 0
     private var day = 0
 
-    override fun onCreate(savedInstanceState: Bundle?) { super.onCreate(savedInstanceState) }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
-    fun showDialogDoYouContinue(context: Context){
+    fun showDialogDoYouContinue(context: Context) {
         val binding = DialogDoYouContinueLayoutBinding.inflate(layoutInflater)
         dialog = AlertDialog.Builder(context, R.style.CustomAlertDialog).create()
         dialog.setView(binding.root)
@@ -39,15 +47,16 @@ abstract class BaseFragment : Fragment() {
             BaseLiveDialog.liveDataEmptyItems.value = true
         }
 
-        binding.btnCancel.setOnClickListener{
-            BaseLiveDialog.liveDataBackToHomePage.value = true
+        binding.btnCancel.setOnClickListener {
             dialog.dismiss()
+            BaseLiveDialog.liveDataBackToHomePage.value = true
         }
 
         dialog.setCancelable(false)
         dialog.show()
     }
-    fun showDialogInactive(context: Context){
+
+    fun showDialogInactive(context: Context) {
         val binding = DialogInactiveLayoutBinding.inflate(layoutInflater)
         dialog = AlertDialog.Builder(context, R.style.CustomAlertDialog).create()
         dialog.setView(binding.root)
@@ -92,44 +101,20 @@ abstract class BaseFragment : Fragment() {
 
     }
 
-//    fun onDateSet(view: DatePicker?, year: Int, monthOfYear: Int, dayOfMonth: Int,dateFormOne: IEditText,dateFormTow: IEditText) {
-//        var stringOfDate = year.toString() + "/" + (monthOfYear + 1) + "/" + dayOfMonth
-//        val month: Int = monthOfYear + 1
-//        val newmonth: String
-//        val newday: String
-//        newmonth = if (month < 10) {
-//            "0$month"
-//        } else {
-//            month.toString()
-//        }
-//        newday = if (dayOfMonth < 10) {
-//            "0$dayOfMonth"
-//        } else {
-//            dayOfMonth.toString()
-//        }
-//        stringOfDate = "$year/$newmonth/$newday"
-//        dateFormOne.setText("")
-//        dateFormOne.setText(stringOfDate)
-//        dateFormTow.setText("")
-//        dateFormTow.setText(stringOfDate)
-//        onDateSet("",stringOfDate,stringOfDate)
-//
-//    }
-//
-//    fun onDateSet(dateFormOne: IEditText,dateFormTow: IEditText,stringOfDate : String){
-//        dateFormOne.setText("")
-//        dateFormOne.setText(stringOfDate)
-//        dateFormTow.setText("")
-//        dateFormTow.setText(stringOfDate)
-//    }
-//
-//    override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-//        val hourString = if (hourOfDay < 10) "0$hourOfDay" else "" + hourOfDay
-//        val minuteString = if (minute < 10) "0$minute" else "" + minute
-//        val time = "$hourString:$minuteString"
-//        binding.layFormTow.edtTime.setText("")
-//        binding.layFormTow.edtTime.setText(time)
-//        binding.layFormOne.edtTime.setText("")
-//        binding.layFormOne.edtTime.setText(time)
-//    }
+    fun showKeyboard() {
+        val view = requireActivity().currentFocus
+        if (view != null) {
+            val imm = context?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.toggleSoftInput(InputMethodManager.SHOW_FORCED, 0)
+        }
+    }
+
+    fun hideKeyboard() {
+        val view = requireActivity().currentFocus
+        if (view != null) {
+            val imm = context?.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
+
 }

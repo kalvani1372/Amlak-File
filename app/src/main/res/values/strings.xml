@@ -235,4 +235,5 @@
     <string name="txt_please_select_img">لطفا عکس را انتخاب کنید</string>
     <string name="txt_info_paye_registering">اطلاعات پایه ثبت آگهی</string>
     <string name="txt_description_melk">در صورت لزوم، توضیحات مربوطه را وارد کنید</string>
+    <string name="txt_please_enter_lango_farsi">لطفا به زبان فارسی تایپ کنید</string>
 </resources>
