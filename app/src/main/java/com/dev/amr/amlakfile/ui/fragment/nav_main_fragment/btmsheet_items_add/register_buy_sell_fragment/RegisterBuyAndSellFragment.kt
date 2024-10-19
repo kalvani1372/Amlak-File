@@ -50,6 +50,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private lateinit var description: String
 
     private lateinit var zAnim: Animation
+    val pattern = Pattern.compile("[a-zA-Z]+$")
 
     private lateinit var user: String
     private lateinit var ownerPhone: String
@@ -1322,57 +1323,10 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 when (counterStepsOne) {
                     1 -> {
                         counterStepsOne = 1
-                        if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
-                            binding.layFormOne.edtDate.text.toString() == "" &&
-                            binding.layFormOne.edtTime.text.toString() == ""
-                        ) {
-
+                        if (binding.layFormOne.edtUserRegistering.text.toString() == "") {
                             binding.layFormOne.layWarning1.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning1.animation = zAnim
-//                            binding.layFormOne.layWarning2.visibility = View.VISIBLE
-//                            binding.layFormOne.layWarning2.animation = zAnim
-//                            binding.layFormOne.layWarning3.visibility = View.VISIBLE
-//                            binding.layFormOne.layWarning3.animation = zAnim
-
-
-                        } else if (binding.layFormOne.edtDate.text.toString() == "" &&
-                            binding.layFormOne.edtTime.text.toString() == ""
-                        ) {
-
-                            binding.layFormOne.layWarning2.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning2.animation = zAnim
-                            binding.layFormOne.layWarning3.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning3.animation = zAnim
-
-                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
-                            binding.layFormOne.edtDate.text.toString() == ""
-                        ) {
-
-                            binding.layFormOne.layWarning1.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning1.animation = zAnim
-                            binding.layFormOne.layWarning2.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning2.animation = zAnim
-
-                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "" &&
-                            binding.layFormOne.edtTime.text.toString() == ""
-                        ) {
-
-                            binding.layFormOne.layWarning1.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning1.animation = zAnim
-                            binding.layFormOne.layWarning3.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning3.animation = zAnim
-
-                        } else if (binding.layFormOne.edtUserRegistering.text.toString() == "") {
-                            binding.layFormOne.layWarning1.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning1.animation = zAnim
-
-                        } else if (binding.layFormOne.edtDate.text.toString() == "") {
-                            binding.layFormOne.layWarning2.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning2.animation = zAnim
-
-                        } else if (binding.layFormOne.edtTime.text.toString() == "") {
-                            binding.layFormOne.layWarning3.visibility = View.VISIBLE
-                            binding.layFormOne.layWarning3.animation = zAnim
+                            binding.layFormOne.txtWarring1.text = resources.getString(R.string.txt_entery_user)
+                            binding.layFormOne.imgWarring1.animation = zAnim
 
                         } else {
                             counterStepsOne = 2
@@ -1402,53 +1356,67 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                         ) {
 
                             binding.layFormTwo.layWarning1.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning1.animation = zAnim
+                            binding.layFormTwo.imgWarring.animation = zAnim
+                            binding.layFormTwo.txtWarning1.text = resources.getString(R.string.txt_please_enter_name_owner)
+
                             binding.layFormTwo.layWarning2.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning2.animation = zAnim
+                            binding.layFormTwo.imgWarring2.animation = zAnim
+                            binding.layFormTwo.txtWarring2.text = resources.getString(R.string.txt_enter_family_owner)
+
                             binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning3.animation = zAnim
+                            binding.layFormTwo.imgWarring3.animation = zAnim
+                            binding.layFormTwo.txtWarning3.text = resources.getString(R.string.txt_enter_phone_number_owner)
 
                         } else if (binding.layFormTwo.edtFamilyOwner.text.toString() == "" &&
                             binding.layFormTwo.edtMobilePhoneNumber.text.toString() == ""
                         ) {
 
                             binding.layFormTwo.layWarning2.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning2.animation = zAnim
+                            binding.layFormTwo.imgWarring2.animation = zAnim
+                            binding.layFormTwo.txtWarring2.text = resources.getString(R.string.txt_enter_family_owner)
+
                             binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning3.animation = zAnim
+                            binding.layFormTwo.imgWarring3.animation = zAnim
+                            binding.layFormTwo.txtWarning3.text = resources.getString(R.string.txt_enter_phone_number_owner)
 
                         } else if (binding.layFormTwo.edtNameOwner.text.toString() == "" &&
                             binding.layFormTwo.edtFamilyOwner.text.toString() == ""
                         ) {
 
-                            binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning3.animation = zAnim
-                            binding.layFormTwo.layWarning3.animation = zAnim
+                            binding.layFormTwo.layWarning1.visibility = View.VISIBLE
+                            binding.layFormTwo.imgWarring.animation = zAnim
+                            binding.layFormTwo.txtWarning1.text = resources.getString(R.string.txt_please_enter_name_owner)
+
                             binding.layFormTwo.layWarning2.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning2.animation = zAnim
+                            binding.layFormTwo.imgWarring2.animation = zAnim
+                            binding.layFormTwo.txtWarring2.text = resources.getString(R.string.txt_enter_family_owner)
 
                         } else if (binding.layFormTwo.edtNameOwner.text.toString() == "" &&
                             binding.layFormTwo.edtMobilePhoneNumber.text.toString() == ""
                         ) {
 
+                            binding.layFormTwo.layWarning1.visibility = View.VISIBLE
+                            binding.layFormTwo.imgWarring.animation = zAnim
+                            binding.layFormTwo.txtWarning1.text = resources.getString(R.string.txt_please_enter_name_owner)
+
                             binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning3.animation = zAnim
-                            binding.layFormTwo.layWarning3.animation = zAnim
-                            binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning3.animation = zAnim
+                            binding.layFormTwo.imgWarring3.animation = zAnim
+                            binding.layFormTwo.txtWarning3.text = resources.getString(R.string.txt_enter_phone_number_owner)
 
                         } else if (binding.layFormTwo.edtNameOwner.text.toString() == "") {
-                            binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning3.animation = zAnim
-                            binding.layFormTwo.layWarning3.animation = zAnim
+                            binding.layFormTwo.layWarning1.visibility = View.VISIBLE
+                            binding.layFormTwo.imgWarring.animation = zAnim
+                            binding.layFormTwo.txtWarning1.text = resources.getString(R.string.txt_please_enter_name_owner)
 
                         } else if (binding.layFormTwo.edtFamilyOwner.text.toString() == "") {
                             binding.layFormTwo.layWarning2.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning2.animation = zAnim
+                            binding.layFormTwo.imgWarring2.animation = zAnim
+                            binding.layFormTwo.txtWarring2.text = resources.getString(R.string.txt_enter_family_owner)
 
                         } else if (binding.layFormTwo.edtMobilePhoneNumber.text.toString() == "") {
                             binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                            binding.layFormTwo.layWarning3.animation = zAnim
+                            binding.layFormTwo.imgWarring3.animation = zAnim
+                            binding.layFormTwo.txtWarning3.text = resources.getString(R.string.txt_enter_phone_number_owner)
 
                         } else {
 
@@ -1457,7 +1425,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             if (!isValidPhoneNumber(phoneNumber)) {
                                 binding.layFormTwo.layWarning3.visibility = View.VISIBLE
                             binding.layFormTwo.layWarning3.animation = zAnim
-                                binding.layFormTwo.txtWarringMobilePhoneNumber.text =
+                                binding.layFormTwo.txtWarning3.text =
                                     "لطفاً شماره همراه معتبر وارد کنید"
                             } else {
                                 binding.layFormTwo.layWarning3.visibility = View.GONE
@@ -1487,7 +1455,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                         counterStepsOne = 3
                         if (binding.layFormThree.edtPriceMelk.text.toString() == "") {
                             binding.layFormThree.layWarning1.visibility = View.VISIBLE
-                            binding.layFormThree.layWarning1.animation = zAnim
+                            binding.layFormThree.imgWarring.animation = zAnim
 
                         } else {
                             counterStepsOne = 4
@@ -1517,17 +1485,20 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             binding.layFormFour.edtMetrazhMoraba.text.toString() == ""
                         ) {
                             binding.layFormFour.layWarning1.visibility = View.VISIBLE
-                            binding.layFormFour.layWarning1.animation = zAnim
+                            binding.layFormFour.imgWarring.animation = zAnim
+                            binding.layFormFour.txtWarning1.text = resources.getString(R.string.txt_enter_address_melk)
+
                             binding.layFormFour.layWarning2.visibility = View.VISIBLE
-                            binding.layFormFour.layWarning2.animation = zAnim
+                            binding.layFormFour.imgWarring2.animation = zAnim
 
                         } else if (binding.layFormFour.edtAddressFile.text.toString() == "") {
                             binding.layFormFour.layWarning1.visibility = View.VISIBLE
-                            binding.layFormFour.layWarning1.animation = zAnim
+                            binding.layFormFour.imgWarring.animation = zAnim
+                            binding.layFormFour.txtWarning1.text = resources.getString(R.string.txt_enter_address_melk)
 
                         } else if (binding.layFormFour.edtMetrazhMoraba.text.toString() == "") {
                             binding.layFormFour.layWarning2.visibility = View.VISIBLE
-                            binding.layFormFour.layWarning2.animation = zAnim
+                            binding.layFormFour.imgWarring2.animation = zAnim
 
                         } else {
                             counterStepsOne = 5
@@ -1569,7 +1540,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener { it ->
                                 val input = it.toString()
                                 if (input.isNotEmpty() && !validPhoneNumberRegex.matches(input)) {
-                                    binding.layFormTwo.txtWarringMobilePhoneNumber.text =
+                                    binding.layFormTwo.txtWarning3.text =
                                         "لطفاً شماره معتبر وارد کنید"
                                 }
                             }
@@ -1731,6 +1702,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             R.id.radio_btn1 -> {
                 binding.layFormFive.radioBtn1.isChecked = true
                 binding.layFormFive.radioBtn2.isChecked = false
+                binding.layFormFive.layWarning1.visibility = View.GONE
                 binding.layFormFive.layRadioBtn1.background =
                     resources.getDrawable(R.drawable.border9)
                 binding.layFormFive.layRadioBtn2.background =
@@ -1740,6 +1712,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             R.id.radio_btn2 -> {
                 binding.layFormFive.radioBtn1.isChecked = false
                 binding.layFormFive.radioBtn2.isChecked = true
+                binding.layFormFive.layWarning1.visibility = View.GONE
                 binding.layFormFive.layRadioBtn1.background =
                     resources.getDrawable(R.drawable.border4)
                 binding.layFormFive.layRadioBtn2.background =
@@ -1753,15 +1726,18 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private fun textWatchers() {
         // Todo Text Watcher Step One
         binding.layFormOne.edtUserRegistering.addTextChangedListener {
-            val pattern = Pattern.compile("[a-zA-Z]+$")
-            if (pattern.matcher(it.toString()).find()) {
-                binding.layFormOne.layWarning1.visibility = View.VISIBLE
-                binding.layFormOne.txtWarring1.text =
-                    resources.getString(R.string.txt_please_enter_lango_farsi)
-                binding.layFormOne.edtUserRegistering.setText("")
 
-            } else if (binding.layFormOne.edtUserRegistering.text.toString() != "") {
-                binding.layFormOne.layWarning1.visibility = View.GONE
+            if (binding.layFormOne.edtUserRegistering.text.toString() != "" &&
+                binding.layFormOne.edtUserRegistering.text.toString() != " ") {
+                if (pattern.matcher(binding.layFormOne.edtUserRegistering.text.toString()).find()) {
+                    binding.layFormOne.layWarning1.visibility = View.VISIBLE
+                    binding.layFormOne.txtWarring1.text =
+                        resources.getString(R.string.txt_please_enter_lango_farsi)
+                    binding.layFormOne.edtUserRegistering.setText("")
+
+                } else {
+                    binding.layFormOne.layWarning1.visibility = View.GONE
+                }
             }
         }
         binding.layFormOne.edtDate.addTextChangedListener {
@@ -1775,113 +1751,172 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
         }
 
+
         // Todo Text Watcher Step Two
         binding.layFormTwo.edtNameOwner.addTextChangedListener {
-            if (binding.layFormTwo.edtNameOwner.text.toString() != "") {
-                binding.layFormTwo.layWarning1.visibility = View.GONE
-            }
-        }
-        binding.layFormTwo.edtFamilyOwner.addTextChangedListener {
-            if (binding.layFormTwo.edtFamilyOwner.text.toString() != "") {
-                binding.layFormTwo.layWarning2.visibility = View.GONE
-            }
-        }
+            if (binding.layFormTwo.edtNameOwner.text.toString() != "" &&
+                binding.layFormTwo.edtNameOwner.text.toString() != " ") {
 
-        binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener {
-            if (binding.layFormTwo.edtMobilePhoneNumber.text.toString() != "") {
-                binding.layFormTwo.edtMobilePhoneNumber.letterSpacing = 1F
-                binding.layFormTwo.layWarning3.visibility = View.GONE
-            }
-        }
+                    if (pattern.matcher(binding.layFormTwo.edtNameOwner.text.toString()).find()) {
+                        binding.layFormTwo.layWarning1.visibility = View.VISIBLE
+                        binding.layFormTwo.txtWarning1.text =
+                            resources.getString(R.string.txt_please_enter_lango_farsi)
+                        binding.layFormTwo.edtNameOwner.setText("")
 
-        // Todo Text Watcher Step Three
-        binding.layFormThree.edtPriceMelk.addTextChangedListener {
-            if (binding.layFormThree.edtPriceMelk.text.toString() != "") {
-                binding.layFormThree.layWarning1.visibility = View.GONE
+                    }else {
+                        binding.layFormTwo.layWarning1.visibility = View.GONE
+                    }
+            }
+            binding.layFormTwo.edtFamilyOwner.addTextChangedListener {
+                if (binding.layFormTwo.edtFamilyOwner.text.toString() != "" &&
+                    binding.layFormTwo.edtFamilyOwner.text.toString() != " ") {
+                    if (pattern.matcher(binding.layFormTwo.edtFamilyOwner.text.toString()).find()) {
+                        binding.layFormTwo.layWarning2.visibility = View.VISIBLE
+                        binding.layFormTwo.txtWarring2.text =
+                            resources.getString(R.string.txt_please_enter_lango_farsi)
+                        binding.layFormTwo.edtFamilyOwner.setText("")
+
+                    }else{
+                        binding.layFormTwo.layWarning2.visibility = View.GONE
+                    }
+                }
+            }
+
+            binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener {
+                if (binding.layFormTwo.edtMobilePhoneNumber.text.toString() != "" &&
+                    binding.layFormTwo.edtMobilePhoneNumber.text.toString() != " ") {
+                    if (pattern.matcher(binding.layFormTwo.edtMobilePhoneNumber.text.toString()).find()) {
+                        binding.layFormTwo.layWarning3.visibility = View.VISIBLE
+                        binding.layFormTwo.txtWarning3.text =
+                            resources.getString(R.string.txt_please_enter_lango_farsi)
+                        binding.layFormTwo.edtMobilePhoneNumber.setText("")
+
+                    }else {
+                        binding.layFormTwo.edtMobilePhoneNumber.letterSpacing = 1F
+                        binding.layFormTwo.layWarning3.visibility = View.GONE
+                    }
+                }
+            }
+
+
+            // Todo Text Watcher Step Three
+            binding.layFormThree.edtPriceMelk.addTextChangedListener {
+                if (binding.layFormThree.edtPriceMelk.text.toString() != "" &&
+                    binding.layFormThree.edtPriceMelk.text.toString() != " ") {
+                    binding.layFormThree.layWarning1.visibility = View.GONE
+                    NumberTextWatcher(binding.layFormThree.edtPriceMelk)
+                }
+            }
+            binding.layFormThree.edtPriceMelk.addTextChangedListener(
                 NumberTextWatcher(binding.layFormThree.edtPriceMelk)
+            )
+            binding.layFormThree.edtPriceMelk.doAfterTextChanged {
+                if (binding.layFormThree.edtPriceMelk.length() == 0) {
+                    binding.layFormThree.txtPrice.visibility = View.GONE
+                } else if (binding.layFormThree.edtPriceMelk.length() != 0) {
+                    binding.layFormThree.txtPrice.visibility = View.VISIBLE
+                    val number = it.toString()
+                    binding.layFormThree.txtPrice.text =
+                        PersianDigits.spellToPersian(number.replace(",", "")) + " تومان"
+                }
             }
-        }
-        binding.layFormThree.edtPriceMelk.addTextChangedListener(
-            NumberTextWatcher(binding.layFormThree.edtPriceMelk)
-        )
-        binding.layFormThree.edtPriceMelk.doAfterTextChanged {
-            if (binding.layFormThree.edtPriceMelk.length() == 0) {
-                binding.layFormThree.txtPrice.visibility = View.GONE
-            } else if (binding.layFormThree.edtPriceMelk.length() != 0) {
-                binding.layFormThree.txtPrice.visibility = View.VISIBLE
-                val number = it.toString()
-                binding.layFormThree.txtPrice.text =
-                    PersianDigits.spellToPersian(number.replace(",", "")) + " تومان"
-            }
-        }
-
-        // Todo Text Watcher Step Three
-        binding.layFormFour.edtAddressFile.addTextChangedListener {
-            if (binding.layFormFour.edtAddressFile.text.toString() != "") {
-                binding.layFormFour.layWarning1.visibility = View.GONE
-            }
-        }
-        binding.layFormFour.edtMetrazhMoraba.addTextChangedListener {
-            if (binding.layFormFour.edtMetrazhMoraba.text.toString() != "") {
-                binding.layFormFour.layWarning2.visibility = View.GONE
-            }
-        }
 
 
+            // Todo Text Watcher Step Four
+            binding.layFormFour.edtAddressFile.addTextChangedListener {
+                if (binding.layFormFour.edtAddressFile.text.toString() != "" &&
+                    binding.layFormFour.edtAddressFile.text.toString() != " ") {
+                    if (pattern.matcher(binding.layFormFour.edtAddressFile.text.toString()).find()) {
+                        binding.layFormFour.layWarning1.visibility = View.VISIBLE
+                        binding.layFormFour.txtWarning1.text =
+                            resources.getString(R.string.txt_please_enter_lango_farsi)
+                        binding.layFormFour.edtAddressFile.setText("")
+
+                    }else {
+                        binding.layFormFour.layWarning1.visibility = View.GONE
+                    }
+
+                }
+            }
+            binding.layFormFour.edtMetrazhMoraba.addTextChangedListener {
+                if (binding.layFormFour.edtMetrazhMoraba.text.toString() != "" &&
+                    binding.layFormFour.edtMetrazhMoraba.text.toString() != "") {
+                    binding.layFormFour.layWarning2.visibility = View.GONE
+                }
+            }
+
+
+            // Todo Text Watcher Step Five
+            binding.layFormFive.edtDescription.addTextChangedListener {
+                    if (pattern.matcher(binding.layFormFive.edtDescription.text.toString()).find()) {
+                        binding.layFormFive.layWarning2.visibility = View.VISIBLE
+                        binding.layFormFive.imgWarring2.animation = zAnim
+                        binding.layFormFive.txtWarning2.text =
+                            resources.getString(R.string.txt_please_enter_lango_farsi)
+                        binding.layFormFive.edtDescription.setText("")
+
+                    }else {
+                        binding.layFormFive.layWarning2.visibility = View.GONE
+                    }
+
+
+            }
+
+        }
     }
 
-    private fun isValidPhoneNumber(phoneNumber: String): Boolean {
-        val irancellPattern = Regex("^09[0-3]\\d{8}$")  // برای پیش‌شماره‌های ایرانسل
-        val mciPattern = Regex("^09(1\\\\d{8}|99\\\\d{7})\$")        // برای پیش‌شماره‌های همراه اول
-        val rightelPattern = Regex("^092\\d{8}$")  // برای پیش‌شماره‌های رایتل
+        private fun isValidPhoneNumber(phoneNumber: String): Boolean {
+            val irancellPattern = Regex("^09[0-3]\\d{8}$")  // برای پیش‌شماره‌های ایرانسل
+            val mciPattern =
+                Regex("^09(1\\\\d{8}|99\\\\d{7})\$")        // برای پیش‌شماره‌های همراه اول
+            val rightelPattern = Regex("^092\\d{8}$")  // برای پیش‌شماره‌های رایتل
 
-        val invalidNumbers = listOf("09300000000", "09100000000", "09900000000", "09200000000")
+            val invalidNumbers = listOf("09300000000", "09100000000", "09900000000", "09200000000")
 
-        return phoneNumber !in invalidNumbers && (phoneNumber.matches(irancellPattern) ||
-                phoneNumber.matches(mciPattern) || phoneNumber.matches(rightelPattern))
-    }
+            return phoneNumber !in invalidNumbers && (phoneNumber.matches(irancellPattern) ||
+                    phoneNumber.matches(mciPattern) || phoneNumber.matches(rightelPattern))
+        }
 
+        private fun itemsEmptyForms() {
+            when (checkForms) {
+                1 -> {
+                    counterStepsOne = 1
+                    binding.layFormOne.edtUserRegistering.setText("")
 
+                    binding.layFormTwo.edtNameOwner.setText("")
+                    binding.layFormTwo.edtFamilyOwner.setText("")
+                    binding.layFormTwo.edtMobilePhoneNumber.setText("")
 
-    private fun itemsEmptyForms() {
-        when (checkForms) {
-            1 -> {
-                counterStepsOne = 1
-                binding.layFormOne.edtUserRegistering.setText("")
+                    binding.layFormThree.edtPriceMelk.setText("")
 
-                binding.layFormTwo.edtNameOwner.setText("")
-                binding.layFormTwo.edtFamilyOwner.setText("")
-                binding.layFormTwo.edtMobilePhoneNumber.setText("")
+                    binding.layFormFour.edtAddressFile.setText("")
+                    binding.layFormFour.edtMetrazhMoraba.setText("")
 
-                binding.layFormThree.edtPriceMelk.setText("")
-
-                binding.layFormFour.edtAddressFile.setText("")
-                binding.layFormFour.edtMetrazhMoraba.setText("")
-
-                binding.layFormFive.radioBtn1.isChecked = false
-                binding.layFormFive.radioBtn2.isChecked = false
-                binding.layFormFive.edtDescription.setText("")
+                    binding.layFormFive.radioBtn1.isChecked = false
+                    binding.layFormFive.radioBtn2.isChecked = false
+                    binding.layFormFive.edtDescription.setText("")
 
 
-                binding.layScroll.visibility = View.VISIBLE
-                binding.layScroll5.visibility = View.GONE
-                binding.layScroll4.visibility = View.GONE
-                binding.layScroll3.visibility = View.GONE
-                binding.layScroll2.visibility = View.GONE
+                    binding.layScroll.visibility = View.VISIBLE
+                    binding.layScroll5.visibility = View.GONE
+                    binding.layScroll4.visibility = View.GONE
+                    binding.layScroll3.visibility = View.GONE
+                    binding.layScroll2.visibility = View.GONE
 
-                binding.circularProgressBar.progress = 20
-                binding.txtTop.text = "1"
-                binding.txtPageTitleTop.text =
-                    resources.getString(R.string.txt_info_paye_registering)
-                binding.txtPageTitleBottom.text =
-                    " بعدی : ${resources.getString(R.string.txt_information_owner)}"
-                binding.layDes2.visibility = View.VISIBLE
-                binding.img.background = resources.getDrawable(R.drawable.document_text)
-                binding.txtPageTitle.text = resources.getString(R.string.txt_info_paye_registering)
+                    binding.circularProgressBar.progress = 20
+                    binding.txtTop.text = "1"
+                    binding.txtPageTitleTop.text =
+                        resources.getString(R.string.txt_info_paye_registering)
+                    binding.txtPageTitleBottom.text =
+                        " بعدی : ${resources.getString(R.string.txt_information_owner)}"
+                    binding.layDes2.visibility = View.VISIBLE
+                    binding.img.background = resources.getDrawable(R.drawable.document_text)
+                    binding.txtPageTitle.text =
+                        resources.getString(R.string.txt_info_paye_registering)
 
-                binding.btnPrevious.visibility = View.GONE
+                    binding.btnPrevious.visibility = View.GONE
 
-            }
+                }
 
 //            2 -> {
 //                binding.layFormTow.edtUserRegistering.setText("")
@@ -1967,8 +2002,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 //                binding.layFormTow.btnImgDelete6.visibility = View.GONE
 //                binding.layFormTow.image6.setImageBitmap(null)
 //            }
+            }
+
+
         }
-
-
     }
-}

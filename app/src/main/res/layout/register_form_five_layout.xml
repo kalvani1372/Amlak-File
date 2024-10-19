@@ -152,6 +152,40 @@
                     tools:ignore="MissingPrefix" />
             </com.google.android.material.textfield.TextInputLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/lay_warning_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/input_txt_description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_txt_description"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="4dp"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/img_warring_2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/info_circle_red"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:id="@+id/txt_warning_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="@string/txt_please_enter_lango_farsi"
+            android:textColor="@color/color_warning"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_warring_2"
+            app:layout_constraintEnd_toStartOf="@+id/img_warring_2"
+            app:layout_constraintTop_toTopOf="@+id/img_warring_2" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:id="@+id/lay_btn"
         android:layout_width="match_parent"

@@ -67,6 +67,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+            android:id="@+id/txt_warning_1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
