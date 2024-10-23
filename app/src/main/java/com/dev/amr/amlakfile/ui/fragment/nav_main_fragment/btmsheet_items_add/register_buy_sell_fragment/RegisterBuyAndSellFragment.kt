@@ -110,7 +110,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
     private var btmSheetKharidForosh: BtmSheetKharidForoshDialog = BtmSheetKharidForoshDialog()
 
-    private var counter: Int = 0
+    private var counter: Int = 1
     private var counterStepsOne: Int = 1
     private var counterStepsTwo: Int = 1
     private lateinit var newMonth: String
@@ -1763,7 +1763,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         binding.layScroll.visibility = View.GONE
                                         binding.layScroll2.visibility = View.GONE
                                         binding.layScroll3.visibility = View.VISIBLE
-                                        binding.circularProgressBar.progress = 37.5.toInt()
+                                        binding.circularProgressBar.progress = 25
 
                                         binding.layFormThree.edtPriceMelk.requestFocus()
                                         showKeyboard()
@@ -1795,9 +1795,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
                                     binding.layScroll3.visibility = View.GONE
-                                    binding.layScroll4.visibility = View.GONE
-                                    binding.layScroll55.visibility = View.VISIBLE
-                                    binding.circularProgressBar.progress = 50
+                                    binding.layScroll4.visibility = View.VISIBLE
+                                    binding.circularProgressBar.progress = 37.5.toInt()
 
                                     binding.layFormFour.edtAddressFile.requestFocus()
                                     showKeyboard()
@@ -1845,8 +1844,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layScroll2.visibility = View.GONE
                                     binding.layScroll3.visibility = View.GONE
                                     binding.layScroll4.visibility = View.GONE
-                                    binding.layScroll5.visibility = View.VISIBLE
-                                    binding.circularProgressBar.progress = 62.5.toInt()
+                                    binding.layScroll55.visibility = View.VISIBLE
+                                    binding.circularProgressBar.progress = 50.toInt()
 
 
                                     binding.txtTop.text = "5"
@@ -1861,78 +1860,78 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 }
                             }
 
+//                            5 -> {
+//                                if (binding.layFormFive.radioBtn1.isChecked ||
+//                                    binding.layFormFive.radioBtn2.isChecked
+//                                ) {
+//                                    userRegistering = binding.layFormOne.edtUserRegistering.text.toString()
+//                                    DateRegistering = binding.layFormOne.edtDate.text.toString()
+//                                    TimeRegistering = binding.layFormOne.edtTime.text.toString()
+//
+//                                    ownerName = binding.layFormTwo.edtNameOwner.text.toString()
+//                                    ownerFamily = binding.layFormTwo.edtFamilyOwner.text.toString()
+//
+//                                    // الگوی شماره‌های مجاز برای ایرانسل، همراه اول و رایتل
+//                                    val validPhoneNumberRegex = "^(09[1-3][0-9][0-9]\\d{6})\$".toRegex()
+//
+//                                    binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener { it ->
+//                                        val input = it.toString()
+//                                        if (input.isNotEmpty() && !validPhoneNumberRegex.matches(input)) {
+//                                            binding.layFormTwo.txtWarning3.text =
+//                                                "لطفاً شماره معتبر وارد کنید"
+//                                        }
+//                                    }
+//
+//                                    ownerMobilePhone =
+//                                        binding.layFormTwo.edtMobilePhoneNumber.text.toString()
+//
+//                                    priceMelk = binding.layFormThree.edtPriceMelk.text.toString() + " , " +
+//                                            binding.layFormThree.txtPrice.text.toString()
+//
+//                                    addressFile = binding.layFormFour.edtAddressFile.text.toString()
+//                                    metrazhMoraba =
+//                                        binding.layFormFour.edtMetrazhMoraba.text.toString() + "متر"
+//
+//                                    if (binding.layFormFive.radioBtn1.isChecked) {
+//                                        sureVame = binding.layFormFive.radioBtn1.tag.toString()
+//                                    } else if (binding.layFormFive.radioBtn2.isChecked) {
+//                                        sureVame = binding.layFormFive.radioBtn2.tag.toString()
+//                                    }
+//                                    description = binding.layFormFive.edtDescription.text.toString()
+//
+//                                    val registerBuyAndSellFormOne = RegisterBuyAndSellModelFormOne(
+//                                        0,
+//                                        userRegistering,
+//                                        DateRegistering,
+//                                        TimeRegistering,
+//                                        ownerName,
+//                                        ownerFamily,
+//                                        ownerMobilePhone,
+//                                        priceMelk,
+//                                        addressFile,
+//                                        metrazhMoraba,
+//                                        sureVame,
+//                                        description
+//                                    )
+//
+//                                    val result = db.dBDao()
+//                                        .upsertRegisterBuyAndSellFormOne(registerBuyAndSellFormOne)
+//                                    if (result > 0) {
+//                                        showDialogDoYouContinue(requireActivity())
+//                                    } else {
+//                                        Toast.makeText(
+//                                            requireActivity(),
+//                                            getString(R.string.txt_save_infonmation_failure),
+//                                            Toast.LENGTH_LONG
+//                                        ).show()
+//                                    }
+//                                } else {
+//                                    binding.layFormFive.layWarning1.visibility = View.VISIBLE
+//                                }
+//                            }
+
                             5 -> {
-                                if (binding.layFormFive.radioBtn1.isChecked ||
-                                    binding.layFormFive.radioBtn2.isChecked
-                                ) {
-                                    userRegistering = binding.layFormOne.edtUserRegistering.text.toString()
-                                    DateRegistering = binding.layFormOne.edtDate.text.toString()
-                                    TimeRegistering = binding.layFormOne.edtTime.text.toString()
-
-                                    ownerName = binding.layFormTwo.edtNameOwner.text.toString()
-                                    ownerFamily = binding.layFormTwo.edtFamilyOwner.text.toString()
-
-                                    // الگوی شماره‌های مجاز برای ایرانسل، همراه اول و رایتل
-                                    val validPhoneNumberRegex = "^(09[1-3][0-9][0-9]\\d{6})\$".toRegex()
-
-                                    binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener { it ->
-                                        val input = it.toString()
-                                        if (input.isNotEmpty() && !validPhoneNumberRegex.matches(input)) {
-                                            binding.layFormTwo.txtWarning3.text =
-                                                "لطفاً شماره معتبر وارد کنید"
-                                        }
-                                    }
-
-                                    ownerMobilePhone =
-                                        binding.layFormTwo.edtMobilePhoneNumber.text.toString()
-
-                                    priceMelk = binding.layFormThree.edtPriceMelk.text.toString() + " , " +
-                                            binding.layFormThree.txtPrice.text.toString()
-
-                                    addressFile = binding.layFormFour.edtAddressFile.text.toString()
-                                    metrazhMoraba =
-                                        binding.layFormFour.edtMetrazhMoraba.text.toString() + "متر"
-
-                                    if (binding.layFormFive.radioBtn1.isChecked) {
-                                        sureVame = binding.layFormFive.radioBtn1.tag.toString()
-                                    } else if (binding.layFormFive.radioBtn2.isChecked) {
-                                        sureVame = binding.layFormFive.radioBtn2.tag.toString()
-                                    }
-                                    description = binding.layFormFive.edtDescription.text.toString()
-
-                                    val registerBuyAndSellFormOne = RegisterBuyAndSellModelFormOne(
-                                        0,
-                                        userRegistering,
-                                        DateRegistering,
-                                        TimeRegistering,
-                                        ownerName,
-                                        ownerFamily,
-                                        ownerMobilePhone,
-                                        priceMelk,
-                                        addressFile,
-                                        metrazhMoraba,
-                                        sureVame,
-                                        description
-                                    )
-
-                                    val result = db.dBDao()
-                                        .upsertRegisterBuyAndSellFormOne(registerBuyAndSellFormOne)
-                                    if (result > 0) {
-                                        showDialogDoYouContinue(requireActivity())
-                                    } else {
-                                        Toast.makeText(
-                                            requireActivity(),
-                                            getString(R.string.txt_save_infonmation_failure),
-                                            Toast.LENGTH_LONG
-                                        ).show()
-                                    }
-                                } else {
-                                    binding.layFormFive.layWarning1.visibility = View.VISIBLE
-                                }
-                            }
-
-                            6 -> {
-                                counterStepsTwo = 4
+                                counterStepsTwo = 5
                                 if (binding.layFormFiveFive.edtTypeUser.text.toString() == "" &&
                                     binding.layFormFiveFive.edtTypeSanad.text.toString() == ""&&
                                     binding.layFormFiveFive.edtLocation.text.toString() == ""&&
@@ -1964,7 +1963,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormFour.imgWarring2.animation = zAnim
 
                                 } else {
-                                    counterStepsTwo = 5
+                                    counterStepsTwo = 6
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
                                     binding.layScroll3.visibility = View.GONE
@@ -2094,7 +2093,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                         }
                     }
                     2 ->{
-                        when (counterStepsOne) {
+                        when (counterStepsTwo) {
 //                    1 ->{
 //                        counterStepsOne = 1
 //                        binding.layScroll.visibility = View.VISIBLE
@@ -2156,6 +2155,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 binding.layScroll2.visibility = View.GONE
                                 binding.layScroll3.visibility = View.VISIBLE
                                 binding.layScroll4.visibility = View.GONE
+                                binding.layScroll55.visibility = View.GONE
                                 binding.circularProgressBar.progress = 37.5.toInt()
 
                                 binding.txtTop.text = "3"
@@ -2176,10 +2176,32 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 binding.layScroll2.visibility = View.GONE
                                 binding.layScroll3.visibility = View.GONE
                                 binding.layScroll4.visibility = View.VISIBLE
-                                binding.layScroll5.visibility = View.GONE
+                                binding.layScroll55.visibility = View.GONE
                                 binding.circularProgressBar.progress = 50
 
                                 binding.txtTop.text = "4"
+                                binding.txtPageTitleTop.text =
+                                    resources.getString(R.string.txt_address_and_metrazh)
+                                binding.layDes2.visibility = View.VISIBLE
+                                binding.txtPageTitleBottom.text =
+                                    " بعدی : ${resources.getString(R.string.txt_moshakhasat_kilidi)}"
+
+
+                                binding.img.background = resources.getDrawable(R.drawable.map_point)
+                                binding.txtPageTitle.text =
+                                    resources.getString(R.string.txt_price_the_property)
+                            }
+
+                            6 -> {
+                                counterStepsTwo = 5
+                                binding.layScroll.visibility = View.GONE
+                                binding.layScroll2.visibility = View.GONE
+                                binding.layScroll3.visibility = View.GONE
+                                binding.layScroll4.visibility = View.GONE
+                                binding.layScroll55.visibility = View.VISIBLE
+                                binding.circularProgressBar.progress = 62.5.toInt()
+
+                                binding.txtTop.text = "5"
                                 binding.txtPageTitleTop.text =
                                     resources.getString(R.string.txt_address_and_metrazh)
                                 binding.layDes2.visibility = View.VISIBLE
