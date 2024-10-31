@@ -122,7 +122,7 @@ class MainFragment : Fragment(), View.OnClickListener {
             }
 
             R.id.imgBtn_commission -> {
-                findNavController(binding.root)
+                Navigation.findNavController(binding.root)
                     .navigate(R.id.action_mainFragment_to_commissionFragment)
             }
 

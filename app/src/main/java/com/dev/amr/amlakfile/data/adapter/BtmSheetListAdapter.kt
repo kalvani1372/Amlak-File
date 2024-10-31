@@ -17,7 +17,7 @@ class BtmSheetListAdapter(list: GetListItem) : RecyclerView.Adapter<BtmSheetList
 
     class SVH(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val txt = itemView.findViewById<ITextView>(R.id.txt)!!
-        val lineTop = itemView.findViewById<ConstraintLayout>(R.id.line_top)!!
+//        val lineTop = itemView.findViewById<ConstraintLayout>(R.id.line_top)!!
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SVH {

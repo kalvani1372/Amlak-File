@@ -117,4 +117,8 @@ abstract class BaseFragment : Fragment() {
         }
     }
 
+    fun isValidEmail(item : String): Boolean {
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(item).matches()
+    }
+
 }

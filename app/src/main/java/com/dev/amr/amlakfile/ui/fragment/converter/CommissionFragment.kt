@@ -25,15 +25,16 @@ class CommissionFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityCommissionBinding.inflate(layoutInflater)
-        binding.toolbar.layLogo.visibility = View.GONE
-        binding.toolbar.layBtnBack.visibility = View.VISIBLE
-        binding.toolbar.txtTitle.text = resources.getString(R.string.txt_mohasebe_komisiyon)
         return binding.root
     }
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.toolbar.layLogo.visibility = View.GONE
+        binding.toolbar.layBtnBack.visibility = View.VISIBLE
+        binding.toolbar.txtTitle.text = resources.getString(R.string.txt_mohasebe_komisiyon)
 
         binding.edtBaseAmountInput.addTextChangedListener (NumberTextWatcher(binding.edtBaseAmountInput))
         binding.edtBaseAmountInput.addTextChangedListener {
