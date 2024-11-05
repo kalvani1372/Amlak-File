@@ -37,6 +37,16 @@
     <string name="txt_type_file">نوع آگهی</string>
     <string name="txt_type_user">نوع کاربری</string>
     <string name="txt_selection_type_user">لطفا نوع کاربری را انتخاب کنید</string>
+    <string name="txt_enter_counter_all_tabaghat">لطفا تعداد کل طبقات را وارد کنید</string>
+    <string name="txt_enter_counter_all_vahedha">لطفا تعداد کل واحد ها را وارد کنید</string>
+    <string name="txt_enter_counter_har_tabaghe">لطفا تعداد واحد در هر طبقه را وارد کنید</string>
+    <string name="txt_selection_jahat_sakhteman">لطفا جهت ساختمان را انتخاب کنید</string>
+    <string name="txt_selection_jense_kaf">لطفا جنس کف را انتخاب کنید</string>
+    <string name="txt_selection_kabinet">لطفا کابینت را انتخاب کنید</string>
+    <string name="txt_selection_wc">لطفا سرویس بهداشتی را انتخاب کنید</string>
+    <string name="txt_selection_garmayesh">لطفا گرمایش را انتخاب کنید</string>
+    <string name="txt_selection_sarmayesh">لطفا سرمایس را انتخاب کنید</string>
+    <string name="txt_selection_jahat_vahed">لطفا جهت واحد را انتخاب کنید</string>
     <string name="txt_type_user2">نوع کاربری : </string>
     <string name="txt_type_sanad">نوع سند</string>
     <string name="txt_selection_type_sanad">لطفا نوع سند را انتخاب کنید</string>
@@ -237,6 +247,8 @@
     <string name="txt_enter_metrazh_moraba">لطفا متراژ ملک را به متر مربع وارد کنید.</string>
     <string name="txt_enter_address_melk">لطفا آدرس ملک را وارد کنید.</string>
     <string name="txt_moshakhasat_kilidi">مشخصات کلیدی</string>
+    <string name="txt_other_vizhegi">سایر ویژگی ها</string>
+    <string name="txt_facilities">امکانات</string>
     <string name="txt_if_melk_vam_darad">آیا ملک وام دارد ؟</string>
     <string name="txt_ok2">بله</string>
     <string name="txt_not_ok">خیر</string>

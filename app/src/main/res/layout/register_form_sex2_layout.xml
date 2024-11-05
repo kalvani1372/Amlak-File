@@ -9,10 +9,10 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nested_scroll"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="wrap_content">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,19 +20,423 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_height="match_parent">
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_counter_all_tabaghat"
+                    android:id="@+id/input_txt_type_user"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
-                    android:hint="@string/txt_counter_all_tabaghat"
+                    android:layout_marginStart="16dp"
+                    android:hint="@string/txt_type_user"
+                    android:textColorHint="@color/color_btn_login"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/color_btn_login"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/color_btn_login"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_type_user"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/arrow_down"
+                        android:drawablePadding="8dp"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/color_btn_login"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_type_sanad"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/txt_type_sanad"
+                    android:textColorHint="@color/color_btn_login"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/color_btn_login"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/color_btn_login"
+                    app:layout_constraintEnd_toEndOf="@+id/input_txt_type_user"
+                    app:layout_constraintStart_toStartOf="@+id/input_txt_type_user"
+                    app:layout_constraintTop_toBottomOf="@id/input_txt_type_user">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_type_sanad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/arrow_down"
+                        android:drawablePadding="8dp"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/md_indigo_500"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_location"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/txt_location"
+                    android:textColorHint="@color/md_indigo_500"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/md_indigo_500"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/md_indigo_500"
+                    app:layout_constraintEnd_toEndOf="@+id/input_txt_type_user"
+                    app:layout_constraintStart_toStartOf="@+id/input_txt_type_user"
+                    app:layout_constraintTop_toBottomOf="@id/input_txt_type_sanad">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_location"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:enabled="true"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/md_indigo_500"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_tabaghe"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/txt_tabaghe"
+                    android:textColorHint="@color/md_indigo_500"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/md_indigo_500"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/md_indigo_500"
+                    app:layout_constraintEnd_toEndOf="@+id/input_txt_type_user"
+                    app:layout_constraintStart_toStartOf="@+id/input_txt_type_user"
+                    app:layout_constraintTop_toBottomOf="@id/input_txt_location">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_tabaghe"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/arrow_down"
+                        android:drawablePadding="8dp"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/md_indigo_500"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_age_bana"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/txt_age_bana"
+                    android:textColorHint="@color/md_indigo_500"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/md_indigo_500"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/md_indigo_500"
+                    app:layout_constraintEnd_toEndOf="@+id/input_txt_type_user"
+                    app:layout_constraintStart_toStartOf="@+id/input_txt_type_user"
+                    app:layout_constraintTop_toBottomOf="@+id/input_txt_tabaghe">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_age_bana"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|right"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/arrow_down"
+                        android:drawablePadding="8dp"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/md_indigo_500"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_vaziyad_melk"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/txt_vaziyad_melk"
+                    android:textColorHint="@color/md_indigo_500"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/md_indigo_500"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/md_indigo_500"
+                    app:layout_constraintEnd_toEndOf="@+id/input_txt_type_user"
+                    app:layout_constraintStart_toStartOf="@+id/input_txt_type_user"
+                    app:layout_constraintTop_toBottomOf="@id/input_txt_age_bana">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_vaziyad_melk"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/arrow_down"
+                        android:drawablePadding="8dp"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/md_indigo_500"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_cunter_otagh"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/txt_cunter_otagh"
+                    android:textColorHint="@color/md_indigo_500"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/md_indigo_500"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/md_indigo_500"
+                    app:layout_constraintEnd_toEndOf="@+id/input_txt_type_user"
+                    app:layout_constraintStart_toStartOf="@+id/input_txt_type_user"
+                    app:layout_constraintTop_toBottomOf="@id/input_txt_vaziyad_melk">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_cunter_otagh"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/arrow_down"
+                        android:drawablePadding="8dp"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/md_indigo_500"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_nema_sakhteman"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:hint="@string/txt_nema_sakhteman"
+                    android:textColorHint="@color/md_indigo_500"
+                    app:boxCornerRadiusBottomEnd="10dp"
+                    app:boxCornerRadiusBottomStart="10dp"
+                    app:boxCornerRadiusTopEnd="10dp"
+                    app:boxCornerRadiusTopStart="10dp"
+                    app:boxStrokeColor="@color/md_indigo_500"
+                    app:boxStrokeWidth="1dp"
+                    app:expandedHintEnabled="false"
+                    app:hintAnimationEnabled="true"
+                    app:hintTextColor="@color/md_indigo_500"
+                    app:layout_constraintEnd_toEndOf="@+id/input_txt_type_user"
+                    app:layout_constraintStart_toStartOf="@+id/input_txt_type_user"
+                    app:layout_constraintTop_toBottomOf="@id/input_txt_cunter_otagh">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
+                        android:id="@+id/edt_nema_sakhteman"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:cursorVisible="false"
+                        android:drawableStart="@drawable/arrow_down"
+                        android:drawablePadding="8dp"
+                        android:enabled="true"
+                        android:focusable="false"
+                        android:hint="@string/txt_selected"
+                        android:inputType="text"
+                        android:minHeight="36dp"
+                        android:padding="18dp"
+                        android:textColor="@color/md_indigo_500"
+                        android:textColorHint="@color/md_grey_500"
+                        android:textSize="14sp"
+                        app:mode="PERSIAN_TEXT_NORMAL16"
+                        tools:ignore="MissingPrefix" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:id="@+id/txt_if_vam_darad"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/txt_if_melk_vam_darad"
+                    android:textColor="@color/txt_color_title"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/input_txt_nema_sakhteman" />
+
+                <RadioGroup
+                    android:id="@+id/radio_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="16dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/txt_if_vam_darad"
+                    app:startIconTint="@color/md_indigo_500">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:background="@drawable/border4"
+                        android:gravity="center|end"
+                        android:orientation="horizontal">
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_ok2"
+                            android:textColor="@color/color_4"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/border9"
+                        android:gravity="center|end"
+                        android:orientation="horizontal">
+
+                        <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/txt_not_ok"
+                            android:textColor="@color/color_4"
+                            android:textSize="14sp" />
+
+                        <androidx.appcompat.widget.AppCompatRadioButton
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layoutDirection="rtl" />
+
+                    </LinearLayout>
+
+
+                </RadioGroup>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_txt_description"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="90dp"
+                    android:hint="@string/txt_description"
                     android:textColorHint="@color/md_indigo_500"
                     app:boxCornerRadiusBottomEnd="10dp"
                     app:boxCornerRadiusBottomStart="10dp"
@@ -45,394 +449,20 @@
                     app:hintTextColor="@color/md_indigo_500"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_counter_all_tabaghat"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:drawablePadding="8dp"
-                        android:hint="@string/txt_num_5"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_counter_all_vahedha"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_counter_all_vahedha"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_all_tabaghat"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_all_tabaghat"
-                    app:layout_constraintTop_toBottomOf="@id/input_counter_all_tabaghat">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_counter_all_vahedha"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:drawablePadding="8dp"
-                        android:hint="@string/txt_num_20"
-                        android:inputType="number"
-                        android:letterSpacing="0.2"
-                        android:maxLength="2"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_counter_vahedha_dar_tabaghe"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_counter_vahedha_dar_tabaghe"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_all_tabaghat"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_all_tabaghat"
-                    app:layout_constraintTop_toBottomOf="@id/input_counter_all_vahedha">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_counter_vahedha_dar_tabaghe"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:drawablePadding="8dp"
-                        android:hint="@string/txt_num_4"
-                        android:inputType="number"
-                        android:maxLength="2"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_jahat_sakhteman"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_jahat_sakhteman"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_all_vahedha"
-                    app:layout_constraintTop_toBottomOf="@+id/input_counter_vahedha_dar_tabaghe">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_jahat_sakhteman"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:cursorVisible="false"
-                        android:drawableStart="@drawable/arrow_down"
-                        android:drawablePadding="8dp"
-                        android:enabled="true"
-                        android:focusable="false"
-                        android:hint="@string/txt_selected"
-                        android:inputType="text"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_jahat_vahed"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_jahat_vahed"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintTop_toBottomOf="@+id/input_jahat_sakhteman">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_jahat_vahed"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:cursorVisible="false"
-                        android:drawableStart="@drawable/arrow_down"
-                        android:drawablePadding="8dp"
-                        android:enabled="true"
-                        android:focusable="false"
-                        android:hint="@string/txt_selected"
-                        android:inputType="text"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_jens_kaf"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_jens_kaf"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintTop_toBottomOf="@id/input_jahat_vahed">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_jens_kaf"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:cursorVisible="false"
-                        android:drawableStart="@drawable/arrow_down"
-                        android:drawablePadding="8dp"
-                        android:enabled="true"
-                        android:focusable="false"
-                        android:hint="@string/txt_selected"
-                        android:inputType="text"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_txt_cabinets"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_cabinets"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintTop_toBottomOf="@id/input_jens_kaf">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_cabinets"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:cursorVisible="false"
-                        android:drawableStart="@drawable/arrow_down"
-                        android:drawablePadding="8dp"
-                        android:enabled="true"
-                        android:focusable="false"
-                        android:hint="@string/txt_selected"
-                        android:inputType="text"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_txt_wc"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_wc"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintTop_toBottomOf="@+id/input_txt_cabinets">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_wc"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:cursorVisible="false"
-                        android:drawableStart="@drawable/arrow_down"
-                        android:drawablePadding="8dp"
-                        android:enabled="true"
-                        android:focusable="false"
-                        android:hint="@string/txt_selected"
-                        android:inputType="text"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_garmayesh"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:hint="@string/txt_garmayesh_select"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintTop_toBottomOf="@id/input_txt_wc">
-
-                    <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_garmayesh"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:cursorVisible="false"
-                        android:drawableStart="@drawable/arrow_down"
-                        android:drawablePadding="8dp"
-                        android:enabled="true"
-                        android:focusable="false"
-                        android:hint="@string/txt_selected"
-                        android:inputType="text"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
-                        android:textColor="@color/md_indigo_500"
-                        android:textColorHint="@color/md_grey_500"
-                        android:textSize="14sp"
-                        app:mode="PERSIAN_TEXT_NORMAL16"
-                        tools:ignore="MissingPrefix" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_sarmayesh"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="16dp"
-                    android:hint="@string/txt_sarmayesh"
-                    android:textColorHint="@color/md_indigo_500"
-                    app:boxCornerRadiusBottomEnd="10dp"
-                    app:boxCornerRadiusBottomStart="10dp"
-                    app:boxCornerRadiusTopEnd="10dp"
-                    app:boxCornerRadiusTopStart="10dp"
-                    app:boxStrokeColor="@color/md_indigo_500"
-                    app:boxStrokeWidth="1dp"
-                    app:expandedHintEnabled="false"
-                    app:hintAnimationEnabled="true"
-                    app:hintTextColor="@color/md_indigo_500"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintStart_toStartOf="@+id/input_counter_vahedha_dar_tabaghe"
-                    app:layout_constraintTop_toBottomOf="@+id/input_garmayesh">
+                    app:layout_constraintTop_toBottomOf="@id/radio_group"
+                    app:startIconTint="@color/md_indigo_500">
 
                     <com.dev.amr.amlakfile.data.model.custom_views.IEditText
-                        android:id="@+id/edt_sarmayesh"
+                        android:id="@+id/edt_description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
-                        android:cursorVisible="false"
-                        android:drawableStart="@drawable/arrow_down"
-                        android:drawablePadding="8dp"
                         android:enabled="true"
-                        android:focusable="false"
-                        android:hint="@string/txt_selected"
-                        android:inputType="text"
-                        android:minHeight="36dp"
-                        android:padding="18dp"
+                        android:gravity="top"
+                        android:lineSpacingExtra="2dp"
+                        android:padding="20dp"
+                        android:text="لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد"
                         android:textColor="@color/md_indigo_500"
                         android:textColorHint="@color/md_grey_500"
                         android:textSize="14sp"
@@ -447,12 +477,13 @@
     </androidx.core.widget.NestedScrollView>
 
 
+
     <LinearLayout
         android:id="@+id/lay_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:orientation="horizontal"
+        android:layout_marginTop="24dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
