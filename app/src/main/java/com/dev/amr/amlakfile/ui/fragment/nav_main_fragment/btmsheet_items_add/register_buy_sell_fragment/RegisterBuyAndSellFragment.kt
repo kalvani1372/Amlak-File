@@ -208,7 +208,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 //        binding.layFormTow.btnImgDelete4.setOnClickListener(this)
 //        binding.layFormTow.btnImgDelete5.setOnClickListener(this)
 //        binding.layFormTow.btnImgDelete6.setOnClickListener(this)
-//        binding.layFormTow.checkSelectAll.setOnClickListener(this)
+        binding.layFormSeven.checkAsansor.setOnClickListener(this)
+        binding.layFormSeven.checkParking.setOnClickListener(this)
+        binding.layFormSeven.checkSelectAll.setOnClickListener(this)
 //        binding.layFormTow.btnShowItems.setOnClickListener(this)
 //        binding.layFormTow.imgShowItems.setOnClickListener(this)
 //        binding.rBFormOne.setOnClickListener(this)
@@ -255,6 +257,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     7 -> {
                         binding.layFormSex.edtWc.error = null
                         binding.layFormSex.edtWc.setText(Hawks.getString("item"))
+                        binding.layFormSex.edtWc.requestFocus()
                     }
 
                     8 -> {
@@ -265,31 +268,37 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     9 -> {
                         binding.layFormSex.edtCabinets.error = null
                         binding.layFormSex.edtCabinets.setText(Hawks.getString("item"))
+                        binding.layFormSex.edtCabinets.requestFocus()
                     }
 
                     10 -> {
                         binding.layFormSex.edtJahatSakhteman.error = null
                         binding.layFormSex.edtJahatSakhteman.setText(Hawks.getString("item"))
+                        binding.layFormSex.edtJahatSakhteman.requestFocus()
                     }
 
                     11 -> {
                         binding.layFormSex.edtJahatVahed.error = null
                         binding.layFormSex.edtJahatVahed.setText(Hawks.getString("item"))
+                        binding.layFormSex.edtJahatVahed.requestFocus()
                     }
 
                     12 -> {
                         binding.layFormSex.edtJensKaf.error = null
                         binding.layFormSex.edtJensKaf.setText(Hawks.getString("item"))
+                        binding.layFormSex.edtJensKaf.requestFocus()
                     }
 
                     13 -> {
                         binding.layFormSex.edtGarmayesh.error = null
                         binding.layFormSex.edtGarmayesh.setText(Hawks.getString("item"))
+                        binding.layFormSex.edtGarmayesh.requestFocus()
                     }
 
                     14 -> {
                         binding.layFormSex.edtSarmayesh.error = null
                         binding.layFormSex.edtSarmayesh.setText(Hawks.getString("item"))
+                        binding.layFormSex.edtSarmayesh.requestFocus()
                     }
                 }
 
@@ -2135,19 +2144,20 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         resources.getString(R.string.txt_selection_sarmayesh)
 
                                 } else {
-                                    counterStepsTwo = 6
+                                    counterStepsTwo = 7
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
                                     binding.layScroll3.visibility = View.GONE
                                     binding.layScroll4.visibility = View.GONE
                                     binding.layScroll55.visibility = View.GONE
-                                    binding.layScroll6.visibility = View.VISIBLE
-                                    binding.circularProgressBar.progress = 75
+                                    binding.layScroll6.visibility = View.GONE
+                                    binding.layScroll7.visibility = View.VISIBLE
+                                    binding.circularProgressBar.progress = 87.5.toInt()
 
 
-                                    binding.txtTop.text = "6"
+                                    binding.txtTop.text = "7"
                                     binding.txtPageTitleTop.text =
-                                        resources.getString(R.string.txt_other_vizhegi)
+                                        resources.getString(R.string.txt_facilities)
 
                                     binding.layDes2.visibility = View.VISIBLE
 
@@ -2158,7 +2168,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.img.background =
                                         resources.getDrawable(R.drawable.widget)
                                     binding.txtPageTitle.text =
-                                        resources.getString(R.string.txt_other_vizhegi)
+                                        resources.getString(R.string.txt_facilities)
                                 }
                             }
                         }
@@ -2395,28 +2405,28 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     resources.getString(R.string.txt_moshakhasat_kilidi)
                             }
 
-                            7 -> {
-                                counterStepsTwo = 6
-                                binding.layScroll.visibility = View.GONE
-                                binding.layScroll2.visibility = View.GONE
-                                binding.layScroll3.visibility = View.GONE
-                                binding.layScroll4.visibility = View.GONE
-                                binding.layScroll55.visibility = View.GONE
-                                binding.layScroll6.visibility = View.VISIBLE
-                                binding.circularProgressBar.progress = 75
-
-                                binding.txtTop.text = "6"
-                                binding.txtPageTitleTop.text =
-                                    resources.getString(R.string.txt_other_vizhegi)
-                                binding.layDes2.visibility = View.VISIBLE
-                                binding.txtPageTitleBottom.text =
-                                    " بعدی : ${resources.getString(R.string.txt_facilities)}"
-
-
-                                binding.img.background = resources.getDrawable(R.drawable.map_point)
-                                binding.txtPageTitle.text =
-                                    resources.getString(R.string.txt_other_vizhegi)
-                            }
+//                            7 -> {
+//                                counterStepsTwo = 6
+//                                binding.layScroll.visibility = View.GONE
+//                                binding.layScroll2.visibility = View.GONE
+//                                binding.layScroll3.visibility = View.GONE
+//                                binding.layScroll4.visibility = View.GONE
+//                                binding.layScroll55.visibility = View.GONE
+//                                binding.layScroll6.visibility = View.VISIBLE
+//                                binding.circularProgressBar.progress = 75
+//
+//                                binding.txtTop.text = "7"
+//                                binding.txtPageTitleTop.text =
+//                                    resources.getString(R.string.txt_facilities)
+//                                binding.layDes2.visibility = View.VISIBLE
+//                                binding.txtPageTitleBottom.text =
+//                                    " بعدی : ${resources.getString(R.string.txt_facilities)}" // todo
+//
+//
+//                                binding.img.background = resources.getDrawable(R.drawable.map_point) // todo
+//                                binding.txtPageTitle.text =
+//                                    resources.getString(R.string.txt_facilities)
+//                            }
                         }
                     }
                 }
@@ -2587,6 +2597,195 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 btmSheetKharidForosh.show(childFragmentManager, "")
                 btmSheetKharidForosh.isCancelable = false
 
+            }
+
+            R.id.check_asansor -> {
+                if (binding.layFormSeven.checkAsansor.isChecked) {
+                    binding.layFormSeven.checkAsansor.isChecked = true
+                    binding.layFormSeven.layAsansor.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                }else{
+                    binding.layFormSeven.checkAsansor.isChecked = false
+                    binding.layFormSeven.layAsansor.background =
+                        resources.getDrawable(R.drawable.border4)
+                }
+            }
+
+            R.id.check_parking -> {
+                if (binding.layFormSeven.checkParking.isChecked) {
+                    binding.layFormSeven.checkParking.isChecked = true
+                    binding.layFormSeven.layParking.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                }else{
+                    binding.layFormSeven.checkParking.isChecked = false
+                    binding.layFormSeven.layParking.background =
+                        resources.getDrawable(R.drawable.border4)
+                }
+            }
+
+            R.id.check_select_all -> {
+                if (binding.layFormSeven.checkSelectAll.isChecked) {
+                    binding.layFormSeven.laySelectAll.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkAnbari.isChecked = true
+                    binding.layFormSeven.layAnbari.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkAsansor.isChecked = true
+                    binding.layFormSeven.layAsansor.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkBalkon.isChecked = true
+                    binding.layFormSeven.layBalkon.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkParking.isChecked = true
+                    binding.layFormSeven.layParking.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkIphonTasviri.isChecked = true
+                    binding.layFormSeven.layIphonTasviri.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkEstakhr.isChecked = true
+                    binding.layFormSeven.layEstakhr.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkSona.isChecked = true
+                    binding.layFormSeven.laySona.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkGazRomizi.isChecked = true
+                    binding.layFormSeven.layGazRomizi.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkHod.isChecked = true
+                    binding.layFormSeven.layHod.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkDarbZedSerghat.isChecked = true
+                    binding.layFormSeven.layDarbZedSerghat.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkHayat.isChecked = true
+                    binding.layFormSeven.layHayat.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkJakozi.isChecked = true
+                    binding.layFormSeven.layJakozi.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkLabi.isChecked = true
+                    binding.layFormSeven.layLabi.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkSalonVarzeshi.isChecked = true
+                    binding.layFormSeven.laySalonVarzeshi.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkSalonEjtemaat.isChecked = true
+                    binding.layFormSeven.laySalonEjtemaat.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkAntenMarkazi.isChecked = true
+                    binding.layFormSeven.layAntenMarkazi.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkJarobarghiMarkazi.isChecked = true
+                    binding.layFormSeven.layJarobarghiMarkazi.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkKomodDivari.isChecked = true
+                    binding.layFormSeven.layKomodDivari.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                    binding.layFormSeven.checkMelkBazsaziShode.isChecked = true
+                    binding.layFormSeven.layMelkBazsaziShode.background =
+                        resources.getDrawable(R.drawable.border9)
+
+                } else {
+                    binding.layFormSeven.laySelectAll.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkAnbari.isChecked = false
+                    binding.layFormSeven.layAnbari.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkAsansor.isChecked = false
+                    binding.layFormSeven.layAsansor.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkBalkon.isChecked = false
+                    binding.layFormSeven.layBalkon.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkParking.isChecked = false
+                    binding.layFormSeven.layParking.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkIphonTasviri.isChecked = false
+                    binding.layFormSeven.layIphonTasviri.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkEstakhr.isChecked = false
+                    binding.layFormSeven.layEstakhr.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkSona.isChecked = false
+                    binding.layFormSeven.laySona.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkGazRomizi.isChecked = false
+                    binding.layFormSeven.layGazRomizi.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkHod.isChecked = false
+                    binding.layFormSeven.layHod.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkDarbZedSerghat.isChecked = false
+                    binding.layFormSeven.layDarbZedSerghat.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkHayat.isChecked = false
+                    binding.layFormSeven.layHayat.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkJakozi.isChecked = false
+                    binding.layFormSeven.layJakozi.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkLabi.isChecked = false
+                    binding.layFormSeven.layLabi.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkSalonVarzeshi.isChecked = false
+                    binding.layFormSeven.laySalonVarzeshi.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkSalonEjtemaat.isChecked = false
+                    binding.layFormSeven.laySalonEjtemaat.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkAntenMarkazi.isChecked = false
+                    binding.layFormSeven.layAntenMarkazi.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkJarobarghiMarkazi.isChecked = false
+                    binding.layFormSeven.layJarobarghiMarkazi.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkKomodDivari.isChecked = false
+                    binding.layFormSeven.layKomodDivari.background =
+                        resources.getDrawable(R.drawable.border4)
+
+                    binding.layFormSeven.checkMelkBazsaziShode.isChecked = false
+                    binding.layFormSeven.layMelkBazsaziShode.background =
+                        resources.getDrawable(R.drawable.border4)
+                }
             }
         }
     }
