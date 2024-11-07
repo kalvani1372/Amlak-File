@@ -121,4 +121,16 @@ abstract class BaseFragment : Fragment() {
         return android.util.Patterns.EMAIL_ADDRESS.matcher(item).matches()
     }
 
+    fun isValidPhoneNumber(phoneNumber: String): Boolean {
+        val irancellPattern = Regex("^09[0-3]\\d{8}$")  // برای پیش‌شماره‌های ایرانسل
+        val mciPattern =
+            Regex("^09(1\\\\d{8}|99\\\\d{7})\$")        // برای پیش‌شماره‌های همراه اول
+        val rightelPattern = Regex("^092\\d{8}$")  // برای پیش‌شماره‌های رایتل
+
+        val invalidNumbers = listOf("09300000000", "09100000000", "09900000000", "09200000000")
+
+        return phoneNumber !in invalidNumbers && (phoneNumber.matches(irancellPattern) ||
+                phoneNumber.matches(mciPattern) || phoneNumber.matches(rightelPattern))
+    }
+
 }

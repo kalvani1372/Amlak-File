@@ -160,6 +160,10 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         return binding.root
     }
 
+    override fun onResume() {
+        super.onResume()
+        getCurrentDate(binding.layFormOne.edtDate, binding.layFormOne.edtTime)
+    }
 
     private fun onClickViews() {
 //        binding.toolbar.txtTitle.text = getString(R.string.txt_register_file_kharid_forosh)
@@ -172,14 +176,14 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         binding.layFormFiveFive.edtTabaghe.setOnClickListener(this)
         binding.layFormFiveFive.edtCunterOtagh.setOnClickListener(this)
         binding.layFormFiveFive.edtVaziyadMelk.setOnClickListener(this)
-//        binding.layFormFiveFive.edtWc.setOnClickListener(this)
         binding.layFormFiveFive.edtNemaSakhteman.setOnClickListener(this)
-//        binding.layFormFiveFive.edtCabinets.setOnClickListener(this)
-//        binding.layFormFiveFive.edtJahatSakhteman.setOnClickListener(this)
-//        binding.layFormFiveFive.edtJahatVahed.setOnClickListener(this)
-//        binding.layFormFiveFive.edtJensKaf.setOnClickListener(this)
-//        binding.layFormFiveFive.edtGarmayesh.setOnClickListener(this)
-//        binding.layFormFiveFive.edtSarmayesh.setOnClickListener(this)
+        binding.layFormSex.edtWc.setOnClickListener(this)
+        binding.layFormSex.edtCabinets.setOnClickListener(this)
+        binding.layFormSex.edtJahatSakhteman.setOnClickListener(this)
+        binding.layFormSex.edtJahatVahed.setOnClickListener(this)
+        binding.layFormSex.edtJensKaf.setOnClickListener(this)
+        binding.layFormSex.edtGarmayesh.setOnClickListener(this)
+        binding.layFormSex.edtSarmayesh.setOnClickListener(this)
 //        binding.layFormTow.layImg1.setOnClickListener(this)
 //        binding.layFormTow.img1.setOnClickListener(this)
 //        binding.layFormTow.txtImg1.setOnClickListener(this)
@@ -248,45 +252,46 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                         binding.layFormFiveFive.edtVaziyadMelk.setText(Hawks.getString("item"))
                     }
 
-//                    7 -> {
-//                        binding.layFormFiveFive.edtWc.error = null
-//                        binding.layFormFiveFive.edtWc.setText(Hawks.getString("item"))
-//                    }
+                    7 -> {
+                        binding.layFormSex.edtWc.error = null
+                        binding.layFormSex.edtWc.setText(Hawks.getString("item"))
+                    }
 
                     8 -> {
                         binding.layFormFiveFive.edtNemaSakhteman.error = null
                         binding.layFormFiveFive.edtNemaSakhteman.setText(Hawks.getString("item"))
                     }
 
-//                    9 -> {
-//                        binding.layFormFiveFive.edtCabinets.error = null
-//                        binding.layFormFiveFive.edtCabinets.setText(Hawks.getString("item"))
-//                    }
-//
-//                    10 -> {
-//                        binding.layFormFiveFive.edtJahatSakhteman.error = null
-//                        binding.layFormFiveFive.edtJahatSakhteman.setText(Hawks.getString("item"))
-//                    }
-//
-//                    11 -> {
-//                        binding.layFormFiveFive.edtJahatVahed.error = null
-//                        binding.layFormFiveFive.edtJahatVahed.setText(Hawks.getString("item"))
-//                    }
-//
-//                    12 -> {
-//                        binding.layFormFiveFive.edtJensKaf.error = null
-//                        binding.layFormFiveFive.edtJensKaf.setText(Hawks.getString("item"))
-//                    }
-//
-//                    13 -> {
-//                        binding.layFormFiveFive.edtGarmayesh.error = null
-//                        binding.layFormFiveFive.edtGarmayesh.setText(Hawks.getString("item"))
-//                    }
-//
-//                    14 -> {
-//                        binding.layFormFiveFive.edtSarmayesh.error = null
-//                        binding.layFormFiveFive.edtSarmayesh.setText(Hawks.getString("item"))
+                    9 -> {
+                        binding.layFormSex.edtCabinets.error = null
+                        binding.layFormSex.edtCabinets.setText(Hawks.getString("item"))
                     }
+
+                    10 -> {
+                        binding.layFormSex.edtJahatSakhteman.error = null
+                        binding.layFormSex.edtJahatSakhteman.setText(Hawks.getString("item"))
+                    }
+
+                    11 -> {
+                        binding.layFormSex.edtJahatVahed.error = null
+                        binding.layFormSex.edtJahatVahed.setText(Hawks.getString("item"))
+                    }
+
+                    12 -> {
+                        binding.layFormSex.edtJensKaf.error = null
+                        binding.layFormSex.edtJensKaf.setText(Hawks.getString("item"))
+                    }
+
+                    13 -> {
+                        binding.layFormSex.edtGarmayesh.error = null
+                        binding.layFormSex.edtGarmayesh.setText(Hawks.getString("item"))
+                    }
+
+                    14 -> {
+                        binding.layFormSex.edtSarmayesh.error = null
+                        binding.layFormSex.edtSarmayesh.setText(Hawks.getString("item"))
+                    }
+                }
 
                 btmSheetKharidForosh.dismiss()
             } catch (e: Exception) {
@@ -1340,8 +1345,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
 
             R.id.btn_next123 -> {
-                when(counter){
-                    1 ->{
+                when (counter) {
+                    1 -> {
                         when (counterStepsOne) {
                             1 -> {
                                 counterStepsOne = 1
@@ -1483,7 +1488,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                             " بعدی : ${resources.getString(R.string.txt_address_and_metrazh)}"
 
 
-                                        binding.img.background = resources.getDrawable(R.drawable.money_bag)
+                                        binding.img.background =
+                                            resources.getDrawable(R.drawable.money_bag)
                                         binding.txtPageTitle.text =
                                             resources.getString(R.string.txt_price_the_property)
 
@@ -1516,7 +1522,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         " بعدی : ${resources.getString(R.string.txt_moshakhasat_kilidi)}"
 
 
-                                    binding.img.background = resources.getDrawable(R.drawable.map_point)
+                                    binding.img.background =
+                                        resources.getDrawable(R.drawable.map_point)
                                     binding.txtPageTitle.text =
                                         resources.getString(R.string.txt_address_and_metrazh)
 
@@ -1555,7 +1562,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layScroll5.visibility = View.VISIBLE
                                     binding.circularProgressBar.progress = 100
 
-                                    binding.btnNext123.text = resources.getString(R.string.txt_register2)
+                                    binding.btnNext123.text =
+                                        resources.getString(R.string.txt_register2)
 
                                     binding.txtTop.text = "5"
                                     binding.txtPageTitleTop.text =
@@ -1563,7 +1571,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layDes2.visibility = View.GONE
 
 
-                                    binding.img.background = resources.getDrawable(R.drawable.key_square)
+                                    binding.img.background =
+                                        resources.getDrawable(R.drawable.key_square)
                                     binding.txtPageTitle.text =
                                         resources.getString(R.string.txt_moshakhasat_kilidi)
                                 }
@@ -1573,7 +1582,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 if (binding.layFormFive.radioBtn1.isChecked ||
                                     binding.layFormFive.radioBtn2.isChecked
                                 ) {
-                                    userRegistering = binding.layFormOne.edtUserRegistering.text.toString()
+                                    userRegistering =
+                                        binding.layFormOne.edtUserRegistering.text.toString()
                                     DateRegistering = binding.layFormOne.edtDate.text.toString()
                                     TimeRegistering = binding.layFormOne.edtTime.text.toString()
 
@@ -1581,11 +1591,15 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     ownerFamily = binding.layFormTwo.edtFamilyOwner.text.toString()
 
                                     // الگوی شماره‌های مجاز برای ایرانسل، همراه اول و رایتل
-                                    val validPhoneNumberRegex = "^(09[1-3][0-9][0-9]\\d{6})\$".toRegex()
+                                    val validPhoneNumberRegex =
+                                        "^(09[1-3][0-9][0-9]\\d{6})\$".toRegex()
 
                                     binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener { it ->
                                         val input = it.toString()
-                                        if (input.isNotEmpty() && !validPhoneNumberRegex.matches(input)) {
+                                        if (input.isNotEmpty() && !validPhoneNumberRegex.matches(
+                                                input
+                                            )
+                                        ) {
                                             binding.layFormTwo.txtWarning3.text =
                                                 "لطفاً شماره معتبر وارد کنید"
                                         }
@@ -1594,8 +1608,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     ownerMobilePhone =
                                         binding.layFormTwo.edtMobilePhoneNumber.text.toString()
 
-                                    priceMelk = binding.layFormThree.edtPriceMelk.text.toString() + " , " +
-                                            binding.layFormThree.txtPrice.text.toString()
+                                    priceMelk =
+                                        binding.layFormThree.edtPriceMelk.text.toString() + " , " +
+                                                binding.layFormThree.txtPrice.text.toString()
 
                                     addressFile = binding.layFormFour.edtAddressFile.text.toString()
                                     metrazhMoraba =
@@ -1640,7 +1655,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             }
                         }
                     }
-                    2 ->{
+
+                    2 -> {
                         when (counterStepsTwo) {
                             1 -> {
                                 counterStepsTwo = 1
@@ -1782,7 +1798,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                             " بعدی : ${resources.getString(R.string.txt_address_and_metrazh)}"
 
 
-                                        binding.img.background = resources.getDrawable(R.drawable.money_bag)
+                                        binding.img.background =
+                                            resources.getDrawable(R.drawable.money_bag)
                                         binding.txtPageTitle.text =
                                             resources.getString(R.string.txt_price_the_property)
 
@@ -1815,7 +1832,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         " بعدی : ${resources.getString(R.string.txt_moshakhasat_kilidi)}"
 
 
-                                    binding.img.background = resources.getDrawable(R.drawable.map_point)
+                                    binding.img.background =
+                                        resources.getDrawable(R.drawable.map_point)
                                     binding.txtPageTitle.text =
                                         resources.getString(R.string.txt_address_and_metrazh)
 
@@ -1862,7 +1880,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         " بعدی : ${resources.getString(R.string.txt_other_vizhegi)}"
 
 
-                                    binding.img.background = resources.getDrawable(R.drawable.key_square)
+                                    binding.img.background =
+                                        resources.getDrawable(R.drawable.key_square)
                                     binding.txtPageTitle.text =
                                         resources.getString(R.string.txt_moshakhasat_kilidi)
                                 }
@@ -1870,14 +1889,14 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
                             5 -> {
                                 counterStepsTwo = 5
-                                if (binding.layFormFiveFive.edtTypeUser.text.toString() == ""  &&
-                                    binding.layFormFiveFive.edtTypeSanad.text.toString()== "" &&
-                                    binding.layFormFiveFive.edtLocation.text.toString()== "" &&
-                                    binding.layFormFiveFive.edtTabaghe.text.toString()== "" &&
-                                    binding.layFormFiveFive.edtAgeBana.text.toString()== ""&&
-                                    binding.layFormFiveFive.edtVaziyadMelk.text.toString()== "" &&
-                                    binding.layFormFiveFive.edtCunterOtagh.text.toString()== "" &&
-                                    binding.layFormFiveFive.edtNemaSakhteman.text.toString()== ""
+                                if (binding.layFormFiveFive.edtTypeUser.text.toString() == "" &&
+                                    binding.layFormFiveFive.edtTypeSanad.text.toString() == "" &&
+                                    binding.layFormFiveFive.edtLocation.text.toString() == "" &&
+                                    binding.layFormFiveFive.edtTabaghe.text.toString() == "" &&
+                                    binding.layFormFiveFive.edtAgeBana.text.toString() == "" &&
+                                    binding.layFormFiveFive.edtVaziyadMelk.text.toString() == "" &&
+                                    binding.layFormFiveFive.edtCunterOtagh.text.toString() == "" &&
+                                    binding.layFormFiveFive.edtNemaSakhteman.text.toString() == ""
                                 ) {
                                     binding.layFormFiveFive.layWarning1.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring.animation = zAnim
@@ -1919,48 +1938,49 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormFiveFive.txtWarning8.text =
                                         resources.getString(R.string.txt_selection_nema_sakhteman)
 
-                                }else if (binding.layFormFiveFive.edtTypeUser.text.toString() == "") {
+                                } else if (binding.layFormFiveFive.edtTypeUser.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning1.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring.animation = zAnim
                                     binding.layFormFiveFive.txtWarring1.text =
                                         resources.getString(R.string.txt_selection_type_user)
-                                }else if (binding.layFormFiveFive.edtTypeSanad.text.toString()== "" ) {
+                                } else if (binding.layFormFiveFive.edtTypeSanad.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning2.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring2.animation = zAnim
                                     binding.layFormFiveFive.txtWarning2.text =
                                         resources.getString(R.string.txt_selection_type_sanad)
-                                }else if (binding.layFormFiveFive.edtLocation.text.toString()== "" ) {
+                                } else if (binding.layFormFiveFive.edtLocation.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning3.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring3.animation = zAnim
                                     binding.layFormFiveFive.txtWarning3.text =
                                         resources.getString(R.string.txt_enter_location)
-                                }else if (binding.layFormFiveFive.edtTabaghe.text.toString()== "" ) {
+                                } else if (binding.layFormFiveFive.edtTabaghe.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning4.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring4.animation = zAnim
                                     binding.layFormFiveFive.txtWarning4.text =
                                         resources.getString(R.string.txt_selection_tabaghe)
-                                }else if (binding.layFormFiveFive.edtAgeBana.text.toString()== "") {
+                                } else if (binding.layFormFiveFive.edtAgeBana.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning5.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring5.animation = zAnim
                                     binding.layFormFiveFive.txtWarning5.text =
                                         resources.getString(R.string.txt_selection_age_bana)
-                                }else if (binding.layFormFiveFive.edtVaziyadMelk.text.toString()== "") {
+                                } else if (binding.layFormFiveFive.edtVaziyadMelk.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning6.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring6.animation = zAnim
                                     binding.layFormFiveFive.txtWarning6.text =
                                         resources.getString(R.string.txt_selection_vaziyad_melk)
-                                }else if (binding.layFormFiveFive.edtCunterOtagh.text.toString()== "") {
+                                } else if (binding.layFormFiveFive.edtCunterOtagh.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning7.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring7.animation = zAnim
                                     binding.layFormFiveFive.txtWarning7.text =
                                         resources.getString(R.string.txt_selection_cunter_otagh)
-                                }else if (binding.layFormFiveFive.edtNemaSakhteman.text.toString()== "") {
+                                } else if (binding.layFormFiveFive.edtNemaSakhteman.text.toString() == "") {
                                     binding.layFormFiveFive.layWarning8.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring8.animation = zAnim
                                     binding.layFormFiveFive.txtWarning8.text =
                                         resources.getString(R.string.txt_selection_nema_sakhteman)
-                                }else if (!binding.layFormFiveFive.radioBtn1Lay5.isChecked &&
-                                    !binding.layFormFiveFive.radioBtn2Lay5.isChecked ){
+                                } else if (!binding.layFormFiveFive.radioBtn1Lay5.isChecked &&
+                                    !binding.layFormFiveFive.radioBtn2Lay5.isChecked
+                                ) {
                                     binding.layFormFiveFive.layWarning9.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring9.animation = zAnim
                                 } else {
@@ -1984,7 +2004,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         resources.getString(R.string.txt_facilities)
 
 
-                                    binding.img.background = resources.getDrawable(R.drawable.widget)
+                                    binding.img.background =
+                                        resources.getDrawable(R.drawable.widget)
                                     binding.txtPageTitle.text =
                                         resources.getString(R.string.txt_other_vizhegi)
                                 }
@@ -1992,16 +2013,16 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
                             6 -> {
                                 counterStepsTwo = 6
-                                if (binding.layFormSex.edtCounterAllTabaghat.text.toString() == ""  &&
-                                    binding.layFormSex.edtCounterAllVahedha.text.toString()== "" &&
-                                    binding.layFormSex.edtCounterVahedhaDarTabaghe.text.toString()== "" &&
-                                    binding.layFormSex.edtJahatSakhteman.text.toString()== "" &&
-                                    binding.layFormSex.edtJahatVahed.text.toString()== ""&&
-                                    binding.layFormSex.edtJensKaf.text.toString()== "" &&
-                                    binding.layFormSex.edtCabinets.text.toString()== "" &&
-                                    binding.layFormSex.edtWc.text.toString()== "" &&
-                                    binding.layFormSex.edtGarmayesh.text.toString()== "" &&
-                                    binding.layFormSex.edtSarmayesh.text.toString()== ""
+                                if (binding.layFormSex.edtCounterAllTabaghat.text.toString() == "" &&
+                                    binding.layFormSex.edtCounterAllVahedha.text.toString() == "" &&
+                                    binding.layFormSex.edtCounterVahedhaDarTabaghe.text.toString() == "" &&
+                                    binding.layFormSex.edtJahatSakhteman.text.toString() == "" &&
+                                    binding.layFormSex.edtJahatVahed.text.toString() == "" &&
+                                    binding.layFormSex.edtJensKaf.text.toString() == "" &&
+                                    binding.layFormSex.edtCabinets.text.toString() == "" &&
+                                    binding.layFormSex.edtWc.text.toString() == "" &&
+                                    binding.layFormSex.edtGarmayesh.text.toString() == "" &&
+                                    binding.layFormSex.edtSarmayesh.text.toString() == ""
                                 ) {
                                     binding.layFormSex.layWarning1.visibility = View.VISIBLE
                                     binding.layFormSex.imgWarring.animation = zAnim
@@ -2053,54 +2074,67 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormSex.txtWarring10.text =
                                         resources.getString(R.string.txt_selection_sarmayesh)
 
-                                }
-                                    kj.vhv,kh
-//                                else if (binding.layFormFiveFive.edtTypeUser.text.toString() == "") {
-//                                    binding.layFormFiveFive.layWarning1.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarring1.text =
-//                                        resources.getString(R.string.txt_selection_type_user)
-//                                }else if (binding.layFormFiveFive.edtTypeSanad.text.toString()== "" ) {
-//                                    binding.layFormFiveFive.layWarning2.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring2.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarning2.text =
-//                                        resources.getString(R.string.txt_selection_type_sanad)
-//                                }else if (binding.layFormFiveFive.edtLocation.text.toString()== "" ) {
-//                                    binding.layFormFiveFive.layWarning3.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring3.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarning3.text =
-//                                        resources.getString(R.string.txt_enter_location)
-//                                }else if (binding.layFormFiveFive.edtTabaghe.text.toString()== "" ) {
-//                                    binding.layFormFiveFive.layWarning4.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring4.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarning4.text =
-//                                        resources.getString(R.string.txt_selection_tabaghe)
-//                                }else if (binding.layFormFiveFive.edtAgeBana.text.toString()== "") {
-//                                    binding.layFormFiveFive.layWarning5.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring5.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarning5.text =
-//                                        resources.getString(R.string.txt_selection_age_bana)
-//                                }else if (binding.layFormFiveFive.edtVaziyadMelk.text.toString()== "") {
-//                                    binding.layFormFiveFive.layWarning6.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring6.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarning6.text =
-//                                        resources.getString(R.string.txt_selection_vaziyad_melk)
-//                                }else if (binding.layFormFiveFive.edtCunterOtagh.text.toString()== "") {
-//                                    binding.layFormFiveFive.layWarning7.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring7.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarning7.text =
-//                                        resources.getString(R.string.txt_selection_cunter_otagh)
-//                                }else if (binding.layFormFiveFive.edtNemaSakhteman.text.toString()== "") {
-//                                    binding.layFormFiveFive.layWarning8.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring8.animation = zAnim
-//                                    binding.layFormFiveFive.txtWarning8.text =
-//                                        resources.getString(R.string.txt_selection_nema_sakhteman)
-//                                }else if (!binding.layFormFiveFive.radioBtn1Lay5.isChecked &&
-//                                    !binding.layFormFiveFive.radioBtn2Lay5.isChecked ){
-//                                    binding.layFormFiveFive.layWarning9.visibility = View.VISIBLE
-//                                    binding.layFormFiveFive.imgWarring9.animation = zAnim
-//                                }
-                                else {
+                                } else if (binding.layFormSex.edtCounterAllTabaghat.text.toString() == "") {
+                                    binding.layFormSex.layWarning1.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring.animation = zAnim
+                                    binding.layFormSex.txtWarring1.text =
+                                        resources.getString(R.string.txt_enter_counter_all_tabaghat)
+
+                                } else if (binding.layFormSex.edtCounterAllVahedha.text.toString() == "") {
+                                    binding.layFormSex.layWarning2.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring2.animation = zAnim
+                                    binding.layFormSex.txtWarring2.text =
+                                        resources.getString(R.string.txt_enter_counter_all_vahedha)
+
+                                } else if (binding.layFormSex.edtCounterVahedhaDarTabaghe.text.toString() == "") {
+                                    binding.layFormSex.layWarning3.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring3.animation = zAnim
+                                    binding.layFormSex.txtWarring3.text =
+                                        resources.getString(R.string.txt_enter_counter_har_tabaghe)
+
+                                } else if (binding.layFormSex.edtJahatSakhteman.text.toString() == "") {
+                                    binding.layFormSex.layWarning4.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring4.animation = zAnim
+                                    binding.layFormSex.txtWarring4.text =
+                                        resources.getString(R.string.txt_selection_jahat_sakhteman)
+
+                                } else if (binding.layFormSex.edtJahatVahed.text.toString() == "") {
+                                    binding.layFormSex.layWarning5.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring5.animation = zAnim
+                                    binding.layFormSex.txtWarring5.text =
+                                        resources.getString(R.string.txt_selection_jahat_vahed)
+
+                                } else if (binding.layFormSex.edtJensKaf.text.toString() == "") {
+                                    binding.layFormSex.layWarning6.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring6.animation = zAnim
+                                    binding.layFormSex.txtWarring6.text =
+                                        resources.getString(R.string.txt_selection_jense_kaf)
+
+                                } else if (binding.layFormSex.edtCabinets.text.toString() == "") {
+                                    binding.layFormSex.layWarning7.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring7.animation = zAnim
+                                    binding.layFormSex.txtWarring7.text =
+                                        resources.getString(R.string.txt_selection_kabinet)
+
+                                } else if (binding.layFormSex.edtWc.text.toString() == "") {
+                                    binding.layFormSex.layWarning8.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring8.animation = zAnim
+                                    binding.layFormSex.txtWarring8.text =
+                                        resources.getString(R.string.txt_selection_wc)
+
+                                } else if (binding.layFormSex.edtGarmayesh.text.toString() == "") {
+                                    binding.layFormSex.layWarning9.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring9.animation = zAnim
+                                    binding.layFormSex.txtWarring9.text =
+                                        resources.getString(R.string.txt_selection_garmayesh)
+
+                                } else if (binding.layFormSex.edtSarmayesh.text.toString() == "") {
+                                    binding.layFormSex.layWarning10.visibility = View.VISIBLE
+                                    binding.layFormSex.imgWarring10.animation = zAnim
+                                    binding.layFormSex.txtWarring10.text =
+                                        resources.getString(R.string.txt_selection_sarmayesh)
+
+                                } else {
                                     counterStepsTwo = 6
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -2121,7 +2155,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         resources.getString(R.string.txt_facilities)
 
 
-                                    binding.img.background = resources.getDrawable(R.drawable.widget)
+                                    binding.img.background =
+                                        resources.getDrawable(R.drawable.widget)
                                     binding.txtPageTitle.text =
                                         resources.getString(R.string.txt_other_vizhegi)
                                 }
@@ -2134,8 +2169,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
 
             R.id.btn_previous -> {
-                when(counter){
-                    1 ->{
+                when (counter) {
+                    1 -> {
                         when (counterStepsOne) {
 //                    1 ->{
 //                        counterStepsOne = 1
@@ -2165,7 +2200,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     " بعدی : ${resources.getString(R.string.txt_information_owner)}"
 
 
-                                binding.img.background = resources.getDrawable(R.drawable.document_text)
+                                binding.img.background =
+                                    resources.getDrawable(R.drawable.document_text)
                                 binding.txtPageTitle.text =
                                     resources.getString(R.string.txt_info_paye_registering)
 
@@ -2235,7 +2271,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                             }
                         }
                     }
-                    2 ->{
+
+                    2 -> {
                         when (counterStepsTwo) {
 //                    1 ->{
 //                        counterStepsOne = 1
@@ -2265,7 +2302,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     " بعدی : ${resources.getString(R.string.txt_information_owner)}"
 
 
-                                binding.img.background = resources.getDrawable(R.drawable.document_text)
+                                binding.img.background =
+                                    resources.getDrawable(R.drawable.document_text)
                                 binding.txtPageTitle.text =
                                     resources.getString(R.string.txt_info_paye_registering)
 
@@ -2384,7 +2422,6 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 }
 
 
-
             }
 
             R.id.radio_btn1 -> {
@@ -2497,6 +2534,60 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 btmSheetKharidForosh.isCancelable = false
 
             }
+
+            R.id.edt_cabinets -> {
+                countGetList = 9
+                Hawks.save("countGetList", countGetList as Int)
+
+                btmSheetKharidForosh.show(childFragmentManager, "")
+                btmSheetKharidForosh.isCancelable = false
+
+            }
+
+            R.id.edt_jahat_sakhteman -> {
+                countGetList = 10
+                Hawks.save("countGetList", countGetList as Int)
+
+                btmSheetKharidForosh.show(childFragmentManager, "")
+                btmSheetKharidForosh.isCancelable = false
+
+            }
+
+            R.id.edt_jahat_vahed -> {
+                countGetList = 11
+                Hawks.save("countGetList", countGetList as Int)
+
+                btmSheetKharidForosh.show(childFragmentManager, "")
+                btmSheetKharidForosh.isCancelable = false
+
+            }
+
+            R.id.edt_jens_kaf -> {
+                countGetList = 12
+                Hawks.save("countGetList", countGetList as Int)
+
+                btmSheetKharidForosh.show(childFragmentManager, "")
+                btmSheetKharidForosh.isCancelable = false
+
+            }
+
+            R.id.edt_garmayesh -> {
+                countGetList = 13
+                Hawks.save("countGetList", countGetList as Int)
+
+                btmSheetKharidForosh.show(childFragmentManager, "")
+                btmSheetKharidForosh.isCancelable = false
+
+            }
+
+            R.id.edt_sarmayesh -> {
+                countGetList = 14
+                Hawks.save("countGetList", countGetList as Int)
+
+                btmSheetKharidForosh.show(childFragmentManager, "")
+                btmSheetKharidForosh.isCancelable = false
+
+            }
         }
     }
 
@@ -2535,7 +2626,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         // Todo Text Watcher Step Two
         binding.layFormTwo.edtNameOwner.addTextChangedListener {
             if (binding.layFormTwo.edtNameOwner.text.toString() != "" &&
-                binding.layFormTwo.edtNameOwner.text.toString() != " ") {
+                binding.layFormTwo.edtNameOwner.text.toString() != " "
+            ) {
 
                 if (pattern.matcher(binding.layFormTwo.edtNameOwner.text.toString()).find()) {
                     binding.layFormTwo.layWarning1.visibility = View.VISIBLE
@@ -2547,141 +2639,147 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormTwo.layWarning1.visibility = View.GONE
                 }
             }
-            binding.layFormTwo.edtFamilyOwner.addTextChangedListener {
-                if (binding.layFormTwo.edtFamilyOwner.text.toString() != "" &&
-                    binding.layFormTwo.edtFamilyOwner.text.toString() != " "
-                ) {
-                    if (pattern.matcher(binding.layFormTwo.edtFamilyOwner.text.toString()).find()) {
-                        binding.layFormTwo.layWarning2.visibility = View.VISIBLE
-                        binding.layFormTwo.txtWarring2.text =
-                            resources.getString(R.string.txt_please_enter_lango_farsi)
-                        binding.layFormTwo.edtFamilyOwner.setText("")
-
-                    } else {
-                        binding.layFormTwo.layWarning2.visibility = View.GONE
-                    }
-                }
-            }
-            binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener {
-                if (binding.layFormTwo.edtMobilePhoneNumber.text.toString() != "" &&
-                    binding.layFormTwo.edtMobilePhoneNumber.text.toString() != " "
-                ) {
-                    if (pattern.matcher(binding.layFormTwo.edtMobilePhoneNumber.text.toString())
-                            .find()
-                    ) {
-                        binding.layFormTwo.layWarning3.visibility = View.VISIBLE
-                        binding.layFormTwo.txtWarning3.text =
-                            resources.getString(R.string.txt_please_enter_lango_farsi)
-                        binding.layFormTwo.edtMobilePhoneNumber.setText("")
-
-                    } else {
-                        binding.layFormTwo.edtMobilePhoneNumber.letterSpacing = 1F
-                        binding.layFormTwo.layWarning3.visibility = View.GONE
-                    }
-                }
-            }
-
-
-            // Todo Text Watcher Step Three
-            binding.layFormThree.edtPriceMelk.addTextChangedListener {
-                if (binding.layFormThree.edtPriceMelk.text.toString() != "" &&
-                    binding.layFormThree.edtPriceMelk.text.toString() != " "
-                ) {
-                    binding.layFormThree.layWarning1.visibility = View.GONE
-                    NumberTextWatcher(binding.layFormThree.edtPriceMelk)
-                }
-            }
-            binding.layFormThree.edtPriceMelk.addTextChangedListener(
-                NumberTextWatcher(binding.layFormThree.edtPriceMelk))
-            binding.layFormThree.edtPriceMelk.doAfterTextChanged {
-                if (binding.layFormThree.edtPriceMelk.length() == 0) {
-                    binding.layFormThree.txtPrice.visibility = View.GONE
-                } else if (binding.layFormThree.edtPriceMelk.length() != 0) {
-                    binding.layFormThree.txtPrice.visibility = View.VISIBLE
-                    val number = it.toString()
-                    binding.layFormThree.txtPrice.text =
-                        PersianDigits.spellToPersian(number.replace(",", "")) + " تومان"
-                }
-            }
-
-
-            // Todo Text Watcher Step Four
-            binding.layFormFour.edtAddressFile.addTextChangedListener {
-                if (binding.layFormFour.edtAddressFile.text.toString() != "" &&
-                    binding.layFormFour.edtAddressFile.text.toString() != " "
-                ) {
-                    if (pattern.matcher(binding.layFormFour.edtAddressFile.text.toString())
-                            .find()
-                    ) {
-                        binding.layFormFour.layWarning1.visibility = View.VISIBLE
-                        binding.layFormFour.txtWarning1.text =
-                            resources.getString(R.string.txt_please_enter_lango_farsi)
-                        binding.layFormFour.edtAddressFile.setText("")
-
-                    } else {
-                        binding.layFormFour.layWarning1.visibility = View.GONE
-                    }
-
-                }
-            }
-            binding.layFormFour.edtMetrazhMoraba.addTextChangedListener {
-                if (binding.layFormFour.edtMetrazhMoraba.text.toString() != "" &&
-                    binding.layFormFour.edtMetrazhMoraba.text.toString() != ""
-                ) {
-                    binding.layFormFour.layWarning2.visibility = View.GONE
-                }
-            }
-
-
-            // Todo Text Watcher Step Five
-            binding.layFormFive.edtDescription.addTextChangedListener {
-                if (binding.layFormFive.edtDescription.text.toString() != "" &&
-                    binding.layFormFive.edtDescription.text.toString() != " "
-                ) {
-                    if (pattern.matcher(binding.layFormFive.edtDescription.text.toString()).find()) {
-                        binding.layFormFive.layWarning2.visibility = View.VISIBLE
-                        binding.layFormFive.imgWarring2.animation = zAnim
-                        binding.layFormFive.txtWarning2.text =
-                            resources.getString(R.string.txt_please_enter_lango_farsi)
-                        binding.layFormFive.edtDescription.setText("")
-
-                    } else {
-                        binding.layFormFive.layWarning2.visibility = View.GONE
-                    }
-
-                }
-            }
-
-            // Todo Text Watcher Step Five_Five
-            binding.layFormFiveFive.edtTypeUser.addTextChangedListener {
-                if (pattern.matcher(binding.layFormFiveFive.edtTypeUser.text.toString()).find()) {
-                    binding.layFormFiveFive.layWarning1.visibility = View.VISIBLE
-                    binding.layFormFiveFive.imgWarring.animation = zAnim
-                    binding.layFormFiveFive.txtWarring1.text =
-                        resources.getString(R.string.txt_selection_type_user)
-                    binding.layFormFiveFive.edtTypeUser.setText("")
+        }
+        binding.layFormTwo.edtFamilyOwner.addTextChangedListener {
+            if (binding.layFormTwo.edtFamilyOwner.text.toString() != "" &&
+                binding.layFormTwo.edtFamilyOwner.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormTwo.edtFamilyOwner.text.toString()).find()) {
+                    binding.layFormTwo.layWarning2.visibility = View.VISIBLE
+                    binding.layFormTwo.txtWarring2.text =
+                        resources.getString(R.string.txt_please_enter_lango_farsi)
+                    binding.layFormTwo.edtFamilyOwner.setText("")
 
                 } else {
-                    binding.layFormFiveFive.layWarning1.visibility = View.GONE
+                    binding.layFormTwo.layWarning2.visibility = View.GONE
                 }
             }
-            binding.layFormFiveFive.edtTypeSanad.addTextChangedListener {
-                if (pattern.matcher(binding.layFormFiveFive.edtTypeSanad.text.toString()).find()) {
-                    binding.layFormFiveFive.layWarning2.visibility = View.VISIBLE
-                    binding.layFormFiveFive.imgWarring2.animation = zAnim
-                    binding.layFormFiveFive.txtWarning2.text =
-                        resources.getString(R.string.txt_selection_type_sanad)
-                    binding.layFormFiveFive.edtTypeSanad.setText("")
+        }
+        binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener {
+            if (binding.layFormTwo.edtMobilePhoneNumber.text.toString() != "" &&
+                binding.layFormTwo.edtMobilePhoneNumber.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormTwo.edtMobilePhoneNumber.text.toString())
+                        .find()
+                ) {
+                    binding.layFormTwo.layWarning3.visibility = View.VISIBLE
+                    binding.layFormTwo.txtWarning3.text =
+                        resources.getString(R.string.txt_please_enter_lango_farsi)
+                    binding.layFormTwo.edtMobilePhoneNumber.setText("")
 
                 } else {
-                    binding.layFormFiveFive.layWarning2.visibility = View.GONE
+                    binding.layFormTwo.edtMobilePhoneNumber.letterSpacing = 1F
+                    binding.layFormTwo.layWarning3.visibility = View.GONE
                 }
             }
-            binding.layFormFiveFive.edtLocation.addTextChangedListener {
-                if (binding.layFormFiveFive.edtLocation.text.toString() != "" &&
-                    binding.layFormFiveFive.edtLocation.text.toString() != " "
+        }
+
+
+        // Todo Text Watcher Step Three
+        binding.layFormThree.edtPriceMelk.addTextChangedListener {
+            if (binding.layFormThree.edtPriceMelk.text.toString() != "" &&
+                binding.layFormThree.edtPriceMelk.text.toString() != " "
+            ) {
+                binding.layFormThree.layWarning1.visibility = View.GONE
+                NumberTextWatcher(binding.layFormThree.edtPriceMelk)
+            }
+        }
+        binding.layFormThree.edtPriceMelk.addTextChangedListener(
+            NumberTextWatcher(binding.layFormThree.edtPriceMelk))
+        binding.layFormThree.edtPriceMelk.doAfterTextChanged {
+            if (binding.layFormThree.edtPriceMelk.length() == 0) {
+                binding.layFormThree.txtPrice.visibility = View.GONE
+            } else if (binding.layFormThree.edtPriceMelk.length() != 0) {
+                binding.layFormThree.txtPrice.visibility = View.VISIBLE
+                val number = it.toString()
+                binding.layFormThree.txtPrice.text =
+                    PersianDigits.spellToPersian(number.replace(",", "")) + " تومان"
+            }
+        }
+
+
+        // Todo Text Watcher Step Four
+        binding.layFormFour.edtAddressFile.addTextChangedListener {
+            if (binding.layFormFour.edtAddressFile.text.toString() != "" &&
+                binding.layFormFour.edtAddressFile.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormFour.edtAddressFile.text.toString())
+                        .find()
                 ) {
-                if (pattern.matcher(binding.layFormFiveFive.edtLocation.text.toString()).find()) {
+                    binding.layFormFour.layWarning1.visibility = View.VISIBLE
+                    binding.layFormFour.txtWarning1.text =
+                        resources.getString(R.string.txt_please_enter_lango_farsi)
+                    binding.layFormFour.edtAddressFile.setText("")
+
+                } else {
+                    binding.layFormFour.layWarning1.visibility = View.GONE
+                }
+
+            }
+        }
+        binding.layFormFour.edtMetrazhMoraba.addTextChangedListener {
+            if (binding.layFormFour.edtMetrazhMoraba.text.toString() != "" &&
+                binding.layFormFour.edtMetrazhMoraba.text.toString() != ""
+            ) {
+                binding.layFormFour.layWarning2.visibility = View.GONE
+            }
+        }
+
+
+        // Todo Text Watcher Step Five
+        binding.layFormFive.edtDescription.addTextChangedListener {
+            if (binding.layFormFive.edtDescription.text.toString() != "" &&
+                binding.layFormFive.edtDescription.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormFive.edtDescription.text.toString())
+                        .find()
+                ) {
+                    binding.layFormFive.layWarning2.visibility = View.VISIBLE
+                    binding.layFormFive.imgWarring2.animation = zAnim
+                    binding.layFormFive.txtWarning2.text =
+                        resources.getString(R.string.txt_please_enter_lango_farsi)
+                    binding.layFormFive.edtDescription.setText("")
+
+                } else {
+                    binding.layFormFive.layWarning2.visibility = View.GONE
+                }
+
+            }
+        }
+
+
+        // Todo Text Watcher Step Five_Five
+        binding.layFormFiveFive.edtTypeUser.addTextChangedListener {
+            if (pattern.matcher(binding.layFormFiveFive.edtTypeUser.text.toString()).find()) {
+                binding.layFormFiveFive.layWarning1.visibility = View.VISIBLE
+                binding.layFormFiveFive.imgWarring.animation = zAnim
+                binding.layFormFiveFive.txtWarring1.text =
+                    resources.getString(R.string.txt_selection_type_user)
+                binding.layFormFiveFive.edtTypeUser.setText("")
+
+            } else {
+                binding.layFormFiveFive.layWarning1.visibility = View.GONE
+            }
+        }
+        binding.layFormFiveFive.edtTypeSanad.addTextChangedListener {
+            if (pattern.matcher(binding.layFormFiveFive.edtTypeSanad.text.toString()).find()) {
+                binding.layFormFiveFive.layWarning2.visibility = View.VISIBLE
+                binding.layFormFiveFive.imgWarring2.animation = zAnim
+                binding.layFormFiveFive.txtWarning2.text =
+                    resources.getString(R.string.txt_selection_type_sanad)
+                binding.layFormFiveFive.edtTypeSanad.setText("")
+
+            } else {
+                binding.layFormFiveFive.layWarning2.visibility = View.GONE
+            }
+        }
+        binding.layFormFiveFive.edtLocation.addTextChangedListener {
+            if (binding.layFormFiveFive.edtLocation.text.toString() != "" &&
+                binding.layFormFiveFive.edtLocation.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormFiveFive.edtLocation.text.toString())
+                        .find()
+                ) {
                     binding.layFormFiveFive.layWarning3.visibility = View.VISIBLE
                     binding.layFormFiveFive.imgWarring3.animation = zAnim
                     binding.layFormFiveFive.txtWarning3.text =
@@ -2690,195 +2788,345 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
                 } else {
                     binding.layFormFiveFive.layWarning3.visibility = View.GONE
-                }}
-            }
-            binding.layFormFiveFive.edtTabaghe.addTextChangedListener {
-                if (pattern.matcher(binding.layFormFiveFive.edtTabaghe.text.toString()).find()) {
-                    binding.layFormFiveFive.layWarning4.visibility = View.VISIBLE
-                    binding.layFormFiveFive.imgWarring4.animation = zAnim
-                    binding.layFormFiveFive.txtWarning4.text =
-                        resources.getString(R.string.txt_selection_tabaghe)
-                    binding.layFormFiveFive.edtTabaghe.setText("")
-
-                } else {
-                    binding.layFormFiveFive.layWarning4.visibility = View.GONE
                 }
             }
-            binding.layFormFiveFive.edtAgeBana.addTextChangedListener {
-                if (pattern.matcher(binding.layFormFiveFive.edtAgeBana.text.toString()).find()) {
-                    binding.layFormFiveFive.layWarning5.visibility = View.VISIBLE
-                    binding.layFormFiveFive.imgWarring5.animation = zAnim
-                    binding.layFormFiveFive.txtWarning5.text =
-                        resources.getString(R.string.txt_selection_age_bana)
-                    binding.layFormFiveFive.edtAgeBana.setText("")
-
-                } else {
-                    binding.layFormFiveFive.layWarning5.visibility = View.GONE
-                }
-            }
-            binding.layFormFiveFive.edtVaziyadMelk.addTextChangedListener {
-                if (pattern.matcher(binding.layFormFiveFive.edtVaziyadMelk.text.toString()).find()) {
-                    binding.layFormFiveFive.layWarning6.visibility = View.VISIBLE
-                    binding.layFormFiveFive.imgWarring6.animation = zAnim
-                    binding.layFormFiveFive.txtWarning6.text =
-                        resources.getString(R.string.txt_selection_vaziyad_melk)
-                    binding.layFormFiveFive.edtVaziyadMelk.setText("")
-
-                } else {
-                    binding.layFormFiveFive.layWarning6.visibility = View.GONE
-                }
-            }
-            binding.layFormFiveFive.edtCunterOtagh.addTextChangedListener {
-                if (pattern.matcher(binding.layFormFiveFive.edtCunterOtagh.text.toString()).find()) {
-                    binding.layFormFiveFive.layWarning7.visibility = View.VISIBLE
-                    binding.layFormFiveFive.imgWarring7.animation = zAnim
-                    binding.layFormFiveFive.txtWarning7.text =
-                        resources.getString(R.string.txt_selection_cunter_otagh)
-                    binding.layFormFiveFive.edtCunterOtagh.setText("")
-
-                } else {
-                    binding.layFormFiveFive.layWarning7.visibility = View.GONE
-                }
-            }
-            binding.layFormFiveFive.edtNemaSakhteman.addTextChangedListener {
-                if (pattern.matcher(binding.layFormFiveFive.edtNemaSakhteman.text.toString()).find()) {
-                    binding.layFormFiveFive.layWarning8.visibility = View.VISIBLE
-                    binding.layFormFiveFive.imgWarring8.animation = zAnim
-                    binding.layFormFiveFive.txtWarning8.text =
-                        resources.getString(R.string.txt_selection_nema_sakhteman)
-                    binding.layFormFiveFive.edtNemaSakhteman.setText("")
-
-                } else {
-                    binding.layFormFiveFive.layWarning8.visibility = View.GONE
-                }
-            }
-            binding.layFormFiveFive.edtDescription.addTextChangedListener {
-                if (binding.layFormFiveFive.edtDescription.text.toString() != "" &&
-                    binding.layFormFiveFive.edtDescription.text.toString() != " "
-                ) {
-                    if (pattern.matcher(binding.layFormFiveFive.edtDescription.text.toString())
-                            .find()
-                    ) {
-                        binding.layFormFiveFive.layWarning10.visibility = View.VISIBLE
-                        binding.layFormFiveFive.imgWarring10.animation = zAnim
-                        binding.layFormFiveFive.txtWarning10.text =
-                            resources.getString(R.string.txt_please_enter_lango_farsi)
-                        binding.layFormFiveFive.edtDescription.setText("")
-
-                    } else {
-                        binding.layFormFiveFive.layWarning10.visibility = View.GONE
-                    }
-                }
-
         }
-        }
-    }
-
-    private fun isValidPhoneNumber(phoneNumber: String): Boolean {
-        val irancellPattern = Regex("^09[0-3]\\d{8}$")  // برای پیش‌شماره‌های ایرانسل
-        val mciPattern =
-            Regex("^09(1\\\\d{8}|99\\\\d{7})\$")        // برای پیش‌شماره‌های همراه اول
-        val rightelPattern = Regex("^092\\d{8}$")  // برای پیش‌شماره‌های رایتل
-
-        val invalidNumbers = listOf("09300000000", "09100000000", "09900000000", "09200000000")
-
-        return phoneNumber !in invalidNumbers && (phoneNumber.matches(irancellPattern) ||
-                phoneNumber.matches(mciPattern) || phoneNumber.matches(rightelPattern))
-    }
-
-    @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
-    private fun itemsEmptyForms() {
-        when (checkForms) {
-            1 -> {
-                counterStepsOne = 1
-                binding.layFormOne.edtUserRegistering.setText("")
-
-                binding.layFormTwo.edtNameOwner.setText("")
-                binding.layFormTwo.edtFamilyOwner.setText("")
-                binding.layFormTwo.edtMobilePhoneNumber.setText("")
-
-                binding.layFormThree.edtPriceMelk.setText("")
-
-                binding.layFormFour.edtAddressFile.setText("")
-                binding.layFormFour.edtMetrazhMoraba.setText("")
-
-                binding.layFormFive.radioBtn1.isChecked = false
-                binding.layFormFive.radioBtn2.isChecked = false
-                binding.layFormFive.edtDescription.setText("")
-
-
-                binding.layScroll.visibility = View.VISIBLE
-                binding.layScroll5.visibility = View.GONE
-                binding.layScroll4.visibility = View.GONE
-                binding.layScroll3.visibility = View.GONE
-                binding.layScroll2.visibility = View.GONE
-
-                binding.circularProgressBar.progress = 20
-                binding.txtTop.text = "1"
-                binding.txtPageTitleTop.text =
-                    resources.getString(R.string.txt_info_paye_registering)
-                binding.txtPageTitleBottom.text =
-                    " بعدی : ${resources.getString(R.string.txt_information_owner)}"
-                binding.layDes2.visibility = View.VISIBLE
-                binding.img.background = resources.getDrawable(R.drawable.document_text)
-                binding.txtPageTitle.text =
-                    resources.getString(R.string.txt_info_paye_registering)
-
-                binding.btnPrevious.visibility = View.GONE
-
-            }
-
-            2 -> {
-                counterStepsOne = 2
-                binding.layFormOne.edtUserRegistering.setText("")
-
-                binding.layFormTwo.edtNameOwner.setText("")
-                binding.layFormTwo.edtFamilyOwner.setText("")
-                binding.layFormTwo.edtMobilePhoneNumber.setText("")
-
-                binding.layFormThree.edtPriceMelk.setText("")
-
-                binding.layFormFour.edtAddressFile.setText("")
-                binding.layFormFour.edtMetrazhMoraba.setText("")
-
-                binding.layFormFiveFive.edtTypeUser.setText("")
-                binding.layFormFiveFive.edtTypeSanad.setText("")
-                binding.layFormFiveFive.edtLocation.setText("")
-                binding.layFormFiveFive.edtLocation.setText("")
+        binding.layFormFiveFive.edtTabaghe.addTextChangedListener {
+            if (pattern.matcher(binding.layFormFiveFive.edtTabaghe.text.toString()).find()) {
+                binding.layFormFiveFive.layWarning4.visibility = View.VISIBLE
+                binding.layFormFiveFive.imgWarring4.animation = zAnim
+                binding.layFormFiveFive.txtWarning4.text =
+                    resources.getString(R.string.txt_selection_tabaghe)
                 binding.layFormFiveFive.edtTabaghe.setText("")
+
+            } else {
+                binding.layFormFiveFive.layWarning4.visibility = View.GONE
+            }
+        }
+        binding.layFormFiveFive.edtAgeBana.addTextChangedListener {
+            if (pattern.matcher(binding.layFormFiveFive.edtAgeBana.text.toString()).find()) {
+                binding.layFormFiveFive.layWarning5.visibility = View.VISIBLE
+                binding.layFormFiveFive.imgWarring5.animation = zAnim
+                binding.layFormFiveFive.txtWarning5.text =
+                    resources.getString(R.string.txt_selection_age_bana)
                 binding.layFormFiveFive.edtAgeBana.setText("")
+
+            } else {
+                binding.layFormFiveFive.layWarning5.visibility = View.GONE
+            }
+        }
+        binding.layFormFiveFive.edtVaziyadMelk.addTextChangedListener {
+            if (pattern.matcher(binding.layFormFiveFive.edtVaziyadMelk.text.toString())
+                    .find()
+            ) {
+                binding.layFormFiveFive.layWarning6.visibility = View.VISIBLE
+                binding.layFormFiveFive.imgWarring6.animation = zAnim
+                binding.layFormFiveFive.txtWarning6.text =
+                    resources.getString(R.string.txt_selection_vaziyad_melk)
                 binding.layFormFiveFive.edtVaziyadMelk.setText("")
+
+            } else {
+                binding.layFormFiveFive.layWarning6.visibility = View.GONE
+            }
+        }
+        binding.layFormFiveFive.edtCunterOtagh.addTextChangedListener {
+            if (pattern.matcher(binding.layFormFiveFive.edtCunterOtagh.text.toString())
+                    .find()
+            ) {
+                binding.layFormFiveFive.layWarning7.visibility = View.VISIBLE
+                binding.layFormFiveFive.imgWarring7.animation = zAnim
+                binding.layFormFiveFive.txtWarning7.text =
+                    resources.getString(R.string.txt_selection_cunter_otagh)
                 binding.layFormFiveFive.edtCunterOtagh.setText("")
+
+            } else {
+                binding.layFormFiveFive.layWarning7.visibility = View.GONE
+            }
+        }
+        binding.layFormFiveFive.edtNemaSakhteman.addTextChangedListener {
+            if (pattern.matcher(binding.layFormFiveFive.edtNemaSakhteman.text.toString())
+                    .find()
+            ) {
+                binding.layFormFiveFive.layWarning8.visibility = View.VISIBLE
+                binding.layFormFiveFive.imgWarring8.animation = zAnim
+                binding.layFormFiveFive.txtWarning8.text =
+                    resources.getString(R.string.txt_selection_nema_sakhteman)
                 binding.layFormFiveFive.edtNemaSakhteman.setText("")
-                binding.layFormFiveFive.radioBtn1Lay5.isChecked = false
-                binding.layFormFiveFive.radioBtn2Lay5.isChecked = false
-                binding.layFormFiveFive.edtDescription.setText("")
 
+            } else {
+                binding.layFormFiveFive.layWarning8.visibility = View.GONE
+            }
+        }
+        binding.layFormFiveFive.edtDescription.addTextChangedListener {
+            if (binding.layFormFiveFive.edtDescription.text.toString() != "" &&
+                binding.layFormFiveFive.edtDescription.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormFiveFive.edtDescription.text.toString())
+                        .find()
+                ) {
+                    binding.layFormFiveFive.layWarning10.visibility = View.VISIBLE
+                    binding.layFormFiveFive.imgWarring10.animation = zAnim
+                    binding.layFormFiveFive.txtWarning10.text =
+                        resources.getString(R.string.txt_please_enter_lango_farsi)
+                    binding.layFormFiveFive.edtDescription.setText("")
 
-                binding.layScroll.visibility = View.VISIBLE
-                binding.layScroll55.visibility = View.GONE
-                binding.layScroll4.visibility = View.GONE
-                binding.layScroll3.visibility = View.GONE
-                binding.layScroll2.visibility = View.GONE
-
-                binding.circularProgressBar.progress = 12.5.toInt()
-                binding.txtTop.text = "1"
-                binding.txtPageTitleTop.text =
-                    resources.getString(R.string.txt_info_paye_registering)
-                binding.txtPageTitleBottom.text =
-                    " بعدی : ${resources.getString(R.string.txt_information_owner)}"
-                binding.layDes2.visibility = View.VISIBLE
-                binding.img.background = resources.getDrawable(R.drawable.document_text)
-                binding.txtPageTitle.text =
-                    resources.getString(R.string.txt_info_paye_registering)
-
-                binding.btnPrevious.visibility = View.GONE
-
+                } else {
+                    binding.layFormFiveFive.layWarning10.visibility = View.GONE
+                }
             }
 
         }
 
+
+        // Todo Text Watcher Step Sex
+        binding.layFormSex.edtCounterAllTabaghat.addTextChangedListener {
+            if (binding.layFormSex.edtCounterAllTabaghat.text.toString() != "" &&
+                binding.layFormSex.edtCounterAllTabaghat.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormSex.edtCounterAllTabaghat.text.toString())
+                        .find()
+                ) {
+                    binding.layFormSex.layWarning1.visibility = View.VISIBLE
+                    binding.layFormSex.imgWarring.animation = zAnim
+                    binding.layFormSex.txtWarring1.text =
+                        resources.getString(R.string.txt_enter_counter_all_tabaghat)
+                    binding.layFormSex.edtCounterAllTabaghat.setText("")
+
+                } else {
+                    binding.layFormSex.layWarning1.visibility = View.GONE
+                }
+            }
+        }
+        binding.layFormSex.edtCounterAllVahedha.addTextChangedListener {
+            if (binding.layFormSex.edtCounterAllVahedha.text.toString() != "" &&
+                binding.layFormSex.edtCounterAllVahedha.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormSex.edtCounterAllVahedha.text.toString())
+                        .find()
+                ) {
+                    binding.layFormSex.layWarning2.visibility = View.VISIBLE
+                    binding.layFormSex.imgWarring2.animation = zAnim
+                    binding.layFormSex.txtWarring2.text =
+                        resources.getString(R.string.txt_enter_counter_all_vahedha)
+                    binding.layFormSex.edtCounterAllVahedha.setText("")
+
+                } else {
+                    binding.layFormSex.layWarning2.visibility = View.GONE
+                }
+            }
+        }
+        binding.layFormSex.edtCounterVahedhaDarTabaghe.addTextChangedListener {
+            if (binding.layFormSex.edtCounterVahedhaDarTabaghe.text.toString() != "" &&
+                binding.layFormSex.edtCounterVahedhaDarTabaghe.text.toString() != " "
+            ) {
+                if (pattern.matcher(binding.layFormSex.edtCounterVahedhaDarTabaghe.text.toString())
+                        .find()
+                ) {
+                    binding.layFormSex.layWarning3.visibility = View.VISIBLE
+                    binding.layFormSex.imgWarring3.animation = zAnim
+                    binding.layFormSex.txtWarring3.text =
+                        resources.getString(R.string.txt_enter_counter_har_tabaghe)
+                    binding.layFormSex.edtCounterVahedhaDarTabaghe.setText("")
+
+                } else {
+                    binding.layFormSex.layWarning3.visibility = View.GONE
+                }
+            }
+        }
+        binding.layFormSex.edtJahatSakhteman.addTextChangedListener {
+            if (pattern.matcher(binding.layFormSex.edtJahatSakhteman.text.toString()).find()) {
+                binding.layFormSex.layWarning4.visibility = View.VISIBLE
+                binding.layFormSex.imgWarring4.animation = zAnim
+                binding.layFormSex.txtWarring4.text =
+                    resources.getString(R.string.txt_selection_jahat_sakhteman)
+                binding.layFormSex.edtJahatSakhteman.setText("")
+
+            } else {
+                binding.layFormSex.layWarning4.visibility = View.GONE
+            }
+        }
+        binding.layFormSex.edtJahatVahed.addTextChangedListener {
+            if (pattern.matcher(binding.layFormSex.edtJahatVahed.text.toString()).find()) {
+                binding.layFormSex.layWarning5.visibility = View.VISIBLE
+                binding.layFormSex.imgWarring5.animation = zAnim
+                binding.layFormSex.txtWarring5.text =
+                    resources.getString(R.string.txt_selection_jahat_vahed)
+                binding.layFormSex.edtJahatVahed.setText("")
+
+            } else {
+                binding.layFormSex.layWarning5.visibility = View.GONE
+            }
+        }
+        binding.layFormSex.edtJensKaf.addTextChangedListener {
+            if (pattern.matcher(binding.layFormSex.edtJensKaf.text.toString()).find()) {
+                binding.layFormSex.layWarning6.visibility = View.VISIBLE
+                binding.layFormSex.imgWarring6.animation = zAnim
+                binding.layFormSex.txtWarring6.text =
+                    resources.getString(R.string.txt_selection_jense_kaf)
+                binding.layFormSex.edtJensKaf.setText("")
+
+            } else {
+                binding.layFormSex.layWarning6.visibility = View.GONE
+            }
+        }
+        binding.layFormSex.edtCabinets.addTextChangedListener {
+            if (pattern.matcher(binding.layFormSex.edtCabinets.text.toString()).find()) {
+                binding.layFormSex.layWarning7.visibility = View.VISIBLE
+                binding.layFormSex.imgWarring7.animation = zAnim
+                binding.layFormSex.txtWarring7.text =
+                    resources.getString(R.string.txt_selection_kabinet)
+                binding.layFormSex.edtCabinets.setText("")
+
+            } else {
+                binding.layFormSex.layWarning7.visibility = View.GONE
+            }
+        }
+        binding.layFormSex.edtWc.addTextChangedListener {
+            if (pattern.matcher(binding.layFormSex.edtWc.text.toString()).find()) {
+                binding.layFormSex.layWarning8.visibility = View.VISIBLE
+                binding.layFormSex.imgWarring8.animation = zAnim
+                binding.layFormSex.txtWarring8.text =
+                    resources.getString(R.string.txt_selection_wc)
+                binding.layFormSex.edtWc.setText("")
+
+            } else {
+                binding.layFormSex.layWarning8.visibility = View.GONE
+            }
+        }
+        binding.layFormSex.edtGarmayesh.addTextChangedListener {
+            if (pattern.matcher(binding.layFormSex.edtGarmayesh.text.toString()).find()) {
+                binding.layFormSex.layWarning9.visibility = View.VISIBLE
+                binding.layFormSex.imgWarring9.animation = zAnim
+                binding.layFormSex.txtWarring9.text =
+                    resources.getString(R.string.txt_selection_garmayesh)
+                binding.layFormSex.edtGarmayesh.setText("")
+
+            } else {
+                binding.layFormSex.layWarning9.visibility = View.GONE
+            }
+        }
+        binding.layFormSex.edtSarmayesh.addTextChangedListener {
+            if (pattern.matcher(binding.layFormSex.edtSarmayesh.text.toString()).find()) {
+                binding.layFormSex.layWarning10.visibility = View.VISIBLE
+                binding.layFormSex.imgWarring10.animation = zAnim
+                binding.layFormSex.txtWarring10.text =
+                    resources.getString(R.string.txt_selection_sarmayesh)
+                binding.layFormSex.edtSarmayesh.setText("")
+
+            } else {
+                binding.layFormSex.layWarning10.visibility = View.GONE
+            }
+        }
+
     }
+
+@SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
+private fun itemsEmptyForms() {
+    when (checkForms) {
+        1 -> {
+            counterStepsOne = 1
+            binding.layFormOne.edtUserRegistering.setText("")
+
+            binding.layFormTwo.edtNameOwner.setText("")
+            binding.layFormTwo.edtFamilyOwner.setText("")
+            binding.layFormTwo.edtMobilePhoneNumber.setText("")
+
+            binding.layFormThree.edtPriceMelk.setText("")
+
+            binding.layFormFour.edtAddressFile.setText("")
+            binding.layFormFour.edtMetrazhMoraba.setText("")
+
+            binding.layFormFiveFive.edtTypeUser.setText("")
+            binding.layFormFiveFive.edtTypeSanad.setText("")
+            binding.layFormFiveFive.edtLocation.setText("")
+            binding.layFormFiveFive.edtLocation.setText("")
+            binding.layFormFiveFive.edtTabaghe.setText("")
+            binding.layFormFiveFive.edtAgeBana.setText("")
+            binding.layFormFiveFive.edtVaziyadMelk.setText("")
+            binding.layFormFiveFive.edtCunterOtagh.setText("")
+            binding.layFormFiveFive.edtNemaSakhteman.setText("")
+            binding.layFormFiveFive.radioBtn1Lay5.isChecked = false
+            binding.layFormFiveFive.radioBtn2Lay5.isChecked = false
+            binding.layFormFiveFive.edtDescription.setText("")
+
+            binding.layFormSex.edtCounterAllTabaghat.setText("")
+            binding.layFormSex.edtCounterAllVahedha.setText("")
+            binding.layFormSex.edtCounterVahedhaDarTabaghe.setText("")
+            binding.layFormSex.edtJahatSakhteman.setText("")
+            binding.layFormSex.edtJahatVahed.setText("")
+            binding.layFormSex.edtJensKaf.setText("")
+            binding.layFormSex.edtCabinets.setText("")
+            binding.layFormSex.edtWc.setText("")
+            binding.layFormSex.edtGarmayesh.setText("")
+            binding.layFormSex.edtSarmayesh.setText("")
+
+
+            binding.layScroll.visibility = View.VISIBLE
+            binding.layScroll2.visibility = View.GONE
+            binding.layScroll3.visibility = View.GONE
+            binding.layScroll4.visibility = View.GONE
+            binding.layScroll55.visibility = View.GONE
+            binding.layScroll6.visibility = View.GONE
+
+            binding.circularProgressBar.progress = 12.5.toInt()
+            binding.txtTop.text = "1"
+            binding.txtPageTitleTop.text =
+                resources.getString(R.string.txt_info_paye_registering)
+            binding.txtPageTitleBottom.text =
+                " بعدی : ${resources.getString(R.string.txt_information_owner)}"
+            binding.layDes2.visibility = View.VISIBLE
+            binding.img.background = resources.getDrawable(R.drawable.document_text)
+            binding.txtPageTitle.text =
+                resources.getString(R.string.txt_info_paye_registering)
+
+            binding.layFormOne.layWarning1.visibility = View.GONE
+            binding.btnPrevious.visibility = View.GONE
+
+        }
+
+        2 -> {
+            counterStepsOne = 2
+            binding.layFormOne.edtUserRegistering.setText("")
+
+            binding.layFormTwo.edtNameOwner.setText("")
+            binding.layFormTwo.edtFamilyOwner.setText("")
+            binding.layFormTwo.edtMobilePhoneNumber.setText("")
+
+            binding.layFormThree.edtPriceMelk.setText("")
+
+            binding.layFormFour.edtAddressFile.setText("")
+            binding.layFormFour.edtMetrazhMoraba.setText("")
+
+            binding.layFormFive.radioBtn1.isChecked = false
+            binding.layFormFive.radioBtn2.isChecked = false
+            binding.layFormFive.edtDescription.setText("")
+
+
+            binding.layScroll.visibility = View.VISIBLE
+            binding.layScroll5.visibility = View.GONE
+            binding.layScroll4.visibility = View.GONE
+            binding.layScroll3.visibility = View.GONE
+            binding.layScroll2.visibility = View.GONE
+
+            binding.circularProgressBar.progress = 20
+            binding.txtTop.text = "1"
+            binding.txtPageTitleTop.text =
+                resources.getString(R.string.txt_info_paye_registering)
+            binding.txtPageTitleBottom.text =
+                " بعدی : ${resources.getString(R.string.txt_information_owner)}"
+            binding.layDes2.visibility = View.VISIBLE
+            binding.img.background = resources.getDrawable(R.drawable.document_text)
+            binding.txtPageTitle.text =
+                resources.getString(R.string.txt_info_paye_registering)
+
+            binding.layFormOne.layWarning1.visibility = View.GONE
+            binding.btnPrevious.visibility = View.GONE
+
+        }
+
+    }
+
+}
 
 //    private val homeMvvm: RegisterBuyAndSellViewModel by viewModels()
 //    private lateinit var owner: LifecycleOwner
