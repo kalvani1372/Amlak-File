@@ -8,7 +8,7 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/lay_img_slid"
         android:layout_width="match_parent"
-        android:layout_height="124dp"
+        android:layout_height="160dp"
         app:cardUseCompatPadding="true"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp">

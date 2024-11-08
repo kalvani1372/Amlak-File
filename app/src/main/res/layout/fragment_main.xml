@@ -10,21 +10,42 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <androidx.cardview.widget.CardView
+            android:id="@+id/card_view_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:elevation="5dp"
+            app:cardElevation="5dp"
+            app:cardMaxElevation="5dp"
+            app:elevation="5dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center" />
+
+        </androidx.cardview.widget.CardView>
+
         <LinearLayout
             android:id="@+id/lay_frame_layout"
             android:layout_width="match_parent"
-            android:layout_height="152dp"
+            android:layout_height="172dp"
             app:layout_constraintBottom_toTopOf="@id/scroll"
             app:layout_constraintEnd_toEndOf="parent"
             android:orientation="vertical"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toBottomOf="@+id/card_view_toolbar">
 
 
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="140dp"
+                android:layout_height="160dp"
                 android:animateLayoutChanges="true"
                 android:visibility="visible" />
 
@@ -49,21 +70,23 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toBottomOf="@id/lay_frame_layout">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="16dp">
+                android:layout_height="match_parent">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lay_register_rahn_ejare"
                     android:layout_width="match_parent"
-                    android:layout_height="54dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="65dp"
                     android:background="@drawable/border4"
-                    android:elevation="0.1dp"
+                    android:elevation="2dp"
                     android:padding="4dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lay_register_kharid_forosh">
@@ -105,10 +128,11 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lay_register_kharid_forosh"
                     android:layout_width="match_parent"
-                    android:layout_height="54dp"
+                    android:layout_height="65dp"
                     android:background="@drawable/border4"
-                    android:elevation="0.1dp"
+                    android:elevation="2dp"
                     android:padding="4dp"
+                    android:layout_margin="16dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent">
@@ -148,11 +172,13 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lay_add_zamin"
                     android:layout_width="match_parent"
-                    android:layout_height="54dp"
-                    android:layout_marginTop="8dp"
+                    android:layout_height="65dp"
                     android:background="@drawable/border4"
-                    android:elevation="0.1dp"
+                    android:elevation="2dp"
                     android:padding="4dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/lay_register_rahn_ejare">
@@ -195,10 +221,12 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/lay_mosharekat"
                     android:layout_width="match_parent"
-                    android:layout_height="54dp"
+                    android:layout_height="65dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
                     android:layout_marginTop="8dp"
                     android:background="@drawable/border4"
-                    android:elevation="0.1dp"
+                    android:elevation="2dp"
                     android:padding="4dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -246,9 +274,11 @@
                     android:elevation="5dp"
                     app:cardCornerRadius="8dp"
                     app:cardElevation="5dp"
+                    android:layout_margin="16dp"
                     app:cardMaxElevation="5dp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/lay_mosharekat">
 
                     <LinearLayout
@@ -289,7 +319,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/img_tabdil" >
 
-                            <ImageButton
+                            <com.dev.amr.amlakfile.data.model.custom_views.IButton
                                 android:id="@+id/imgBtn_converter"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
@@ -310,7 +340,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/img_commision">
 
-                            <ImageButton
+                            <com.dev.amr.amlakfile.data.model.custom_views.IButton
                                 android:id="@+id/imgBtn_commission"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"

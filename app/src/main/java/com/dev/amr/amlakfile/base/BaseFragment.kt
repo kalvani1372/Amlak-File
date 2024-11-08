@@ -21,6 +21,7 @@ import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.data.model.custom_views.IEditText
 import com.dev.amr.amlakfile.data.model.model.JDF
 import com.dev.amr.amlakfile.databinding.DialogDoYouContinueLayoutBinding
+import com.dev.amr.amlakfile.databinding.DialogDoYouSureLayoutBinding
 import com.dev.amr.amlakfile.databinding.DialogInactiveLayoutBinding
 import java.io.ByteArrayOutputStream
 import java.util.Date
@@ -50,6 +51,23 @@ abstract class BaseFragment : Fragment() {
         binding.btnCancel.setOnClickListener {
             dialog.dismiss()
             BaseLiveDialog.liveDataBackToHomePage.value = true
+        }
+
+        dialog.setCancelable(false)
+        dialog.show()
+    }
+    fun showDialogDoYouSure(context: Context) {
+        val binding = DialogDoYouSureLayoutBinding.inflate(layoutInflater)
+        dialog = AlertDialog.Builder(context, R.style.CustomAlertDialog).create()
+        dialog.setView(binding.root)
+
+        binding.btnNext.setOnClickListener {
+            dialog.dismiss()
+            BaseLiveDialog.liveDataDoYouSure.value = true
+        }
+
+        binding.btnCancel.setOnClickListener {
+            dialog.dismiss()
         }
 
         dialog.setCancelable(false)

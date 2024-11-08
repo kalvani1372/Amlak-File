@@ -1,11 +1,14 @@
 package com.dev.amr.amlakfile.data.model.custom_views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Typeface
 import android.util.AttributeSet
+import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
 
-class IButton : AppCompatButton {
+@SuppressLint("AppCompatCustomView")
+class IButton : Button {
 
     constructor(context: Context) : super(context){
         initView(context)

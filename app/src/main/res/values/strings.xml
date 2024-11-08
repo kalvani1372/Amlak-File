@@ -256,4 +256,8 @@
     <string name="txt_info_paye_registering">اطلاعات پایه ثبت آگهی</string>
     <string name="txt_description_melk">در صورت لزوم، توضیحات مربوطه را وارد کنید</string>
     <string name="txt_please_enter_lango_farsi">لطفا به زبان فارسی تایپ کنید</string>
+    <string name="txt_images">تصاویر</string>
+    <string name="txt_sure_not_emkanat">آیا مطمئن هستید ملک مورد نظر هیچ امکاناتی ندارد؟</string>
+    <string name="txt_ok_sure">بله مطمئن هستم</string>
+    <string name="txt_no_selected">خیر / انتخاب میکنم</string>
 </resources>

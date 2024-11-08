@@ -10,4 +10,6 @@ internal object BaseLiveDialog {
 
     var liveDataEmptyItems = MutableLiveData<Boolean>()
 
+    var liveDataDoYouSure = MutableLiveData<Boolean>()
+
 }
