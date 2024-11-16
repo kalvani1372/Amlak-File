@@ -2,13 +2,12 @@ package com.dev.amr.amlakfile.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverters
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormOne
-import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTow
+import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTwo
 
 @Database(
-    entities = [RegisterBuyAndSellModelFormOne::class, RegisterBuyAndSellModelFormTow::class],
-    version = 1,
+    entities = [RegisterBuyAndSellModelFormOne::class, RegisterBuyAndSellModelFormTwo::class],
+    version = 2,
     exportSchema = false
 )
 

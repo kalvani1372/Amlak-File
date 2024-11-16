@@ -1,11 +1,9 @@
 package com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_sell_fragment
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,20 +13,18 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
-import androidx.fragment.app.viewModels
-import androidx.lifecycle.LifecycleOwner
 import androidx.navigation.Navigation
 import androidx.room.Room
-import com.bumptech.glide.Glide
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.base.BaseFragment
 import com.dev.amr.amlakfile.base.BaseLiveDialog
 import com.dev.amr.amlakfile.data.db.DBRoom
 import com.dev.amr.amlakfile.data.hawk.Hawks
-import com.dev.amr.amlakfile.data.model.model.PersianInputFilter
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormOne
+import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTwo
 import com.dev.amr.amlakfile.databinding.ActivityTestMainBinding
 import com.dev.amr.amlakfile.ui.btmSheetDialog.BtmSheetKharidForoshDialog
+import com.dev.amr.amlakfile.ui.btmSheetDialog.btmSheetStep.BtmSheetStepDialog
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
 import java.util.regex.Pattern
@@ -49,56 +45,53 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private lateinit var ownerName: String
     private lateinit var ownerFamily: String
     private lateinit var ownerMobilePhone: String
+    private lateinit var priceMelk: String
     private lateinit var addressFile: String
     private lateinit var metrazhMoraba: String
+    private lateinit var typeUser: String
+    private lateinit var typeSanad: String
+    private lateinit var location: String
+    private lateinit var tabaghe: String
+    private lateinit var ageBana: String
+    private lateinit var vaziyatMelk: String
+    private lateinit var cunterOtagh: String
+    private lateinit var nemaSakhteman: String
     private lateinit var sureVame: String
-    private lateinit var priceMelk: String
     private lateinit var description: String
-
-    private lateinit var zAnim: Animation
-    val pattern = Pattern.compile("[a-zA-Z]+$")
-
-    private lateinit var user: String
-    private lateinit var ownerPhone: String
-    private lateinit var cabinets: String
     private lateinit var counterAllTabaghat: String
     private lateinit var counterAllVahedha: String
     private lateinit var counterVahedhaDarTabaghe: String
     private lateinit var jahatSakhteman: String
     private lateinit var jahatVahed: String
     private lateinit var jensKaf: String
+    private lateinit var cabinets: String
+    private lateinit var wC: String
     private lateinit var garmayesh: String
     private lateinit var sarmayesh: String
-    private lateinit var typeUser: String
-    private lateinit var typeSanad: String
-    private lateinit var location: String
-    private lateinit var ageBana: String
-    private lateinit var tabaghe: String
-    private lateinit var cunterOtagh: String
-    private lateinit var vaziyatMelk: String
-    private lateinit var wC: String
-    private lateinit var nemaSakhteman: String
-
     private lateinit var checkAsansor: String
-    private lateinit var checkMelkBazsaziShode: String
-    private lateinit var checkAnbari: String
     private lateinit var checkParking: String
-    private lateinit var checkEstakhr: String
-    private lateinit var checkIphonTasviri: String
-    private lateinit var checkBalkon: String
-    private lateinit var checkSona: String
-    private lateinit var checkGazRomizi: String
-    private lateinit var checkHod: String
-    private lateinit var checkKomodDivari: String
-    private lateinit var checkDarbZedSerghat: String
-    private lateinit var checkHayat: String
+    private lateinit var checkMelkBazsaziShode: String
     private lateinit var checkJakozi: String
+    private lateinit var checkAnbari: String
+    private lateinit var checkEstakhr: String
+    private lateinit var checkBalkon: String
+    private lateinit var checkIphonTasviri: String
+    private lateinit var checkSona: String
     private lateinit var checkLabi: String
+    private lateinit var checkGazRomizi: String
     private lateinit var checkSalonVarzeshi: String
+    private lateinit var checkHod: String
     private lateinit var checkSalonEjtemaat: String
+    private lateinit var checkDarbZedSerghat: String
     private lateinit var checkAntenMarkazi: String
+    private lateinit var checkKomodDivari: String
     private lateinit var checkJarobarghiMarkazi: String
+    private lateinit var checkHayat: String
     private var checkSelectAll: String = ""
+
+    private lateinit var zAnim: Animation
+    val pattern = Pattern.compile("[a-zA-Z]+$")
+
 
     private var photo1: String = ""
     private var photo2: String = ""
@@ -110,6 +103,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private var checkForms: Int = 1
 
     private var btmSheetKharidForosh: BtmSheetKharidForoshDialog = BtmSheetKharidForoshDialog()
+    private var btmSheetStep: BtmSheetStepDialog = BtmSheetStepDialog()
 
     private var counter: Int = 1
     private var counterStepsOne: Int = 1
@@ -196,6 +190,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 //        binding.toolbar.btnMenu.visibility = View.GONE
 //        binding.btnCancel.setOnClickListener(this)
 //        binding.laySave.setOnClickListener(this)
+        binding.btnEye.setOnClickListener(this)
         binding.layFormFiveFive.edtTypeUser.setOnClickListener(this)
         binding.layFormFiveFive.edtTypeSanad.setOnClickListener(this)
         binding.layFormFiveFive.edtAgeBana.setOnClickListener(this)
@@ -254,6 +249,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         binding.layFormSeven.checkJarobarghiMarkazi.setOnClickListener(this)
         binding.layFormSeven.checkHayat.setOnClickListener(this)
         binding.layFormSeven.checkSelectAll.setOnClickListener(this)
+        binding.layFormEghte.layUploadImage.setOnClickListener(this)
+        binding.layFormEghte.imgUploadImage.setOnClickListener(this)
+        binding.layFormEghte.txtUploadImage.setOnClickListener(this)
 //        binding.layFormTow.btnShowItems.setOnClickListener(this)
 //        binding.layFormTow.imgShowItems.setOnClickListener(this)
 //        binding.rBFormOne.setOnClickListener(this)
@@ -1366,7 +1364,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.btn_back -> {
-                Navigation.findNavController(binding.root).navigate(R.id.action_registerBuyAndSellFragment_to_mainFragment)
+                Navigation.findNavController(binding.root)
+                    .navigate(R.id.action_registerBuyAndSellFragment_to_mainFragment)
             }
 
             R.id.r_b_form_one -> {
@@ -1398,6 +1397,11 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 binding.txtBottom.text = "8"
                 binding.circularProgressBar.progress = 12.5.toInt()
                 itemsEmptyForms()
+            }
+
+            R.id.btn_eye -> {
+                btmSheetStep.show(childFragmentManager, "")
+//                btmSheetStep.isCancelable = false
             }
 
             R.id.btn_next123 -> {
@@ -2241,9 +2245,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     !binding.layFormSeven.checkJarobarghiMarkazi.isChecked &&
                                     !binding.layFormSeven.checkHayat.isChecked
 
-                                ){
+                                ) {
                                     showDialogDoYouSure(requireActivity())
-                                }else {
+                                } else {
                                     counterStepsTwo = 8
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -2266,6 +2270,304 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         resources.getDrawable(R.drawable.camera)
                                     binding.txtPageTitle.text =
                                         resources.getString(R.string.txt_images)
+
+                                    binding.btnNext123.text =
+                                        resources.getString(R.string.txt_register2)
+                                }
+                            }
+
+                            8 ->{
+                                userRegistering =
+                                    binding.layFormOne.edtUserRegistering.text.toString()
+                                DateRegistering = binding.layFormOne.edtDate.text.toString()
+                                TimeRegistering = binding.layFormOne.edtTime.text.toString()
+
+                                ownerName = binding.layFormTwo.edtNameOwner.text.toString()
+                                ownerFamily = binding.layFormTwo.edtFamilyOwner.text.toString()
+                                val validPhoneNumberRegex =
+                                    "^(09[1-3][0-9][0-9]\\d{6})\$".toRegex()
+                                binding.layFormTwo.edtMobilePhoneNumber.addTextChangedListener { it ->
+                                    val input = it.toString()
+                                    if (input.isNotEmpty() && !validPhoneNumberRegex.matches(
+                                            input
+                                        )
+                                    ) {
+                                        binding.layFormTwo.txtWarning3.text =
+                                            "لطفاً شماره معتبر وارد کنید"
+                                    }
+                                }
+                                ownerMobilePhone =
+                                    binding.layFormTwo.edtMobilePhoneNumber.text.toString()
+
+                                priceMelk =
+                                    binding.layFormThree.edtPriceMelk.text.toString() + " , " +
+                                            binding.layFormThree.txtPrice.text.toString()
+
+                                addressFile = binding.layFormFour.edtAddressFile.text.toString()
+                                metrazhMoraba =
+                                    binding.layFormFour.edtMetrazhMoraba.text.toString() + "متر"
+
+                                typeUser = binding.layFormFiveFive.edtTypeUser.text.toString()
+                                typeSanad = binding.layFormFiveFive.edtTypeSanad.text.toString()
+                                location = binding.layFormFiveFive.edtLocation.text.toString()
+                                tabaghe = binding.layFormFiveFive.edtTabaghe.text.toString()
+                                ageBana = binding.layFormFiveFive.edtAgeBana.text.toString()
+                                vaziyatMelk =
+                                    binding.layFormFiveFive.edtVaziyadMelk.text.toString()
+                                cunterOtagh =
+                                    binding.layFormFiveFive.edtCunterOtagh.text.toString()
+                                nemaSakhteman =
+                                    binding.layFormFiveFive.edtNemaSakhteman.text.toString()
+                                if (binding.layFormFiveFive.radioBtn1Lay5.isChecked) {
+                                    sureVame =
+                                        binding.layFormFiveFive.radioBtn1Lay5.tag.toString()
+                                } else if (binding.layFormFiveFive.radioBtn2Lay5.isChecked) {
+                                    sureVame =
+                                        binding.layFormFiveFive.radioBtn2Lay5.tag.toString()
+                                }
+                                description =
+                                    binding.layFormFiveFive.edtDescription.text.toString()
+                                counterAllTabaghat =
+                                    binding.layFormSex.edtCounterAllTabaghat.text.toString()
+                                counterAllVahedha =
+                                    binding.layFormSex.edtCounterAllVahedha.text.toString()
+                                counterVahedhaDarTabaghe =
+                                    binding.layFormSex.edtCounterVahedhaDarTabaghe.text.toString()
+                                jahatSakhteman =
+                                    binding.layFormSex.edtJahatSakhteman.text.toString()
+                                jahatVahed = binding.layFormSex.edtJahatVahed.text.toString()
+                                jensKaf = binding.layFormSex.edtJensKaf.text.toString()
+                                cabinets = binding.layFormSex.edtCabinets.text.toString()
+                                wC = binding.layFormSex.edtWc.text.toString()
+                                garmayesh = binding.layFormSex.edtGarmayesh.text.toString()
+                                sarmayesh = binding.layFormSex.edtSarmayesh.text.toString()
+
+                                checkAsansor =
+                                    if (binding.layFormSeven.checkAsansor.isChecked) {
+                                        binding.layFormSeven.checkAsansor.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkParking =
+                                    if (binding.layFormSeven.checkParking.isChecked) {
+                                        binding.layFormSeven.checkParking.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkMelkBazsaziShode =
+                                    if (binding.layFormSeven.checkMelkBazsaziShode.isChecked) {
+                                        binding.layFormSeven.checkMelkBazsaziShode.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkJakozi =
+                                    if (binding.layFormSeven.checkJakozi.isChecked) {
+                                        binding.layFormSeven.checkJakozi.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkAnbari =
+                                    if (binding.layFormSeven.checkAnbari.isChecked) {
+                                        binding.layFormSeven.checkAnbari.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkEstakhr =
+                                    if (binding.layFormSeven.checkEstakhr.isChecked) {
+                                        binding.layFormSeven.checkEstakhr.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkBalkon =
+                                    if (binding.layFormSeven.checkBalkon.isChecked) {
+                                        binding.layFormSeven.checkBalkon.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkIphonTasviri =
+                                    if (binding.layFormSeven.checkIphonTasviri.isChecked) {
+                                        binding.layFormSeven.checkIphonTasviri.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkSona =
+                                    if (binding.layFormSeven.checkSona.isChecked) {
+                                        binding.layFormSeven.checkSona.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkLabi =
+                                    if (binding.layFormSeven.checkLabi.isChecked) {
+                                        binding.layFormSeven.checkLabi.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkGazRomizi =
+                                    if (binding.layFormSeven.checkGazRomizi.isChecked) {
+                                        binding.layFormSeven.checkGazRomizi.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkSalonVarzeshi =
+                                    if (binding.layFormSeven.checkSalonVarzeshi.isChecked) {
+                                        binding.layFormSeven.checkSalonVarzeshi.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkHod =
+                                    if (binding.layFormSeven.checkHod.isChecked) {
+                                        binding.layFormSeven.checkHod.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkSalonEjtemaat =
+                                    if (binding.layFormSeven.checkSalonEjtemaat.isChecked) {
+                                        binding.layFormSeven.checkSalonEjtemaat.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkDarbZedSerghat =
+                                    if (binding.layFormSeven.checkDarbZedSerghat.isChecked) {
+                                        binding.layFormSeven.checkDarbZedSerghat.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkAntenMarkazi =
+                                    if (binding.layFormSeven.checkAntenMarkazi.isChecked) {
+                                        binding.layFormSeven.checkAntenMarkazi.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkKomodDivari =
+                                    if (binding.layFormSeven.checkKomodDivari.isChecked) {
+                                        binding.layFormSeven.checkKomodDivari.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkJarobarghiMarkazi =
+                                    if (binding.layFormSeven.checkJarobarghiMarkazi.isChecked) {
+                                        binding.layFormSeven.checkJarobarghiMarkazi.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                checkHayat =
+                                    if (binding.layFormSeven.checkHayat.isChecked) {
+                                        binding.layFormSeven.checkHayat.tag.toString()
+                                    } else {
+                                        getString(R.string.txt_does_not_have)
+                                    }
+
+                                if (binding.layFormSeven.checkSelectAll.isChecked) {
+                                    checkAsansor = getString(R.string.txt_has_it)
+                                    checkMelkBazsaziShode = getString(R.string.txt_has_it)
+                                    checkAnbari = getString(R.string.txt_has_it)
+                                    checkBalkon = getString(R.string.txt_has_it)
+                                    checkSona = getString(R.string.txt_has_it)
+                                    checkGazRomizi = getString(R.string.txt_has_it)
+                                    checkHod = getString(R.string.txt_has_it)
+                                    checkDarbZedSerghat = getString(R.string.txt_has_it)
+                                    checkKomodDivari = getString(R.string.txt_has_it)
+                                    checkHayat = getString(R.string.txt_has_it)
+                                    checkParking = getString(R.string.txt_has_it)
+                                    checkJakozi = getString(R.string.txt_has_it)
+                                    checkEstakhr = getString(R.string.txt_has_it)
+                                    checkIphonTasviri = getString(R.string.txt_has_it)
+                                    checkLabi = getString(R.string.txt_has_it)
+                                    checkSalonVarzeshi = getString(R.string.txt_has_it)
+                                    checkSalonEjtemaat = getString(R.string.txt_has_it)
+                                    checkAntenMarkazi = getString(R.string.txt_has_it)
+                                    checkJarobarghiMarkazi = getString(R.string.txt_has_it)
+                                    checkSelectAll = getString(R.string.txt_select_all)
+                                } else {
+                                    getString(R.string.txt_not_selected)
+                                }
+
+                                val listImg = ArrayList<String>() // todo get code ahmad
+
+
+
+                                val registerBuyAndSellFormTwo = RegisterBuyAndSellModelFormTwo(
+                                    0,
+                                    userRegistering,
+                                    DateRegistering,
+                                    TimeRegistering,
+                                    ownerName,
+                                    ownerFamily,
+                                    ownerMobilePhone,
+                                    priceMelk,
+                                    addressFile,
+                                    metrazhMoraba,
+                                    typeUser,
+                                    typeSanad,
+                                    location,
+                                    tabaghe,
+                                    ageBana,
+                                    vaziyatMelk,
+                                    cunterOtagh,
+                                    nemaSakhteman,
+                                    sureVame,
+                                    description,
+                                    counterAllTabaghat,
+                                    counterAllVahedha,
+                                    counterVahedhaDarTabaghe,
+                                    jahatSakhteman,
+                                    jahatVahed,
+                                    jensKaf,
+                                    cabinets,
+                                    wC,
+                                    garmayesh,
+                                    sarmayesh,
+                                    checkAsansor,
+                                    checkParking,
+                                    checkMelkBazsaziShode,
+                                    checkJakozi,
+                                    checkAnbari,
+                                    checkEstakhr,
+                                    checkBalkon,
+                                    checkIphonTasviri,
+                                    checkSona,
+                                    checkLabi,
+                                    checkGazRomizi,
+                                    checkSalonVarzeshi,
+                                    checkHod,
+                                    checkSalonEjtemaat,
+                                    checkDarbZedSerghat,
+                                    checkAntenMarkazi,
+                                    checkKomodDivari,
+                                    checkJarobarghiMarkazi,
+                                    checkHayat,
+                                    checkSelectAll
+//                                        listImg
+                                )
+
+                                val result = db.dBDao()
+                                    .upsertRegisterBuyAndSellFormTow(registerBuyAndSellFormTwo)
+                                if (result > 0) {
+                                    showDialogDoYouContinue(requireActivity())
+                                } else {
+                                    Toast.makeText(
+                                        requireActivity(),
+                                        getString(R.string.txt_save_infonmation_failure),
+                                        Toast.LENGTH_LONG
+                                    ).show()
                                 }
                             }
                         }
@@ -2468,7 +2770,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     "بعدی : ${resources.getString(R.string.txt_other_vizhegi)}"
 
 
-                                binding.img.background = resources.getDrawable(R.drawable.key_square)
+                                binding.img.background =
+                                    resources.getDrawable(R.drawable.key_square)
                                 binding.txtPageTitle.text =
                                     resources.getString(R.string.txt_moshakhasat_kilidi)
                             }
@@ -2517,7 +2820,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     "بعدی : ${resources.getString(R.string.txt_images)}"
 
 
-                                binding.img.background = resources.getDrawable(R.drawable.shield_check)
+                                binding.img.background =
+                                    resources.getDrawable(R.drawable.shield_check)
                                 binding.txtPageTitle.text =
                                     resources.getString(R.string.txt_facilities)
                             }
@@ -2701,7 +3005,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layAsansor.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkAsansor.isChecked = false
                     binding.layFormSeven.layAsansor.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2714,7 +3018,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layParking.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkParking.isChecked = false
                     binding.layFormSeven.layParking.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2727,7 +3031,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layMelkBazsaziShode.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkMelkBazsaziShode.isChecked = false
                     binding.layFormSeven.layMelkBazsaziShode.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2740,7 +3044,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layJakozi.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkJakozi.isChecked = false
                     binding.layFormSeven.layJakozi.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2753,7 +3057,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layAnbari.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkAnbari.isChecked = false
                     binding.layFormSeven.layAnbari.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2766,7 +3070,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layEstakhr.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkEstakhr.isChecked = false
                     binding.layFormSeven.layEstakhr.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2779,7 +3083,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layBalkon.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkBalkon.isChecked = false
                     binding.layFormSeven.layBalkon.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2792,7 +3096,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layIphonTasviri.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkIphonTasviri.isChecked = false
                     binding.layFormSeven.layIphonTasviri.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2805,7 +3109,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.laySona.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkSona.isChecked = false
                     binding.layFormSeven.laySona.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2818,7 +3122,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layLabi.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkLabi.isChecked = false
                     binding.layFormSeven.layLabi.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2831,7 +3135,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layGazRomizi.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkGazRomizi.isChecked = false
                     binding.layFormSeven.layGazRomizi.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2844,7 +3148,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.laySalonVarzeshi.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkSalonVarzeshi.isChecked = false
                     binding.layFormSeven.laySalonVarzeshi.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2857,7 +3161,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layHod.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkHod.isChecked = false
                     binding.layFormSeven.layHod.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2870,7 +3174,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.laySalonEjtemaat.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkSalonEjtemaat.isChecked = false
                     binding.layFormSeven.laySalonEjtemaat.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2883,7 +3187,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layDarbZedSerghat.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkDarbZedSerghat.isChecked = false
                     binding.layFormSeven.layDarbZedSerghat.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2896,7 +3200,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layAntenMarkazi.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkAntenMarkazi.isChecked = false
                     binding.layFormSeven.layAntenMarkazi.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2909,7 +3213,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layKomodDivari.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkKomodDivari.isChecked = false
                     binding.layFormSeven.layKomodDivari.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2922,7 +3226,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layJarobarghiMarkazi.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkJarobarghiMarkazi.isChecked = false
                     binding.layFormSeven.layJarobarghiMarkazi.background =
                         resources.getDrawable(R.drawable.border4)
@@ -2935,7 +3239,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                     binding.layFormSeven.layHayat.background =
                         resources.getDrawable(R.drawable.border9)
 
-                }else{
+                } else {
                     binding.layFormSeven.checkHayat.isChecked = false
                     binding.layFormSeven.layHayat.background =
                         resources.getDrawable(R.drawable.border4)
@@ -3104,6 +3408,12 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                         resources.getDrawable(R.drawable.border4)
                 }
             }
+
+            R.id.lay_upload_image,
+            R.id.img_upload_image,
+            R.id.txt_upload_image -> {
+                showDialogInactive(requireActivity())
+            }
         }
     }
 
@@ -3201,7 +3511,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
         }
         binding.layFormThree.edtPriceMelk.addTextChangedListener(
-            NumberTextWatcher(binding.layFormThree.edtPriceMelk))
+            NumberTextWatcher(binding.layFormThree.edtPriceMelk)
+        )
         binding.layFormThree.edtPriceMelk.doAfterTextChanged {
             if (binding.layFormThree.edtPriceMelk.length() == 0) {
                 binding.layFormThree.txtPrice.visibility = View.GONE
@@ -3536,120 +3847,120 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
     }
 
-@SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
-private fun itemsEmptyForms() {
-    when (checkForms) {
-        1 -> {
-            counterStepsOne = 1
-            binding.layFormOne.edtUserRegistering.setText("")
+    @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
+    private fun itemsEmptyForms() {
+        when (checkForms) {
+            1 -> {
+                counterStepsOne = 1
+                binding.layFormOne.edtUserRegistering.setText("")
 
-            binding.layFormTwo.edtNameOwner.setText("")
-            binding.layFormTwo.edtFamilyOwner.setText("")
-            binding.layFormTwo.edtMobilePhoneNumber.setText("")
+                binding.layFormTwo.edtNameOwner.setText("")
+                binding.layFormTwo.edtFamilyOwner.setText("")
+                binding.layFormTwo.edtMobilePhoneNumber.setText("")
 
-            binding.layFormThree.edtPriceMelk.setText("")
+                binding.layFormThree.edtPriceMelk.setText("")
 
-            binding.layFormFour.edtAddressFile.setText("")
-            binding.layFormFour.edtMetrazhMoraba.setText("")
+                binding.layFormFour.edtAddressFile.setText("")
+                binding.layFormFour.edtMetrazhMoraba.setText("")
 
-            binding.layFormFive.radioBtn1.isChecked = false
-            binding.layFormFive.radioBtn2.isChecked = false
-            binding.layFormFive.edtDescription.setText("")
+                binding.layFormFive.radioBtn1.isChecked = false
+                binding.layFormFive.radioBtn2.isChecked = false
+                binding.layFormFive.edtDescription.setText("")
 
-            binding.layFormFiveFive.edtTypeUser.setText("")
-            binding.layFormFiveFive.edtTypeSanad.setText("")
-            binding.layFormFiveFive.edtLocation.setText("")
-            binding.layFormFiveFive.edtLocation.setText("")
-            binding.layFormFiveFive.edtTabaghe.setText("")
-            binding.layFormFiveFive.edtAgeBana.setText("")
-            binding.layFormFiveFive.edtVaziyadMelk.setText("")
-            binding.layFormFiveFive.edtCunterOtagh.setText("")
-            binding.layFormFiveFive.edtNemaSakhteman.setText("")
-            binding.layFormFiveFive.radioBtn1Lay5.isChecked = false
-            binding.layFormFiveFive.radioBtn2Lay5.isChecked = false
-            binding.layFormFiveFive.edtDescription.setText("")
+                binding.layFormFiveFive.edtTypeUser.setText("")
+                binding.layFormFiveFive.edtTypeSanad.setText("")
+                binding.layFormFiveFive.edtLocation.setText("")
+                binding.layFormFiveFive.edtLocation.setText("")
+                binding.layFormFiveFive.edtTabaghe.setText("")
+                binding.layFormFiveFive.edtAgeBana.setText("")
+                binding.layFormFiveFive.edtVaziyadMelk.setText("")
+                binding.layFormFiveFive.edtCunterOtagh.setText("")
+                binding.layFormFiveFive.edtNemaSakhteman.setText("")
+                binding.layFormFiveFive.radioBtn1Lay5.isChecked = false
+                binding.layFormFiveFive.radioBtn2Lay5.isChecked = false
+                binding.layFormFiveFive.edtDescription.setText("")
 
-            binding.layFormSex.edtCounterAllTabaghat.setText("")
-            binding.layFormSex.edtCounterAllVahedha.setText("")
-            binding.layFormSex.edtCounterVahedhaDarTabaghe.setText("")
-            binding.layFormSex.edtJahatSakhteman.setText("")
-            binding.layFormSex.edtJahatVahed.setText("")
-            binding.layFormSex.edtJensKaf.setText("")
-            binding.layFormSex.edtCabinets.setText("")
-            binding.layFormSex.edtWc.setText("")
-            binding.layFormSex.edtGarmayesh.setText("")
-            binding.layFormSex.edtSarmayesh.setText("")
-
-
-            binding.layScroll.visibility = View.VISIBLE
-            binding.layScroll2.visibility = View.GONE
-            binding.layScroll3.visibility = View.GONE
-            binding.layScroll4.visibility = View.GONE
-            binding.layScroll5.visibility = View.GONE
-            binding.layScroll55.visibility = View.GONE
-            binding.layScroll6.visibility = View.GONE
-            binding.layScroll7.visibility = View.GONE
-            binding.layScroll8.visibility = View.GONE
-
-            binding.circularProgressBar.progress = 12.5.toInt()
-            binding.txtTop.text = "1"
-            binding.txtPageTitleTop.text =
-                resources.getString(R.string.txt_info_paye_registering)
-            binding.txtPageTitleBottom.text =
-                "بعدی : ${resources.getString(R.string.txt_information_owner)}"
-            binding.layDes2.visibility = View.VISIBLE
-            binding.img.background = resources.getDrawable(R.drawable.document_text)
-            binding.txtPageTitle.text =
-                resources.getString(R.string.txt_info_paye_registering)
-
-            binding.layFormOne.layWarning1.visibility = View.GONE
-            binding.btnPrevious.visibility = View.GONE
-
-        }
-
-        2 -> {
-            counterStepsOne = 2
-            binding.layFormOne.edtUserRegistering.setText("")
-
-            binding.layFormTwo.edtNameOwner.setText("")
-            binding.layFormTwo.edtFamilyOwner.setText("")
-            binding.layFormTwo.edtMobilePhoneNumber.setText("")
-
-            binding.layFormThree.edtPriceMelk.setText("")
-
-            binding.layFormFour.edtAddressFile.setText("")
-            binding.layFormFour.edtMetrazhMoraba.setText("")
-
-            binding.layFormFive.radioBtn1.isChecked = false
-            binding.layFormFive.radioBtn2.isChecked = false
-            binding.layFormFive.edtDescription.setText("")
+                binding.layFormSex.edtCounterAllTabaghat.setText("")
+                binding.layFormSex.edtCounterAllVahedha.setText("")
+                binding.layFormSex.edtCounterVahedhaDarTabaghe.setText("")
+                binding.layFormSex.edtJahatSakhteman.setText("")
+                binding.layFormSex.edtJahatVahed.setText("")
+                binding.layFormSex.edtJensKaf.setText("")
+                binding.layFormSex.edtCabinets.setText("")
+                binding.layFormSex.edtWc.setText("")
+                binding.layFormSex.edtGarmayesh.setText("")
+                binding.layFormSex.edtSarmayesh.setText("")
 
 
-            binding.layScroll.visibility = View.VISIBLE
-            binding.layScroll2.visibility = View.GONE
-            binding.layScroll3.visibility = View.GONE
-            binding.layScroll4.visibility = View.GONE
-            binding.layScroll5.visibility = View.GONE
+                binding.layScroll.visibility = View.VISIBLE
+                binding.layScroll2.visibility = View.GONE
+                binding.layScroll3.visibility = View.GONE
+                binding.layScroll4.visibility = View.GONE
+                binding.layScroll5.visibility = View.GONE
+                binding.layScroll55.visibility = View.GONE
+                binding.layScroll6.visibility = View.GONE
+                binding.layScroll7.visibility = View.GONE
+                binding.layScroll8.visibility = View.GONE
 
-            binding.circularProgressBar.progress = 20
-            binding.txtTop.text = "1"
-            binding.txtPageTitleTop.text =
-                resources.getString(R.string.txt_info_paye_registering)
-            binding.txtPageTitleBottom.text =
-                "بعدی : ${resources.getString(R.string.txt_information_owner)}"
-            binding.layDes2.visibility = View.VISIBLE
-            binding.img.background = resources.getDrawable(R.drawable.document_text)
-            binding.txtPageTitle.text =
-                resources.getString(R.string.txt_info_paye_registering)
+                binding.circularProgressBar.progress = 12.5.toInt()
+                binding.txtTop.text = "1"
+                binding.txtPageTitleTop.text =
+                    resources.getString(R.string.txt_info_paye_registering)
+                binding.txtPageTitleBottom.text =
+                    "بعدی : ${resources.getString(R.string.txt_information_owner)}"
+                binding.layDes2.visibility = View.VISIBLE
+                binding.img.background = resources.getDrawable(R.drawable.document_text)
+                binding.txtPageTitle.text =
+                    resources.getString(R.string.txt_info_paye_registering)
 
-            binding.layFormOne.layWarning1.visibility = View.GONE
-            binding.btnPrevious.visibility = View.GONE
+                binding.layFormOne.layWarning1.visibility = View.GONE
+                binding.btnPrevious.visibility = View.GONE
+
+            }
+
+            2 -> {
+                counterStepsOne = 2
+                binding.layFormOne.edtUserRegistering.setText("")
+
+                binding.layFormTwo.edtNameOwner.setText("")
+                binding.layFormTwo.edtFamilyOwner.setText("")
+                binding.layFormTwo.edtMobilePhoneNumber.setText("")
+
+                binding.layFormThree.edtPriceMelk.setText("")
+
+                binding.layFormFour.edtAddressFile.setText("")
+                binding.layFormFour.edtMetrazhMoraba.setText("")
+
+                binding.layFormFive.radioBtn1.isChecked = false
+                binding.layFormFive.radioBtn2.isChecked = false
+                binding.layFormFive.edtDescription.setText("")
+
+
+                binding.layScroll.visibility = View.VISIBLE
+                binding.layScroll2.visibility = View.GONE
+                binding.layScroll3.visibility = View.GONE
+                binding.layScroll4.visibility = View.GONE
+                binding.layScroll5.visibility = View.GONE
+
+                binding.circularProgressBar.progress = 20
+                binding.txtTop.text = "1"
+                binding.txtPageTitleTop.text =
+                    resources.getString(R.string.txt_info_paye_registering)
+                binding.txtPageTitleBottom.text =
+                    "بعدی : ${resources.getString(R.string.txt_information_owner)}"
+                binding.layDes2.visibility = View.VISIBLE
+                binding.img.background = resources.getDrawable(R.drawable.document_text)
+                binding.txtPageTitle.text =
+                    resources.getString(R.string.txt_info_paye_registering)
+
+                binding.layFormOne.layWarning1.visibility = View.GONE
+                binding.btnPrevious.visibility = View.GONE
+
+            }
 
         }
 
     }
-
-}
 
 //    private val homeMvvm: RegisterBuyAndSellViewModel by viewModels()
 //    private lateinit var owner: LifecycleOwner

@@ -1,39 +1,24 @@
 package com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_mortgage_and_rent_fragment
 
-import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.Bitmap
 import android.os.Bundle
-import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
-import android.view.animation.AnimationUtils
 import android.widget.Toast
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
-import androidx.navigation.Navigation
 import androidx.room.Room
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.base.BaseFragment
-import com.dev.amr.amlakfile.base.BaseLiveDialog
 import com.dev.amr.amlakfile.data.db.DBRoom
-import com.dev.amr.amlakfile.data.hawk.Hawks
-import com.dev.amr.amlakfile.data.model.custom_views.IEditText
-import com.dev.amr.amlakfile.data.model.model.JDF
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormOne
-import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTow
 import com.dev.amr.amlakfile.databinding.ActivityTestMainBinding
-import com.dev.amr.amlakfile.databinding.FragmentRegisterBuyMortgageAndRentBinding
 import com.dev.amr.amlakfile.ui.btmSheetDialog.BtmSheetKharidForoshDialog
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
-import java.util.Date
 
 class RegisterBuyMortgageAndRentFragment : BaseFragment(), View.OnClickListener {
 
