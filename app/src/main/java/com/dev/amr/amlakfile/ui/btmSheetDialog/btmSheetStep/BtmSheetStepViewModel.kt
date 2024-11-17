@@ -14,7 +14,6 @@ class BtmSheetStepViewModel : ViewModel(){
     val steps: LiveData<List<Step>> = _steps
 
     init {
-        // Initialize steps
         _steps.value = listOf(
             Step("تایید اطلاعات پایه آگهی", false),
             Step("اطلاعات مالک", false),

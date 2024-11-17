@@ -1400,7 +1400,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
 
             R.id.btn_eye -> {
-                btmSheetStep.show(childFragmentManager, "")
+                btmSheetStep.show(childFragmentManager, "btmSheetStep")
 //                btmSheetStep.isCancelable = false
             }
 

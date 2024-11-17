@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.dev.amr.amlakfile.R
 import com.dev.amr.amlakfile.data.adapter.StepsAdapter
 import com.dev.amr.amlakfile.data.model.model.Step
@@ -17,38 +18,24 @@ class BtmSheetStepDialog : BottomSheetDialogFragment(), View.OnClickListener {
 
     private lateinit var binding: BtmSheetStepDialogRowBinding
 
-        private lateinit var viewModel: BtmSheetStepViewModel
+    private lateinit var viewModel: BtmSheetStepViewModel
     private lateinit var adapter: StepsAdapter
 
-    private val _steps = MutableLiveData<List<Step>>()
-    private val steps: LiveData<List<Step>> = _steps
-
-    init {
-        // Initialize steps
-        _steps.value = listOf(
-            Step("تایید اطلاعات پایه آگهی", false),
-            Step("اطلاعات مالک", false),
-            Step("قیمت", false),
-            Step("آدرس و متراژ", false),
-            Step("مشخصات کلیدی", false)
-        )
-    }
-
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = BtmSheetStepDialogRowBinding.inflate(layoutInflater)
-        viewModel = ViewModelProvider(this).get(BtmSheetStepViewModel::class.java)
+        viewModel = ViewModelProvider(this)[BtmSheetStepViewModel::class.java]
         adapter = StepsAdapter(viewModel.steps.value ?: emptyList())
         binding.stepsRecyclerView.adapter = adapter
+        binding.stepsRecyclerView.layoutManager = LinearLayoutManager(binding.root.context,LinearLayoutManager.VERTICAL,false)
+
         return binding.root
     }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        onStepCompleted(5)
-
+        onStepCompleted(4)
     }
 
     private fun onStepCompleted(index: Int) {
