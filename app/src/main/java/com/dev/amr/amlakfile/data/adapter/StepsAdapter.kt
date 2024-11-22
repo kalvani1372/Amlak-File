@@ -18,10 +18,8 @@ class StepsAdapter(private val steps: List<Step>) : RecyclerView.Adapter<StepsAd
         private var stepNameTxt = itemView.findViewById<TextView>(R.id.stepNameTextView)!!
         private var stepIndicator = itemView.findViewById<View>(R.id.stepIndicator)!!
         fun bind(step: Step) {
-            // Set the name
             stepNameTxt.text = step.name
 
-            // Change color based on completion
             val color = if (step.isCompleted) Color.GREEN else Color.GRAY
             stepIndicator.setBackgroundColor(color)
         }

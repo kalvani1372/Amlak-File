@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:ignore="MissingDefaultResource">
+
+    <TextView
+        android:id="@+id/step1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/step_background"
+        android:text="تایید اطلاعات پایه آگهی"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/step2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/step_background"
+        android:text="اطلاعات مالک"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/step3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/step_background"
+        android:text="قیمت"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/step4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/step_background"
+        android:text="آدرس و متراژ"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/step5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:gravity="center_vertical"
+        android:background="@drawable/step_background"
+        android:text="مشخصات کلیدی"
+        android:textSize="16sp" />
+
+</LinearLayout>

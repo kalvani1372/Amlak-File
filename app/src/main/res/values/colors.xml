@@ -9,11 +9,17 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
+
+    <color name="green">#4CAF50</color>
+    <color name="gray">#BDBDBD</color>
+    <color name="purple">#6A1B9A</color>
+    <color name="orange">#FF9800</color>
+    <color name="light_gray">#E0E0E0</color>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="red_error">#ffff4444</color>
-    <color name="gray">#808080</color>
     <color name="White">#FFFFFF</color>
     <color name="Black">#000000</color>
     <color name="transparent">#00000000</color>
@@ -28,7 +34,6 @@
     <color name="dark_chocolate">#2E2B25</color>
     <color name="white_60">#99FFFFFF</color>
     <color name="egg_shell">#EFEEED</color>
-    <color name="green">#51cb20</color>
     <color name="_back_btn">#000000</color>
     <color name="_green_text">#02883d</color>
 

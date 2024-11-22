@@ -24,7 +24,7 @@ import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormOne
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTwo
 import com.dev.amr.amlakfile.databinding.ActivityTestMainBinding
 import com.dev.amr.amlakfile.ui.btmSheetDialog.BtmSheetKharidForoshDialog
-import com.dev.amr.amlakfile.ui.btmSheetDialog.btmSheetStep.BtmSheetStepDialog
+import com.dev.amr.amlakfile.ui.btmSheetDialog.StepsBottomSheet
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
 import java.util.regex.Pattern
@@ -103,7 +103,6 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private var checkForms: Int = 1
 
     private var btmSheetKharidForosh: BtmSheetKharidForoshDialog = BtmSheetKharidForoshDialog()
-    private var btmSheetStep: BtmSheetStepDialog = BtmSheetStepDialog()
 
     private var counter: Int = 1
     private var counterStepsOne: Int = 1
@@ -1400,8 +1399,10 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
 
             R.id.btn_eye -> {
-                btmSheetStep.show(childFragmentManager, "btmSheetStep")
-//                btmSheetStep.isCancelable = false
+//                btmSheetStep.show(childFragmentManager, "btmSheetStep")
+
+                val stepsBottomSheet = StepsBottomSheet()
+                stepsBottomSheet.show(childFragmentManager, stepsBottomSheet.tag)
             }
 
             R.id.btn_next123 -> {
