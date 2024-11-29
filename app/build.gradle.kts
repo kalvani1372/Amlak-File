@@ -59,19 +59,19 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
 
-//    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0@aar")
-//
-//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
-//    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
-//
-//    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-//    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-//    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
-//
-//    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
-//    implementation ("androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0@aar")
 
-//    implementation("com.google.accompanist:accompanist-placeholder-material:0.28.0")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1")
+    implementation ("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1")
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.10.0")
+
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    implementation ("androidx.lifecycle:lifecycle-livedata-core-ktx:2.7.0")
+
+    implementation("com.google.accompanist:accompanist-placeholder-material:0.28.0")
 
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.github.bumptech.glide:glide:4.16.0")

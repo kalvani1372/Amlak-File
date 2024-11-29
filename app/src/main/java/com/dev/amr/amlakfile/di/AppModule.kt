@@ -8,22 +8,24 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 //import retrofit2.Retrofit
 //import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-//@Module
-//@InstallIn(SingletonComponent::class)
+@Module
+@InstallIn(SingletonComponent::class)
 object AppModule {
-//    @Provides
-//    @Singleton
-//    fun provideApi() : Api = Retrofit.Builder()
-//        .baseUrl(Const.URL_NESHAN)
-//        .addConverterFactory(GsonConverterFactory.create())
-//        .build().create(Api::class.java)
-//
-//    @Provides
-//    @Singleton
-//    fun provideDataBase(app : Application) : DBRoom =
-//        Room.databaseBuilder(app,DBRoom::class.java,"amlak_file.db").fallbackToDestructiveMigration().build()
+    @Provides
+    @Singleton
+    fun provideApi() : Api = Retrofit.Builder()
+        .baseUrl(Const.URL_NESHAN)
+        .addConverterFactory(GsonConverterFactory.create())
+        .build().create(Api::class.java)
+
+    @Provides
+    @Singleton
+    fun provideDataBase(app : Application) : DBRoom =
+        Room.databaseBuilder(app,DBRoom::class.java,"amlak_file.db").fallbackToDestructiveMigration().build()
 }

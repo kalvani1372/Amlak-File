@@ -13,6 +13,9 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.room.Room
 import com.dev.amr.amlakfile.R
@@ -24,11 +27,14 @@ import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormOne
 import com.dev.amr.amlakfile.data.model.model.RegisterBuyAndSellModelFormTwo
 import com.dev.amr.amlakfile.databinding.ActivityTestMainBinding
 import com.dev.amr.amlakfile.ui.btmSheetDialog.BtmSheetKharidForoshDialog
-import com.dev.amr.amlakfile.ui.btmSheetDialog.StepsBottomSheet
+import com.dev.amr.amlakfile.ui.btmSheetDialog.StepsStepOneBtmSheet
+import com.dev.amr.amlakfile.ui.btmSheetDialog.StepsStepTwoBtmSheet
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.regex.Pattern
 
+//@AndroidEntryPoint
 class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
     private lateinit var binding: ActivityTestMainBinding
@@ -103,6 +109,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private var checkForms: Int = 1
 
     private var btmSheetKharidForosh: BtmSheetKharidForoshDialog = BtmSheetKharidForoshDialog()
+    private val stepsStepOneBtmSheet = StepsStepOneBtmSheet()
+    private val stepsStepTwoBtmSheet = StepsStepTwoBtmSheet()
 
     private var counter: Int = 1
     private var counterStepsOne: Int = 1
@@ -111,6 +119,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
     private lateinit var newDay: String
     private var month = 0
     private var day = 0
+
+//    private val addressMvvm: RegisterBuyAndSellViewModel by viewModels()
+//    private lateinit var owner: LifecycleOwner
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
@@ -142,6 +153,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
         BaseLiveDialog.liveDataEmptyItems.observe(requireActivity()) {
             itemsEmptyForms()
+            stepsStepOneBtmSheet.deleteAllStepsStatus()
+            stepsStepTwoBtmSheet.deleteAllStepsStatus()
         }
 
         BaseLiveDialog.liveDataDoYouSure.observe(requireActivity()) {
@@ -170,6 +183,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
         }
 
         BaseLiveDialog.liveDataBackToHomePage.observe(requireActivity()) {
+            stepsStepOneBtmSheet.deleteAllStepsStatus()
+            stepsStepTwoBtmSheet.deleteAllStepsStatus()
             if (it != null) {
                 Navigation.findNavController(binding.root)
                     .navigate(R.id.action_registerBuyAndSellFragment_to_mainFragment)
@@ -178,6 +193,14 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
         return binding.root
     }
+
+//    private fun getAddress(view: View) {
+////        addressMvvm.getAddress()
+//        addressMvvm.getRegisterBuyAndSellLiveData.observe(owner, Observer { data ->
+//
+//
+//        })
+//    }
 
     override fun onResume() {
         super.onResume()
@@ -1399,10 +1422,11 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
             }
 
             R.id.btn_eye -> {
-//                btmSheetStep.show(childFragmentManager, "btmSheetStep")
-
-                val stepsBottomSheet = StepsBottomSheet()
-                stepsBottomSheet.show(childFragmentManager, stepsBottomSheet.tag)
+                if (checkForms == 1){
+                    stepsStepOneBtmSheet.show(childFragmentManager, stepsStepOneBtmSheet.tag)
+                }else if (checkForms == 2){
+                    stepsStepTwoBtmSheet.show(childFragmentManager, stepsStepTwoBtmSheet.tag)
+                }
             }
 
             R.id.btn_next123 -> {
@@ -1418,6 +1442,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormOne.imgWarring1.animation = zAnim
 
                                 } else {
+                                    stepsStepOneBtmSheet.updateSteps(1,true,requireActivity())
+
                                     counterStepsOne = 2
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.VISIBLE
@@ -1532,7 +1558,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         binding.layFormTwo.txtWarning3.text =
                                             "لطفاً شماره همراه معتبر وارد کنید"
                                     } else {
-                                        binding.layFormTwo.layWarning3.visibility = View.GONE
+                                        stepsStepOneBtmSheet.updateSteps(2,true,requireActivity())
+
                                         counterStepsOne = 3
                                         binding.layScroll.visibility = View.GONE
                                         binding.layScroll2.visibility = View.GONE
@@ -1554,6 +1581,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         binding.txtPageTitle.text =
                                             resources.getString(R.string.txt_price_the_property)
 
+                                        binding.layFormTwo.layWarning3.visibility = View.GONE
                                         binding.btnPrevious.visibility = View.VISIBLE
                                     }
                                 }
@@ -1566,6 +1594,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormThree.imgWarring.animation = zAnim
 
                                 } else {
+                                    stepsStepOneBtmSheet.updateSteps(3,true,requireActivity())
+
                                     counterStepsOne = 4
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -1615,6 +1645,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormFour.imgWarring2.animation = zAnim
 
                                 } else {
+                                    stepsStepOneBtmSheet.updateSteps(4,true,requireActivity())
+
                                     counterStepsOne = 5
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -1702,6 +1734,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     val result = db.dBDao()
                                         .upsertRegisterBuyAndSellFormOne(registerBuyAndSellFormOne)
                                     if (result > 0) {
+                                        stepsStepOneBtmSheet.updateSteps(5,true,requireActivity())
                                         showDialogDoYouContinue(requireActivity())
                                     } else {
                                         Toast.makeText(
@@ -1728,6 +1761,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormOne.imgWarring1.animation = zAnim
 
                                 } else {
+                                    stepsStepTwoBtmSheet.updateSteps(1,true,requireActivity())
+
                                     counterStepsTwo = 2
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.VISIBLE
@@ -1842,7 +1877,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         binding.layFormTwo.txtWarning3.text =
                                             "لطفاً شماره همراه معتبر وارد کنید"
                                     } else {
-                                        binding.layFormTwo.layWarning3.visibility = View.GONE
+                                        stepsStepTwoBtmSheet.updateSteps(2,true,requireActivity())
+
                                         counterStepsTwo = 3
                                         binding.layScroll.visibility = View.GONE
                                         binding.layScroll2.visibility = View.GONE
@@ -1864,6 +1900,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         binding.txtPageTitle.text =
                                             resources.getString(R.string.txt_price_the_property)
 
+                                        binding.layFormTwo.layWarning3.visibility = View.GONE
                                         binding.btnPrevious.visibility = View.VISIBLE
                                     }
                                 }
@@ -1876,6 +1913,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormThree.imgWarring.animation = zAnim
 
                                 } else {
+                                    stepsStepTwoBtmSheet.updateSteps(3,true,requireActivity())
+
                                     counterStepsTwo = 4
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -1925,6 +1964,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormFour.imgWarring2.animation = zAnim
 
                                 } else {
+                                    stepsStepTwoBtmSheet.updateSteps(4,true,requireActivity())
+
                                     counterStepsTwo = 5
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -2045,6 +2086,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                     binding.layFormFiveFive.layWarning9.visibility = View.VISIBLE
                                     binding.layFormFiveFive.imgWarring9.animation = zAnim
                                 } else {
+                                    stepsStepTwoBtmSheet.updateSteps(5,true,requireActivity())
+
                                     counterStepsTwo = 6
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -2196,6 +2239,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                         resources.getString(R.string.txt_selection_sarmayesh)
 
                                 } else {
+                                    stepsStepTwoBtmSheet.updateSteps(6,true,requireActivity())
+
                                     counterStepsTwo = 7
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -2249,6 +2294,8 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 ) {
                                     showDialogDoYouSure(requireActivity())
                                 } else {
+                                    stepsStepTwoBtmSheet.updateSteps(7,true,requireActivity())
+
                                     counterStepsTwo = 8
                                     binding.layScroll.visibility = View.GONE
                                     binding.layScroll2.visibility = View.GONE
@@ -2562,6 +2609,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                                 val result = db.dBDao()
                                     .upsertRegisterBuyAndSellFormTow(registerBuyAndSellFormTwo)
                                 if (result > 0) {
+                                    stepsStepTwoBtmSheet.updateSteps(8,true,requireActivity())
                                     showDialogDoYouContinue(requireActivity())
                                 } else {
                                     Toast.makeText(
@@ -3865,7 +3913,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 binding.layFormFour.edtMetrazhMoraba.setText("")
 
                 binding.layFormFive.radioBtn1.isChecked = false
+                binding.layFormFive.layRadioBtn1.background = resources.getDrawable(R.drawable.border4)
                 binding.layFormFive.radioBtn2.isChecked = false
+                binding.layFormFive.layRadioBtn2.background = resources.getDrawable(R.drawable.border4)
                 binding.layFormFive.edtDescription.setText("")
 
                 binding.layFormFiveFive.edtTypeUser.setText("")
@@ -3914,9 +3964,13 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 binding.txtPageTitle.text =
                     resources.getString(R.string.txt_info_paye_registering)
 
+                binding.btnNext123.text = resources.getString(R.string.txt_next)
+
                 binding.layFormOne.layWarning1.visibility = View.GONE
                 binding.btnPrevious.visibility = View.GONE
 
+                stepsStepOneBtmSheet.deleteAllStepsStatus()
+                stepsStepTwoBtmSheet.deleteAllStepsStatus()
             }
 
             2 -> {
@@ -3954,9 +4008,13 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 binding.txtPageTitle.text =
                     resources.getString(R.string.txt_info_paye_registering)
 
+                binding.btnNext123.text = resources.getString(R.string.txt_next)
+
                 binding.layFormOne.layWarning1.visibility = View.GONE
                 binding.btnPrevious.visibility = View.GONE
 
+                stepsStepOneBtmSheet.deleteAllStepsStatus()
+                stepsStepTwoBtmSheet.deleteAllStepsStatus()
             }
 
         }

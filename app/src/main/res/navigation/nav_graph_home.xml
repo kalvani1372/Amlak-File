@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/registerBuyAndSellFragment"
         android:name="com.dev.amr.amlakfile.ui.fragment.nav_main_fragment.btmsheet_items_add.register_buy_sell_fragment.RegisterBuyAndSellFragment"
-        tools:layout="@layout/fragment_register_buy_and_sell2"
+        tools:layout="@layout/activity_test_main"
         android:label="RegisterBuyAndSellFragment" >
         <action
             android:id="@+id/action_registerBuyAndSellFragment_to_mainFragment"

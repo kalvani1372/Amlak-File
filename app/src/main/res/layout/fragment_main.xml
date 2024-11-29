@@ -298,7 +298,7 @@
                             android:layout_weight="1"
                             android:background="@drawable/img_vam_maskan">
 
-                            <com.dev.amr.amlakfile.data.model.custom_views.IButton
+                            <Button
                                 android:id="@+id/imgBtn_vam_maskan"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"

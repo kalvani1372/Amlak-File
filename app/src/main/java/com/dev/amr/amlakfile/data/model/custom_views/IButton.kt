@@ -8,7 +8,7 @@ import android.widget.Button
 import androidx.appcompat.widget.AppCompatButton
 
 @SuppressLint("AppCompatCustomView")
-class IButton : Button {
+class IButton : AppCompatButton {
 
     constructor(context: Context) : super(context){
         initView(context)
