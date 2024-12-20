@@ -18,6 +18,8 @@ class HomeActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.btmNavMenu,
             Navigation.findNavController(this,R.id.hostHomeFragment))
 
+
+
     }
 
 }

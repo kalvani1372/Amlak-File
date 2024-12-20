@@ -1,14 +1,11 @@
 package com.dev.amr.amlakfile.ui.fragment.converter
 
-import android.R.string
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
-import androidx.databinding.DataBindingUtil.setContentView
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -19,7 +16,6 @@ import com.dev.amr.amlakfile.ui.fragment.converter.adapter.InstallmentAdapter
 import com.dev.amr.amlakfile.ui.fragment.converter.model.DateConverter
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
-import java.io.Console
 import java.text.DecimalFormat
 import java.util.Calendar
 
@@ -31,20 +27,14 @@ class VamHomeFragment : Fragment() {
 
     private lateinit var installmentList: List<Installment>
 
-    @Suppress("UNREACHABLE_CODE")
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityVamHomeBinding.inflate(layoutInflater)
         return binding.root
     }
 
-    @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.toolbar.layLogo.visibility = View.GONE
-        binding.toolbar.layBtnBack.visibility = View.VISIBLE
-        binding.toolbar.txtTitle.text = resources.getString(R.string.txt_mohasebat_vam_maskan)
 
         binding.edtLoanAmount.addTextChangedListener (NumberTextWatcher(binding.edtLoanAmount))
         binding.edtLoanAmount.addTextChangedListener {
@@ -109,7 +99,7 @@ class VamHomeFragment : Fragment() {
             val adapter = InstallmentAdapter(installmentList)
             binding.installmentRecyclerView.adapter = adapter
         }
-        binding.toolbar.btnBack.setOnClickListener{
+        binding.btnBack2.setOnClickListener{
             findNavController().navigate(R.id.action_vamHomeFragment_to_mainFragment)
         }
 

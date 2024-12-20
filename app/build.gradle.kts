@@ -91,7 +91,7 @@ dependencies {
 
     implementation ("com.airbnb.android:lottie:6.4.0")
 
-    implementation ("com.github.yamin8000:PrettyPersianNumbers:+")
+    implementation ("com.github.yamin8000:PrettyPersianNumbers:2.0.1")
 
     implementation("com.tbuonomo:dotsindicator:5.0")
 

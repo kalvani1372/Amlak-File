@@ -261,4 +261,16 @@
     <string name="txt_ok_sure">بله مطمئن هستم</string>
     <string name="txt_no_selected">خیر / انتخاب میکنم</string>
     <string name="txt_marahel">مراحل</string>
+    <string name="txt_password_login_program">رمز ورود به برنامه</string>
+    <string name="txt_other">سایر</string>
+    <string name="txt_enteghad_pishnahad">انتقادات و پیشنهادات</string>
+    <string name="txt_support">پشتیبانی</string>
+    <string name="txt_call">تماس با ما :</string>
+    <string name="txt_number_phone">021-00 00 00 00</string>
+    <string name="txt_login_in_program">ورود با رمز عبور</string>
+    <string name="txt_des_login">با تنظیم کردن رمز عبور از این پس برای ورود به اپلیکیشن املاک همره میبایست رمز عبور خود را وارد کنید.</string>
+    <string name="txt_pass_obor">رمز عبور</string>
+    <string name="txt_enter_pass_obor">رمز عبور خود را وارد کنید</string>
+    <string name="txt_register_enteghad_pishnahad">ثبت انتقادات و پیشنهادات</string>
+    <string name="txt_send_pishnahad">برای بالا بردن کیفیت خدمت رسانی اگر انتقاد یا پیشنهادی در مورد اپلیکیشن همراه املاک دارید با ما در میان بگذارید.</string>
 </resources>

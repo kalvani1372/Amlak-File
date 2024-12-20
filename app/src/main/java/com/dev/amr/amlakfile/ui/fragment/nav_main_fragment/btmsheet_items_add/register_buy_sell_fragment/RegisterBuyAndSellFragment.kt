@@ -125,8 +125,7 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
 
     @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
-    ): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityTestMainBinding.inflate(layoutInflater)
         zAnim = AnimationUtils.loadAnimation(requireActivity(), R.anim.zoom);
 
@@ -3996,6 +3995,9 @@ class RegisterBuyAndSellFragment : BaseFragment(), View.OnClickListener {
                 binding.layScroll3.visibility = View.GONE
                 binding.layScroll4.visibility = View.GONE
                 binding.layScroll5.visibility = View.GONE
+                binding.layScroll6.visibility = View.GONE
+                binding.layScroll7.visibility = View.GONE
+                binding.layScroll8.visibility = View.GONE
 
                 binding.circularProgressBar.progress = 20
                 binding.txtTop.text = "1"

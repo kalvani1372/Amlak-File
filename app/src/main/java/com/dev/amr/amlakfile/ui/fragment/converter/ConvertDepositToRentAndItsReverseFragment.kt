@@ -10,7 +10,7 @@ import androidx.core.widget.addTextChangedListener
 import androidx.core.widget.doAfterTextChanged
 import androidx.navigation.fragment.findNavController
 import com.dev.amr.amlakfile.R
-import com.dev.amr.amlakfile.databinding.ActivityTestBinding
+import com.dev.amr.amlakfile.databinding.ConvertDepositToRentAndItsReverseFragmentBinding
 import com.dev.amr.amlakfile.utils.NumberTextWatcher
 import com.github.yamin8000.ppn.PersianDigits
 import java.text.DecimalFormat
@@ -18,24 +18,21 @@ import java.text.DecimalFormat
 @Suppress("UNREACHABLE_CODE")
 class ConvertDepositToRentAndItsReverseFragment : Fragment() {
 
-    private lateinit var binding: ActivityTestBinding
+    private lateinit var binding: ConvertDepositToRentAndItsReverseFragmentBinding
     private var counter: Int = 1
 
     @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = ActivityTestBinding.inflate(layoutInflater)
+        binding = ConvertDepositToRentAndItsReverseFragmentBinding.inflate(layoutInflater)
         return binding.root
     }
 
     @SuppressLint("UseCompatLoadingForDrawables")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.toolbar.layLogo.visibility = View.GONE
-        binding.toolbar.layBtnBack.visibility = View.VISIBLE
-        binding.toolbar.txtTitle.text = resources.getString(R.string.txt_convert_rahn_to_ejare)
 
-        binding.toolbar.btnBack.setOnClickListener {
+        binding.btnBack2.setOnClickListener {
             findNavController().navigate(R.id.action_convertDepositToRentAndItsReverseFragment_to_mainFragment)
         }
 
@@ -43,7 +40,7 @@ class ConvertDepositToRentAndItsReverseFragment : Fragment() {
         binding.btnRahnEjare.setOnClickListener {
             counter = 1
             binding.edtMablaghRahn.setText("")
-            binding.toolbar.txtTitle.text = resources.getString(R.string.txt_convert_rahn_to_ejare)
+            binding.txtTitle.text = resources.getString(R.string.txt_convert_rahn_to_ejare)
             binding.btnRahnEjare.background = resources.getDrawable(R.drawable.border7)
             binding.btnRahnEjare.setTextColor(resources.getColor(R.color.color_btn_login))
 
@@ -62,7 +59,7 @@ class ConvertDepositToRentAndItsReverseFragment : Fragment() {
         binding.btnEjareRahn.setOnClickListener {
             counter = 2
             binding.edtMablaghRahn.setText("")
-            binding.toolbar.txtTitle.text = resources.getString(R.string.txt_convert_ejare_to_rahn)
+            binding.txtTitle.text = resources.getString(R.string.txt_convert_ejare_to_rahn)
             binding.btnEjareRahn.background = resources.getDrawable(R.drawable.border7)
             binding.btnEjareRahn.setTextColor(resources.getColor(R.color.color_btn_login))
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.dev.amr.amlakfile.ui.fragment.converter.VamHomeFragment">
+    tools:context=".ui.fragment.converter.VamHomeFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_toolbar"
@@ -19,14 +19,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <include
-            android:id="@+id/toolbar"
-            layout="@layout/toolbar"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.dev.amr.amlakfile.data.model.custom_views.ITextView
+                    android:id="@+id/txt_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/txt_color_title"
+                    android:textSize="16sp"
+                    android:text="@string/txt_mohasebat_vam_maskan"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginEnd="8dp"
+                    android:visibility="visible"
+                    android:background="@drawable/frame_verification_code"
+                    android:backgroundTint="@color/back_first_color2"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.dev.amr.amlakfile.data.model.custom_views.IButton
+                        android:id="@+id/btn_back_2"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:background="@drawable/round_arrow_right"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.Toolbar>
 
     </androidx.cardview.widget.CardView>
+
+
 
 
     <androidx.cardview.widget.CardView
@@ -48,7 +92,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-
             android:background="@drawable/border2"
             android:orientation="vertical"
             android:padding="12dp">

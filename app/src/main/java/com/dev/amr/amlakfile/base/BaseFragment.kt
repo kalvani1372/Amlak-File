@@ -85,6 +85,8 @@ abstract class BaseFragment : Fragment() {
 
         dialog.setCancelable(false)
         dialog.show()
+//        dialog.window?.setDimAmount(0.8f)
+
     }
 
     fun bitMapToString(bitmap: Bitmap): String {

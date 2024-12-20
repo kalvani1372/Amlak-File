@@ -69,7 +69,7 @@
     <fragment
         android:id="@+id/convertDepositToRentAndItsReverseFragment"
         android:name="com.dev.amr.amlakfile.ui.fragment.converter.ConvertDepositToRentAndItsReverseFragment"
-        tools:layout="@layout/activity_test"
+        tools:layout="@layout/convert_deposit_to_rent_and_its_reverse_fragment"
         android:label="ConvertDepositToRentAndItsReverseFragment" >
         <action
             android:id="@+id/action_convertDepositToRentAndItsReverseFragment_to_mainFragment"

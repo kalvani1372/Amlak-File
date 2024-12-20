@@ -32,10 +32,6 @@ class CommissionFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.toolbar.layLogo.visibility = View.GONE
-        binding.toolbar.layBtnBack.visibility = View.VISIBLE
-        binding.toolbar.txtTitle.text = resources.getString(R.string.txt_mohasebe_komisiyon)
-
         binding.edtBaseAmountInput.addTextChangedListener (NumberTextWatcher(binding.edtBaseAmountInput))
         binding.edtBaseAmountInput.addTextChangedListener {
             if (it.toString() != "") {
@@ -91,7 +87,7 @@ class CommissionFragment : Fragment() {
             }
         }
 
-        binding.toolbar.btnBack.setOnClickListener{
+        binding.btnBack2.setOnClickListener{
             findNavController().navigate(R.id.action_commissionFragment_to_mainFragment)
         }
 
